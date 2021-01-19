@@ -8,10 +8,19 @@
 puts "Starting seed"
 
 Recipe.destroy_all
+User.destroy_all
 
-soup = Recipe.create(name: "Soupy soup", description: "Wonderful dish for cold days", instruction: "Stir and cook for two hours")
-cake = Recipe.create(name: "Choco Croustillant Cake", description: "Crunchy layer between chocolate mousse and raspberries", instruction: "Combine dough, mousse and crust")
-tacos = Recipe.create(name: "Veggie tacos", description: "Healthy but tasty Mexican dish", instruction: "Fry the veggies on a pan and roll inside the tortilla with guacamole")
+puts "Models destroyed"
+
+user1 = User.create!(email: "user1@a.a", password: "password", Firstname: "Emilie", Lastname: "Moulin")
+user2 = User.create!(email: "user2@a.a", password: "password", Firstname: "Marta", Lastname: "Sanchez")
+admin = User.create!(email: "pit@mail.com", password: "password", Firstname: "Pit", Lastname: "Muller", admin: true)
+
+puts "Users created"
+
+soup = Recipe.create(name: "Soupy soup", description: "Wonderful dish for cold days", instruction: "Stir and cook for two hours", user_id: 1)
+cake = Recipe.create(name: "Choco Croustillant Cake", description: "Crunchy layer between chocolate mousse and raspberries", instruction: "Combine dough, mousse and crust", user_id: 1)
+tacos = Recipe.create(name: "Veggie tacos", description: "Healthy but tasty Mexican dish", instruction: "Fry the veggies on a pan and roll inside the tortilla with guacamole", user_id: 1)
 
 puts "Seeding ready"
 
