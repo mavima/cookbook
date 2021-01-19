@@ -1,2 +1,7 @@
 <h2><%= @recipe.name%></h2>
 <%= @recipe.description %>
+<br>
+<%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
+<br>
+<br>
+<%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
