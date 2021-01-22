@@ -7,6 +7,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe.doses.each do |dose|
+    end
   end
 
   def new
