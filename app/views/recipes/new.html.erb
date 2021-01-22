@@ -13,6 +13,9 @@
         <%= render "dose_fields", form: doses_form %>
         <% end %>
         <%= link_to_add_fields "Add an ingredient", form, :doses %>
+        <br>
+        <%= form.label :instruction %>
+        <%= form.text_field :instruction %>
     </div>
     <div class="form-actions">
       <%= form.submit %>
