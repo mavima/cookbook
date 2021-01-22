@@ -1,6 +1,12 @@
 <h2><%= @recipe.name%></h2>
 <%= @recipe.description %>
 <br>
+<% @recipe.doses.each do |dose| %>
+<%= dose.amount %>
+<%= dose.ingredient %>
+<% end %>
+
+<br>
 <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
 <br>
 <br>
