@@ -13,14 +13,6 @@
         <%= render "dose_fields", form: doses_form %>
         <% end %>
         <%= link_to_add_fields "Add an ingredient", form, :doses %>
-<!--       <ul>
-        <%= form.fields_for :doses do |doses_form| %>
-        <li>
-          <%= doses_form.label :ingredient %>
-          <%= doses_form.text_field :ingredient %>
-        </li>
-      </ul>
-      <% end %> -->
     </div>
     <div class="form-actions">
       <%= form.submit %>
