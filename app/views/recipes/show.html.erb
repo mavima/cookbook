@@ -1,19 +1,22 @@
-<h2><%= @recipe.name%></h2>
-<%= @recipe.description %>
-<br>
-<% @recipe.doses.each do |dose| %>
-  <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %>
+<div class="container">
 
-  <%= dose.unit %>
-  <%= dose.ingredient.capitalize %>
-<% end %>
-<%= @recipe.instruction %>
+  <h2><%= @recipe.name%></h2>
+  <%= @recipe.description %>
+  <br>
+  <% @recipe.doses.each do |dose| %>
+    <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %>
 
-<br>
-<%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
-<br>
-<br>
-<%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-<br>
-<br>
-<%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
+    <%= dose.unit %>
+    <%= dose.ingredient.capitalize %>
+  <% end %>
+  <%= @recipe.instruction %>
+
+  <br>
+  <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
+  <br>
+  <br>
+  <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+  <br>
+  <br>
+  <%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
+</div>
