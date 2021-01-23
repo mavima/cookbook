@@ -1,0 +1,35 @@
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-box {
+  margin: 5px;
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.input-box-large {
+  width: 80%;
+}
+
+.input-box-small {
+  width: 4rem;
+}
+
+.form-unit {
+  display:flex;
+  justify-content: space-around;
+
+}
+
+.form-input-horizontal {
+  display: flex;
+  justify-content: space-evenly;
+
+    .input {
+    padding: 5px;
+    border-radius: 8px;
+  }
+}

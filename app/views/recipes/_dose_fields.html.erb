@@ -1,9 +1,18 @@
-<div>
+<div class="form-input-horizontal">
   <%= form.hidden_field :_destroy %>
-  <%= form.label :amount %>
-  <%= form.text_field :amount %>
-  <%= form.label :ingredient %>
-  <%= form.text_field :ingredient %>
+  <div class="form-unit">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, class:"input-box input-box-small" %>
+  </div>
+  <div class="form-unit">
+    <%= form.select :unit, options_for_select([['choose', ''],['liters', 'liters'], ['dl', 'dl'], ['ml', 'ml'], ['tbsp', 'tbsp'], ['tsp', 'tsp'], ['g', 'g'], ['kg', 'kg'], ['slices', 'slices']])%>
+        <%#= form.label :unit %>
+    <%#= form.text_field :unit, class:"input-box" %>
+  </div>
+  <div class="form-unit">
+    <%= form.label :ingredient %>
+    <%= form.text_field :ingredient, class:"input-box" %>
+  </div>
 </div>
 <!-- <div>
   <%= link_to "Remove", '#', class: "remove_fields" %>
