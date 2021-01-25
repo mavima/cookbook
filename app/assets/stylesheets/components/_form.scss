@@ -7,11 +7,12 @@
 .input-box {
   margin: 5px;
   padding: 3px;
-  border-radius: 8px;
+  border-radius: 4px;
+  width: 20rem;
 }
 
 .input-box-large {
-  width: 80%;
+  width: 100%;
 }
 
 .input-box-small {
@@ -21,15 +22,40 @@
 .form-unit {
   display:flex;
   justify-content: space-around;
+  padding-right: 2rem;
+}
 
+.ingredient-form-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .form-input-horizontal {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 
     .input {
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 4px;
   }
+}
+
+.select-box {
+  margin: 3px 0;
+  border-radius: 4px;
+}
+
+// button for adding ingredient
+.add_fields {
+  display: block;
+  width: 20rem;
+  text-align: center;
+  border: solid 1px green;
+  padding: 12px 22px;
+  background-color: green;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  margin: 2vh 0;
 }

@@ -27,6 +27,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'simple_form'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # User authentication
 gem 'devise'
 

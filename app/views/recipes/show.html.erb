@@ -1,6 +1,7 @@
 <div class="container">
 
   <h2><%= @recipe.name%></h2>
+  <%= @recipe.photo %>
   <%= @recipe.description %>
   <br>
   <% @recipe.doses.each do |dose| %>
