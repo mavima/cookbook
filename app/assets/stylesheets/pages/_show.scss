@@ -5,10 +5,12 @@
 
 .show-left {
   width: 50%;
+  margin-bottom: 3vh;
 }
 
 .show-right {
   width: 50%;
+  margin-bottom: 3vh;
 }
 
 .recipe-title {
@@ -67,6 +69,27 @@
   background-color: $light-green;
   width: 100%;
   padding: 1rem;
+}
+
+.show-categories {
+  padding-left: 1vh;
+  margin-top: 1vh;
+}
+
+.show-cat {
+  padding: 0 1rem;
+  border-right: 1px solid $grey;
+  list-style-type: none;
+  display: inline;
+}
+
+.show-cat:last-child {
+  border-right: none;
+}
+
+.show-buttons {
+  display: flex;
+  justify-content: space-around;
 }
 
 .note-box {

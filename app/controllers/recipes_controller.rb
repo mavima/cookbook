@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @categories = @recipe.categories
 
   end
 
@@ -19,6 +20,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_strong_params)
     @recipe.user_id = User.find(current_user.id).id
+    @categories = Category.where(category_ids: @recipe.category_ids)
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
@@ -49,8 +51,11 @@ class RecipesController < ApplicationController
   end
 
   def recipe_strong_params
-    params.require(:recipe).permit(:name, :instruction, :description, :photo, :user_id, :dose, doses_attributes:[:id, :amount, :ingredient, :unit, :recipe_id])
+    params.require(:recipe).permit(:name, :instruction, :description, :photo, :user_id, :dose, category_ids: [], doses_attributes:[:id, :amount, :ingredient, :unit, :recipe_id])
+  end
 
+  def set_categories
+    @categories = Category.where(category_ids: @recipe.category_ids)
   end
 
 

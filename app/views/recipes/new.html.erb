@@ -13,7 +13,13 @@
 
         <%= form.label :description %>
         <%= form.text_area :description, class:"input-box input-box-large" %>
-
+        <% @category_list = Category.all %>
+        <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+          <div class="collection-check-box">
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+        <% end %>
         <h4>Ingredients</h4>
         <div>
           <%=  form.fields_for :doses do |doses_form| %>
@@ -30,15 +36,12 @@
         </div>
       </div>
     </div>
-    <%#= form.label :photo %>
-    <%#= form.hidden_field :photo_cache %>
     <label class="btn-photo">
       Upload a photo
       <span style="display:none;">
         <%= form.file_field :photo, id: "recipe_photo" %>
       </span>
     </label>
-    <%#= form.file_field :photo %>
 
     <div class="form-actions">
       <%= form.submit class:"btn btn-primary" %>
