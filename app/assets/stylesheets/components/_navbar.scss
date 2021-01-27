@@ -1,0 +1,44 @@
+  .navbar-wide {
+    max-width: 2640px;
+    margin: auto;
+    display: block;
+    position: sticky;
+    z-index: 999;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1em;
+      margin: 0;
+    }
+
+    li {
+      list-style-type: none;
+      padding-top: 0;
+      padding-bottom: 0;
+      color: $pink;
+
+      a {
+        color: blue;
+      }
+
+      a:hover {
+        color: green;
+      }
+    }
+
+    li:hover {
+      color: green;
+      cursor: pointer;
+    }
+  }
+
+  .logo {
+    font-family: "Papyrus", "Garamond"
+  }
+
+ul.user-action {
+  display: flex;
+  flex-direction: column;
+}

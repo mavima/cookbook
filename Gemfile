@@ -27,7 +27,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'simple_form'
 
+# Add .env file for api-keys
 gem 'dotenv-rails', groups: [:development, :test]
+
+# image upload
+gem 'carrierwave', '~> 2.0'
+gem 'cloudinary'
 
 # User authentication
 gem 'devise'

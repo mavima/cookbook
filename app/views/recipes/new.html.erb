@@ -30,8 +30,15 @@
         </div>
       </div>
     </div>
-    <%= form.label :photo %>
-    <%= form.file_field :photo %>
+    <%#= form.label :photo %>
+    <%#= form.hidden_field :photo_cache %>
+    <label class="btn-photo">
+      Upload a photo
+      <span style="display:none;">
+        <%= form.file_field :photo, id: "recipe_photo" %>
+      </span>
+    </label>
+    <%#= form.file_field :photo %>
 
     <div class="form-actions">
       <%= form.submit class:"btn btn-primary" %>

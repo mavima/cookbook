@@ -1,0 +1,84 @@
+.show-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-left {
+  width: 50%;
+}
+
+.show-right {
+  width: 50%;
+}
+
+.recipe-title {
+  padding-left: 1rem;
+}
+
+.banner-show {
+ height: 50vh;
+ margin-bottom: 20px;
+ overflow: hidden;
+ width: 100%
+ // box-shadow: none !important;
+}
+
+.banner-photo {
+  background-color: white;
+  height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
+}
+
+.recipe-description {
+  min-height: 10vh;
+  background-color: $light-green;
+  width: 100%;
+  padding: 1rem;
+}
+
+.show-doses {
+  padding: 0 1rem;
+  li {
+    list-style-type: none;
+  }
+}
+
+.show-dose-line {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid $grey;
+
+  .last-element {
+    align-self: flex-end;
+  }
+}
+
+
+
+.recipe-instruction {
+  min-height: 10vh;
+  background-color: $light-green;
+  width: 100%;
+  padding: 1rem;
+}
+
+.note-box {
+  background-color: $light-green;
+  height: 35vh;
+  margin: 0 0 3vh 3vh;
+  padding: 1rem;
+}
+
+.calculator {
+  background-color: $light-green;
+  height: 12vh;
+  margin: 0 3vh;
+  padding: 1rem;
+}

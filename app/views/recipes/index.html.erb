@@ -5,7 +5,7 @@
     <% @recipes.each do |recipe| %>
 
         <%= link_to recipe.name, recipe_path(recipe) %>
-        <%= recipe.description %>
+        <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
         <br>
     <% end %>
 

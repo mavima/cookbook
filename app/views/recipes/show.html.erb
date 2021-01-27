@@ -1,23 +1,48 @@
-<div class="container">
+<% content_for :meta_title, "#{@recipe.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @recipe.description %>
+<% if @recipe.photo.present? %>
+<% content_for :meta_image, cl_image_path(@recipe.photo) %>
+<% end %>
 
-  <h2><%= @recipe.name%></h2>
-  <%= @recipe.photo %>
-  <%= @recipe.description %>
-  <br>
-  <% @recipe.doses.each do |dose| %>
-    <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %>
+<div class="show-container">
+  <div class="show-left">
+    <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 540, width: 1000, crop: :fill %>')">
 
-    <%= dose.unit %>
-    <%= dose.ingredient.capitalize %>
-  <% end %>
-  <%= @recipe.instruction %>
-
-  <br>
-  <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
-  <br>
-  <br>
-  <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-  <br>
-  <br>
-  <%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
+    </div>
+    <h2 class= "recipe-title"><%= @recipe.name%></h2>
+    <div class="recipe-description">
+      <%= @recipe.description %>
+    </div>
+    <br>
+      <ul class="show-doses">
+      <% @recipe.doses.each do |dose| %>
+        <li class="show-dose-line">
+          <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %>
+          <%= dose.unit %>
+          <span style="last-element"><%= dose.ingredient.capitalize %></span>
+        </li>
+      <% end %>
+      </ul>
+    <div class="recipe-instruction">
+      <%= @recipe.instruction %>
+    </div>
+    <br>
+    <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
+    <br>
+    <br>
+    <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+    <br>
+    <br>
+    <%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
+  </div>
+  <div class="show-right">
+    <div class="note-box">
+      <h4>My notes:</h4>
+    </div>
+    <div class="calculator">
+      <h4>Recalculate amounts</h4>
+      Number of persons
+    </div>
+  </div>
 </div>
+
