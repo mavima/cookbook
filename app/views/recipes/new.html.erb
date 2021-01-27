@@ -6,14 +6,14 @@
     <div class="input-fields">
     <%= form_with model: @recipe, local: true do |form| %>
       <div class="form-inputs">
-        <div>
+
           <%= form.label :name %>
           <%= form.text_field :name, class:"input-box input-box-large"%>
-        </div>
-        <div>
+
+
         <%= form.label :description %>
         <%= form.text_area :description, class:"input-box input-box-large" %>
-        </div>
+
         <h4>Ingredients</h4>
         <div>
           <%=  form.fields_for :doses do |doses_form| %>
@@ -25,13 +25,23 @@
           <br>
         </div>
         <div>
-          <%= form.label :instruction %>
+          <%= form.label :instructions %>
           <%= form.text_area :instruction, class:"input-box input-box-large" %>
         </div>
       </div>
     </div>
+    <%#= form.label :photo %>
+    <%#= form.hidden_field :photo_cache %>
+    <label class="btn-photo">
+      Upload a photo
+      <span style="display:none;">
+        <%= form.file_field :photo, id: "recipe_photo" %>
+      </span>
+    </label>
+    <%#= form.file_field :photo %>
+
     <div class="form-actions">
-      <%= form.submit %>
+      <%= form.submit class:"btn btn-primary" %>
     </div>
     <% end %>
     <br>
