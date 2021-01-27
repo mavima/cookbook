@@ -26,6 +26,16 @@
     <div class="recipe-instruction">
       <%= @recipe.instruction %>
     </div>
+    <% if @recipe.categories.count > 0 %>
+    <h4>Categories:</h4>
+    <%   @recipe.categories.each do |category| %>
+      <%=   category.name %>
+    <% end %>
+    <% else %>
+    <h4>No categories detected</h4>
+    <% end %>
+
+
     <br>
     <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
     <br>
