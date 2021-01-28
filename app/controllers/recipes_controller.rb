@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
 
   def show
     @categories = @recipe.categories
-
   end
 
   def new
@@ -53,11 +52,5 @@ class RecipesController < ApplicationController
   def recipe_strong_params
     params.require(:recipe).permit(:name, :instruction, :description, :photo, :user_id, :dose, category_ids: [], doses_attributes:[:id, :amount, :ingredient, :unit, :recipe_id])
   end
-
-  def set_categories
-    @categories = Category.where(category_ids: @recipe.category_ids)
-  end
-
-
 
 end
