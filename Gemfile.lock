@@ -84,6 +84,7 @@ GEM
     cloudinary (1.16.1)
       aws_cf_signer
       rest-client
+    cocoon (1.2.15)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     devise (4.7.3)
@@ -257,6 +258,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave (~> 2.0)
   cloudinary
+  cocoon
   devise
   dotenv-rails
   jbuilder (~> 2.7)

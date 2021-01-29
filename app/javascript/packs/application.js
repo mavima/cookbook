@@ -6,8 +6,9 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("channels")
-require('./nested-forms/addFields')
-require('./nested-forms/removeFields')
+
+require("jquery")
+import 'cocoon';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,3 +17,10 @@ require('./nested-forms/removeFields')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+// import { addIngredient } from 'addIngredient'
+
+// document addEventListener(‘turbolinks:load’, ()=> {
+//   if (document.querySelector(‘#fieldsetContainer’)) {
+//     addIngredient()
+//   }
+// })

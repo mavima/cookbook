@@ -4,28 +4,9 @@
         <h1>Add a new recipe</h1>
     </div>
 
-  <%= simple_form_for(@recipe) do |f|%>
-  <%= f.input :name, label: "Name" %>
-  <% @categories = Category.all %>
-  <%= f.association :categories, collection: @categories, as: :check_boxes%>
-  <%= f.input :description, label: "Description" %>
-  <%= f.simple_fields_for :doses do |d| %>
-    <div class="form-input-horizontal">
-        <%= d.input :amount, class: "form-unit" %>
-        <% @units = ['liters', 'dl', 'ml', 'tbsp', 'tsp', 'g', 'kg', 'slices'] %>
-        <%= d.input :unit, collection: @units %>
-        <%= d.input :ingredient, class: "form-unit" %>
-    </div>
-  <% end %>
-  <%= f.input :instruction, label: "Instructions" %>
+    <%= render 'form' %>
 
-
-  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: "Add a photo", label_html: { class: "btn btn-primary"} %>
-  <%= f.input :photo_cache, as: :hidden %>
-
-<%= f.submit "Save" %>
-<% end %>
     <br>
   </div>
-<h4><%= link_to "Home", recipes_path, class: "btn btn-primary" %></h4>
+<h4><%= link_to "Home", recipes_path, class: "btn-home" %></h4>
 </div>
