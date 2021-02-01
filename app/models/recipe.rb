@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :categories
   has_many :reviews, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :doses, :inverse_of => :recipe, :dependent => :destroy
   has_many :steps, :inverse_of => :recipe, :dependent => :destroy
   accepts_nested_attributes_for :doses, allow_destroy: true, reject_if: :all_blank
