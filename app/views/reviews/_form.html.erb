@@ -1,0 +1,25 @@
+<div class="review-all">
+  <div class="container">
+    <h2>Share your opinion with other users</h2>
+    <div>
+      <%= simple_form_for([@recipe, @review]) do |f| %>
+
+      <%= f.input :content, label: "Tell us what do you think of this recipe" %>
+      <p>Your rating for it:</p>
+        <% 5.times do |n|%>
+          <i id="star_rating" class="fas fa-star fa-lg" data-value="<%= n + 1%>"></i>
+        <% end %>
+
+      <%= f.input :rating, as: :hidden, collection: 1..5, prompt: "Give a rating", selected: 5%>
+        <div>
+          <div id="img-preview" class="review-preview"></div>
+          <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: "Add your photo", label_html: { class: " review-photo-button"} %>
+        </div>
+        <%= f.input :photo_cache, as: :hidden %>
+        <div>
+          <%= f.submit "Add your review", class: "review-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
