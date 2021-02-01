@@ -10,13 +10,15 @@
       <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 540, width: 1000, crop: :fill %>')">
     <% end %>
     </div>
-    <h2 class= "recipe-title"><%= @recipe.name%></h2>
-    <% @recipe.average_rating.times do%>
-      <span class="fa fa-star checked"></span>
+    <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+    <div class="show-stars">
+      <% @recipe.average_rating.times do%>
+        <span class="fa fa-star checked"></span>
+        <% end %>
+        <% (5 - @recipe.average_rating).times do%>
+        <span class="fa fa-star empty"></span>
       <% end %>
-      <% (5 - @recipe.average_rating).times do%>
-      <span class="fa fa-star empty"></span>
-    <% end %>
+    </div>
     <div class="recipe-description">
       <%= @recipe.description %>
     </div>

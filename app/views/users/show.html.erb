@@ -10,9 +10,24 @@
   <hr>
   <h4>My recipes</h4>
   <% @user.recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe) do %>
-  <p><%=recipe.name%></p>
+    <%= link_to recipe_path(recipe) do %>
+      <p><%=recipe.name%></p>
+    <% end %>
   <% end %>
+  <br>
+  <h4>My reviews</h4>
+  <% @user.reviews.each do |review| %>
+    <%= link_to recipe_path(review.recipe) do %>
+      <h5><%=review.recipe.name %></h5>
+      <p>"<%= review.content %>"</p>
+        <% review.rating.times do%>
+          <span class="fa fa-star checked"></span>
+        <% end %>
+        <% (5 - review.rating).times do%>
+          <span class="fa fa-star empty"></span>
+        <% end %>
+        <hr>
+    <% end %>
   <% end %>
 
 
