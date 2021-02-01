@@ -1,5 +1,13 @@
-<%= simple_form_for (@recipe) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f. button :submit, "Update recipe", class: "btn btn-info" %>
-<% end %>
+
+<div class="container">
+  <div class="recipe-form">
+    <div class="form-banner">
+        <h1>Modify the recipe</h1>
+    </div>
+
+    <%= render 'form' %>
+
+    <br>
+  </div>
+<h4><%= link_to "Back", recipe_path(@recipe), class: "btn-home" %></h4>
+</div>
