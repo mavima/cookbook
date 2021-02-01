@@ -1,0 +1,22 @@
+<div class="container">
+  <% @user = current_user %>
+  <h4 class="name"><%= @user.Firstname%> <%= @user.Lastname%></h4>
+  <%= @user.email %></p>
+  <% if @user.avatar.present? %>
+   <%= cl_image_tag user.avatar.url(:height => 150, :width => 150, :crop => :fill, :gravity => :face, :radius => 75)%>
+    <% end %>
+  </p>
+      <%#= link_to "Update profile", edit_user_registration_path(user), class: "btn btn-info"  %></p>
+  <hr>
+  <h4>My recipes</h4>
+  <% @user.recipes.each do |recipe| %>
+  <%= link_to recipe_path(recipe) do %>
+  <p><%=recipe.name%></p>
+  <% end %>
+  <% end %>
+
+
+
+
+
+</div>
