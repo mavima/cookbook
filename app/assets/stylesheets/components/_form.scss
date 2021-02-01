@@ -21,6 +21,10 @@
   width: 20rem;
 }
 
+.input-box-small {
+  width: 3rem;
+}
+
 .input-box-large {
   width: 95%;
 }
@@ -56,6 +60,10 @@
 
 }
 
+.recipe_time, .recipe_portions {
+  display: flex;
+}
+
 .recipe_steps_detail {
   flex-grow: 4;
 
@@ -85,6 +93,10 @@
   border-radius: 10px;
   color: white;
   margin: 2vh 0;
+}
+
+#upload-img {
+  display: none;
 }
 
 // button for adding a photo

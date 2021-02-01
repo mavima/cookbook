@@ -44,6 +44,16 @@
   padding: 1rem;
 }
 
+.show-numbers {
+  display: flex;
+  justify-content: space-around;
+  background-color: $light-green;
+}
+
+.space-right {
+  padding-right: 1rem;
+}
+
 .show-doses {
   padding: 0 1rem;
   li {
