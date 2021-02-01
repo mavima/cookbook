@@ -104,14 +104,30 @@
 
 .note-box {
   background-color: $light-green;
-  height: 35vh;
+  height: 32vh;
   margin: 0 0 3vh 3vh;
   padding: 1rem;
 }
 
 .calculator {
   background-color: $light-green;
-  height: 12vh;
-  margin: 0 3vh;
+  height: 15vh;
+  margin-left: 3vh;
+  margin-bottom: 2vh;
   padding: 1rem;
+
+}
+
+.show-reviews {
+  background-color: $light-green;
+  // height: 12vh;
+  margin-left: 3vh;
+  margin-top: 1vh;
+  padding: 1rem;
+}
+
+.reviewer {
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
 }

@@ -11,4 +11,18 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, length: { minimum: 5 }
   mount_uploader :photo, PhotoUploader
 
+  def average_rating
+    reviews = self.reviews
+    average_rating = 0
+    if reviews.length > 0
+      sum = 0
+      reviews.each do |review|
+        sum += review.rating
+      end
+      num = reviews.count
+      average_rating = (sum / num)
+    end
+    average_rating
+  end
+
 end
