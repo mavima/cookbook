@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     4.times { @recipe.doses.build }
-
+    4.times { @recipe.steps.build }
   end
 
   def create
@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_strong_params
-    params.require(:recipe).permit(:name, :instruction, :description, :photo, :user_id, :dose, category_ids: [], doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
+    params.require(:recipe).permit(:name, :instruction, :description, :photo, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
   end
 
 end

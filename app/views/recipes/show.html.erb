@@ -24,9 +24,11 @@
         </li>
       <% end %>
       </ul>
-    <div class="recipe-instruction">
-      <%= @recipe.instruction %>
-    </div>
+      <ul class="show-steps">
+        <% @recipe.steps.each do |step| %>
+          <li> <%= step.detail %> </li>
+        <% end %>
+      </ul>
     <% if @recipe.categories.count > 0 %>
       <div class="show-categories">
         <h5>Categories:</h5>

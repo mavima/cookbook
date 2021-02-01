@@ -22,7 +22,7 @@
 }
 
 .input-box-large {
-  width: 100%;
+  width: 95%;
 }
 
 .recipe_doses_amount {
@@ -53,6 +53,19 @@
     padding: 5px;
     border-radius: 4px;
   }
+
+}
+
+.recipe_steps_detail {
+  flex-grow: 4;
+
+  label {
+    display: none;
+  }
+}
+
+.remove_fields {
+  padding: 5px;
 }
 
 .select-box {

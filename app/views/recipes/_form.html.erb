@@ -4,13 +4,22 @@
   <%= f.label "Choose categories:" %>
   <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid" %>
   <%= f.input :description, label: "Description" %>
+  <h4>Ingredients</h4>
   <%= f.simple_fields_for :doses do |dose| %>
-  <%= render 'dose_fields', f: dose %>
+    <%= render 'dose_fields', f: dose %>
   <% end %>
   <div class="links">
     <%= link_to_add_association 'Add ingredient', f, :doses %>
   </div>
-  <%= f.input :instruction, label: "Instructions" %>
+  <h4>Instructions</h4>
+  <%= f.simple_fields_for :steps do |step| %>
+    <%= render 'step_fields', f: step %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'Add line', f, :steps %>
+  </div>
+
+  <%#= f.input :instruction, label: "Instructions" %>
 
 
   <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: "Add a photo", label_html: { class: "btn-photo"} %>
