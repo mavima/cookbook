@@ -1,17 +1,9 @@
-<div class="form-input-horizontal">
-  <%= form.hidden_field :_destroy %>
-  <div class="form-unit">
-    <%= form.label :amount, class:"ingredient-form-label" %>
-    <%= form.text_field :amount, class:"input-box input-box-small" %>
-  </div>
-  <div class="form-unit">
-    <%= form.select :unit, options_for_select([['unit', ''],['liters', 'liters'], ['dl', 'dl'], ['ml', 'ml'], ['tbsp', 'tbsp'], ['tsp', 'tsp'], ['g', 'g'], ['kg', 'kg'], ['slices', 'slices']]), {}, {class: "select-box"}%>
-  </div>
-  <div class="form-unit">
-    <%= form.label :ingredient, class:"ingredient-form-label" %>
-    <%= form.text_field :ingredient, class:"input-box" %>
+<div class="nested-fields">
+   <div class="form-input-horizontal">
+    <%= f.input :amount, class: "form-unit input-box-small" %>
+    <% @units = ['liters', 'dl', 'ml', 'tbsp', 'tsp', 'g', 'kg', 'slices'] %>
+    <%= f.input :unit, collection: @units %>
+    <%= f.input :ingredient, class: "form-unit" %>
+    <%= link_to_remove_association "x", f %>
   </div>
 </div>
-<!-- <div>
-  <%= link_to "Remove", '#', class: "remove_fields" %>
-</div> -->

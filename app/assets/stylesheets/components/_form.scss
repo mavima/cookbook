@@ -1,3 +1,13 @@
+.recipe_categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+
+  legend {
+    display: none;
+  }
+}
+
 .form-inputs {
   display: flex;
   flex-direction: column;
@@ -15,8 +25,12 @@
   width: 100%;
 }
 
-.input-box-small {
+.recipe_doses_amount {
   width: 4rem;
+}
+
+.recipe_doses_ingredient {
+  width: 70%;
 }
 
 .form-unit {
@@ -33,7 +47,7 @@
 
 .form-input-horizontal {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
 
     .input {
     padding: 5px;
@@ -47,7 +61,7 @@
 }
 
 // button for adding ingredient
-.add_fields {
+.add_fields, .btn-home {
   display: block;
   width: 20rem;
   text-align: center;

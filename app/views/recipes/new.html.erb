@@ -3,51 +3,10 @@
     <div class="form-banner">
         <h1>Add a new recipe</h1>
     </div>
-    <div class="input-fields">
-    <%= form_with model: @recipe, local: true do |form| %>
-      <div class="form-inputs">
 
-          <%= form.label :name %>
-          <%= form.text_field :name, class:"input-box input-box-large"%>
+    <%= render 'form' %>
 
-
-        <%= form.label :description %>
-        <%= form.text_area :description, class:"input-box input-box-large" %>
-        <% @category_list = Category.all %>
-        <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
-          <div class="collection-check-box">
-            <%= b.check_box %>
-            <%= b.label %>
-          </div>
-        <% end %>
-        <h4>Ingredients</h4>
-        <div>
-          <%=  form.fields_for :doses do |doses_form| %>
-            <%= render "dose_fields", form: doses_form %>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to_add_fields "Add an ingredient", form, :doses %>
-          <br>
-        </div>
-        <div>
-          <%= form.label :instructions %>
-          <%= form.text_area :instruction, class:"input-box input-box-large" %>
-        </div>
-      </div>
-    </div>
-    <label class="btn-photo">
-      Upload a photo
-      <span style="display:none;">
-        <%= form.file_field :photo, id: "recipe_photo" %>
-      </span>
-    </label>
-
-    <div class="form-actions">
-      <%= form.submit class:"btn btn-primary" %>
-    </div>
-    <% end %>
     <br>
   </div>
-<h4><%= link_to "Home", recipes_path, class: "btn btn-primary" %></h4>
+<h4><%= link_to "Home", recipes_path, class: "btn-home" %></h4>
 </div>

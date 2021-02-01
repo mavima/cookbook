@@ -1,13 +1,24 @@
 <div class="container">
   <h1>Recipes</h1>
 
-
+  <div class="index-grid">
     <% @recipes.each do |recipe| %>
-
-        <%= link_to recipe.name, recipe_path(recipe) %>
-        <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
-        <br>
+      <div class="index-card">
+        <div class="img-box-index">
+          <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
+        </div>
+        <div class="index-card-content">
+          <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+          <ul>
+            <% recipe.categories.each do |category| %>
+              <li class="index-cat">
+                <%= category.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     <% end %>
-
+  </div>
   <%= link_to "Add a new recipe", new_recipe_path, class: "btn btn-primary" %>
 </div>
