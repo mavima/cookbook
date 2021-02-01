@@ -14,7 +14,10 @@
     <div class="recipe-description">
       <%= @recipe.description %>
     </div>
-    <br>
+    <div class="show-numbers">
+      <p><i class="fas fa-utensils space-right"></i><%= @recipe.portions %></p>
+      <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> minutes</p>
+    </div>
       <ul class="show-doses">
       <% @recipe.doses.each do |dose| %>
         <li class="show-dose-line">
