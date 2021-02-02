@@ -6,3 +6,18 @@
 .profile-cards {
   display: grid;
 }
+
+.profile-icons {
+    position: absolute;
+    width: 6vh;
+    height: 6vh;
+    bottom: 15px;
+    right: 15px;
+    z-index: 5;
+    background-color: white;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

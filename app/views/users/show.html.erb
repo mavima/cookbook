@@ -8,7 +8,42 @@
   </p>
       <%#= link_to "Update profile", edit_user_registration_path(user), class: "btn btn-info"  %></p>
   <hr>
-  <h4>My recipes</h4>
+
+  <h4>My favourites</h4>
+  <div class="index-grid">
+    <% @user.favourites.each do |favourite| %>
+      <div class="profile-card">
+
+        <div class="img-box-index">
+          <% if favourite.recipe.photo.url %>
+            <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
+          <% else %>
+            <%= image_tag("recipe_default.jpg", class:"profile-default-img") %>
+          <% end %>
+
+            <% if  current_user.commented?(favourite.recipe) %>
+            <div class="profile-icons">
+              <%= image_tag("post-it.png", class:"comment-icon") %>
+              </div>
+            <% end %>
+
+        </div>
+        <%= link_to recipe_path(favourite.recipe) do %>
+        <div class="index-card-content">
+          <h3><%= favourite.recipe.name %></h3>
+          <ul>
+            <% favourite.recipe.categories.each do |category| %>
+              <li class="index-cat">
+                <%= category.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+  <% end %>
+  </div>
+    <h4>My recipes</h4>
   <% @user.recipes.each do |recipe| %>
     <%= link_to recipe_path(recipe) do %>
       <p><%=recipe.name%></p>
@@ -29,28 +64,4 @@
         <hr>
     <% end %>
   <% end %>
-  <h4>My favourites</h4>
-  <div class="index-grid">
-    <% @user.favourites.each do |favourite| %>
-      <div class="profile-card">
-        <div class="img-box-index">
-          <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
-        </div>
-        <div class="index-card-content">
-          <h3><%= link_to favourite.recipe.name, recipe_path(favourite.recipe) %></h3>
-          <ul>
-            <% favourite.recipe.categories.each do |category| %>
-              <li class="index-cat">
-                <%= category.name %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-  <% end %>
-  </div>
-
-
-
-
 </div>
