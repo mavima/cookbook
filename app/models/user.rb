@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :reviews, dependent: :destroy
   has_many :favourites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def favorited?(recipe)
     self.favourites.find_by(recipe_id: recipe.id).present?
@@ -13,6 +14,14 @@ class User < ApplicationRecord
 
   def get_fav_instances(recipe)
     self.favourites.find_by(recipe_id: recipe.id)
+  end
+
+  def commented?(recipe)
+    self.comments.find_by(recipe_id: recipe.id).present?
+  end
+
+  def get_comment_instances(recipe)
+    self.comments.find_by(recipe_id: recipe.id)
   end
 
 end

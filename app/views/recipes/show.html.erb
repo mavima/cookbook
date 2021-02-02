@@ -8,17 +8,22 @@
   <div class="show-left">
     <% if @recipe.photo.present? %>
       <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 540, width: 1000, crop: :fill %>')">
+      </div>
+    <% else %>
+       <div class="banner-show banner-photo">
+          <%=image_tag("recipe_default.jpg", class: "show-default") %>
+      </div>
     <% end %>
-    </div>
-    <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
 
+    <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+    <div class="show-icons">
     <% if current_user&.favorited?(@recipe) %>
       <% favourite = current_user.get_fav_instances(@recipe) %>
       <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
       <% else %>
       <p><%= link_to "", recipe_favourites_path(@recipe), method: :post, class: "far fa-heart" %></p>
       <% end %>
-
+    </div>
     <div class="show-stars">
       <% @recipe.average_rating.times do%>
         <span class="fa fa-star checked"></span>
@@ -72,6 +77,11 @@
   <div class="show-right">
     <div class="note-box">
       <h4>My notes:</h4>
+      <% if current_user && current_user.commented?(@recipe) %>
+      <p><%= current_user.get_comment_instances(@recipe).content %></p>
+      <% else %>
+      <%= link_to "Write a note", new_recipe_comment_path(@recipe), class: "btn btn-info" %>
+      <% end %>
     </div>
     <div class="calculator">
       <h4>Recalculate amounts</h4>

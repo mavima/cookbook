@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_172201) do
+ActiveRecord::Schema.define(version: 2021_02_02_092440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2021_02_01_172201) do
   create_table "categories_recipes", id: false, force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.bigint "category_id", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "doses", force: :cascade do |t|
@@ -118,6 +128,8 @@ ActiveRecord::Schema.define(version: 2021_02_01_172201) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "recipes"
+  add_foreign_key "comments", "users"
   add_foreign_key "doses", "recipes"
   add_foreign_key "favourites", "recipes"
   add_foreign_key "favourites", "users"
