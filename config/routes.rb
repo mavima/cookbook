@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  resources :recipes, only: [:index, :show, :new, :create, :destroy, :edit, :update]
+  resources :recipes, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :favourites, only: :create
+  end
+
+   resources :favourites, only: :destroy
 
   get 'users/profile/:id', to: 'users#show', as: 'user'
 

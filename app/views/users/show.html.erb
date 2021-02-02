@@ -1,4 +1,4 @@
-<div class="container">
+<div class="profile-container">
   <% @user = current_user %>
   <h4 class="name"><%= @user.Firstname%> <%= @user.Lastname%></h4>
   <%= @user.email %></p>
@@ -10,11 +10,45 @@
   <hr>
   <h4>My recipes</h4>
   <% @user.recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe) do %>
-  <p><%=recipe.name%></p>
+    <%= link_to recipe_path(recipe) do %>
+      <p><%=recipe.name%></p>
+    <% end %>
   <% end %>
+  <br>
+  <h4>My reviews</h4>
+  <% @user.reviews.each do |review| %>
+    <%= link_to recipe_path(review.recipe) do %>
+      <h5><%=review.recipe.name %></h5>
+      <p>"<%= review.content %>"</p>
+        <% review.rating.times do%>
+          <span class="fa fa-star checked"></span>
+        <% end %>
+        <% (5 - review.rating).times do%>
+          <span class="fa fa-star empty"></span>
+        <% end %>
+        <hr>
+    <% end %>
   <% end %>
-
+  <h4>My favourites</h4>
+  <div class="index-grid">
+    <% @user.favourites.each do |favourite| %>
+      <div class="profile-card">
+        <div class="img-box-index">
+          <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
+        </div>
+        <div class="index-card-content">
+          <h3><%= link_to favourite.recipe.name, recipe_path(favourite.recipe) %></h3>
+          <ul>
+            <% favourite.recipe.categories.each do |category| %>
+              <li class="index-cat">
+                <%= category.name %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+  <% end %>
+  </div>
 
 
 

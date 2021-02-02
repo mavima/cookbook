@@ -1,0 +1,11 @@
+
+  <div class="container">
+    <h2><%= @recipe.name %></h2>
+    <div>
+      <%= simple_form_for([@recipe, @comment]) do |f| %>
+        <%= f.input :content, label: "My note" %>
+        <%= f.submit "Save your note", class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+
