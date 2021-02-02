@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favourites, dependent: :destroy
 
+  def favorited?(recipe)
+    self.favourites.find_by(recipe_id: recipe.id).present?
+  end
+
+  def get_fav_instances(recipe)
+    self.favourites.find_by(recipe_id: recipe.id)
+  end
+
 end

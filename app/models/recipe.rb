@@ -26,4 +26,8 @@ class Recipe < ApplicationRecord
     average_rating
   end
 
+  def blank_stars
+   5 - self.average_rating.to_i
+  end
+
 end

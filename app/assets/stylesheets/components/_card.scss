@@ -16,29 +16,48 @@
     width: 100%;
     object-fit: cover;
   }
+}
 
-  .img-box-index {
-    position: relative;
-    height: 200px;
-    width: 60%;
+.img-box-index {
+  position: relative;
+  height: 200px;
+  width: 60%;
+}
+
+.index-card-content {
+  align-items: flex-end;
+
+  h3 {
+    font-size: 1.5rem;
+    color: green;
+    padding: 0.5rem;
   }
 
-  .index-card-content {
-    align-items: flex-end;
-
-    h3 {
-      font-size: 1.5rem;
-      color: green;
-      padding: 0.5rem;
-    }
-
-    a {
-      color: green;
-    }
+  a {
+    color: green;
   }
+}
 
 .index-cat {
   display:grid;
 }
 
+
+.profile-card {
+  border-radius: 2px;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  margin: 10px 10px 30px 10px;
+  background-color: $alabaster;
+  display: flex;
+
+
+  img {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+  }
 }

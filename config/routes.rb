@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
-    # resources :favourites, only: :create
+    resources :favourites, only: :create
   end
+
+   resources :favourites, only: :destroy
 
   get 'users/profile/:id', to: 'users#show', as: 'user'
 
