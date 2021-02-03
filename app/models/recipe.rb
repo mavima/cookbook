@@ -18,11 +18,10 @@ class Recipe < ApplicationRecord
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],
     associated_against: {
-      doses: [:ingredient]
+      doses: :ingredient,
+      categories: :name
     },
-    associated_against: {
-      categories: [:name]
-    },
+
     using: {
       tsearch: {prefix: true }
     }

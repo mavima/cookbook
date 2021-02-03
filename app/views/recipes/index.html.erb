@@ -3,9 +3,10 @@
   <%= form_tag recipes_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      placeholder: "Find a recipe"
+      placeholder: "Find a recipe",
+      class: "input-box"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn-home" %>
   <% end %>
 
   <div class="index-grid">
