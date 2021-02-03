@@ -38,7 +38,11 @@ gem 'cloudinary'
 gem 'devise'
 
 # nested form
-gem "cocoon";
+gem "cocoon"
+
+# search
+gem 'pg_search', '~>2.3.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

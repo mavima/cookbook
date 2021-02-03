@@ -13,6 +13,19 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, length: { minimum: 5 }
   mount_uploader :photo, PhotoUploader
 
+  include PgSearch::Model
+  # scope name whatever
+  pg_search_scope :search_by_name_and_description,
+    against: {
+      name: 'A',
+      description: 'B'
+    },
+    using: {
+      tsearch: {prefix: true }
+    }
+
+
+
   def average_rating
     reviews = self.reviews
     average_rating = 0
@@ -30,5 +43,7 @@ class Recipe < ApplicationRecord
   def blank_stars
    5 - self.average_rating.to_i
   end
+
+
 
 end
