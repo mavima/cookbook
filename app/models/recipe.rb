@@ -16,9 +16,12 @@ class Recipe < ApplicationRecord
   include PgSearch::Model
   # scope name whatever
   pg_search_scope :search_by_name_and_description,
-    against: {
-      name: 'A',
-      description: 'B'
+    against: [ :name, :description ],
+    associated_against: {
+      doses: [:ingredient]
+    },
+    associated_against: {
+      categories: [:name]
     },
     using: {
       tsearch: {prefix: true }
