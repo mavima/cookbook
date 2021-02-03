@@ -41,6 +41,7 @@
 
   a {
     color: green;
+    text-decoration: none;
   }
 }
 
@@ -50,6 +51,7 @@
 
 
 .profile-card {
+  height: 200px;
   border-radius: 2px;
   background: transparent;
   overflow: hidden;
@@ -66,4 +68,23 @@
     width: 100%;
     object-fit: cover;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  .profile-icons {
+    position: absolute;
+    width: 4vh;
+    height: 4vh;
+    top: 15px;
+    right: 15px;
+    z-index: 5;
+    background-color: white;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 }

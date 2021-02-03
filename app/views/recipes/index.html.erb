@@ -1,5 +1,13 @@
 <div class="container">
   <h1>Recipes</h1>
+  <%= form_tag recipes_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      placeholder: "Find a recipe",
+      class: "input-box"
+    %>
+    <%= submit_tag "Search", class: "btn-home" %>
+  <% end %>
 
   <div class="index-grid">
     <% @recipes.each do |recipe| %>
