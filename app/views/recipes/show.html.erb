@@ -36,15 +36,20 @@
       <%= @recipe.description %>
     </div>
     <div class="show-numbers">
-      <p><i class="fas fa-utensils space-right"></i><%= @recipe.portions %></p>
+      <div class="inline">
+        <i class="fas fa-utensils space-right"></i>
+        <p class="portions_number_original"><%= @recipe.portions %></p>
+      </div>
       <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> minutes</p>
     </div>
       <ul class="show-doses">
       <% @recipe.doses.each do |dose| %>
         <li class="show-dose-line">
-          <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %>
+          <div class="dose-unit">
+          <p class="dose-amount"><%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %></p>
           <%= dose.unit %>
-          <span style="last-element"><%= dose.ingredient.capitalize %></span>
+          </div>
+          <p style="last-element" class="ingredient"><%= dose.ingredient.capitalize %></p>
         </li>
       <% end %>
       </ul>
@@ -85,7 +90,12 @@
     </div>
     <div class="calculator">
       <h4>Recalculate amounts</h4>
-      Number of persons
+      Number of persons:
+      <form>
+        <input type="number" id="rations">
+        <button type="submit" id="btn-calculator">Change</button>
+      </form>
+
     </div>
     <div class="show-reviews">
       <% @recipe.reviews.each do |review| %>
@@ -102,4 +112,5 @@
     </div>
   </div>
 </div>
+
 

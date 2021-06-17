@@ -3,14 +3,15 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import "bootstrap";
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("channels")
-require("jquery")
+// require("@rails/ujs").start()
+// require("turbolinks").start()
+// require("channels")
+// require("jquery")
 
 
 import 'cocoon';
 import { reviewStars } from '../functions/stars_review'
-
+import { changeAmounts } from '../functions/change_amounts'
 
 reviewStars();
+changeAmounts();
