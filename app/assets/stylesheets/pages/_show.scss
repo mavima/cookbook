@@ -59,7 +59,7 @@
 
 .show-numbers {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   background-color: $light-green;
   margin-bottom: 1rem;
 }
@@ -77,13 +77,26 @@
 
 .show-dose-line {
   display: flex;
-  width: 100%;
+  width: 50%;
+  margin: auto;
   justify-content: space-between;
   border-bottom: 1px solid $grey;
+
+  .dose-unit {
+    display: flex;
+  }
 
   .last-element {
     align-self: flex-end;
   }
+
+  .dose-amount {
+    padding-right: 1rem;
+  }
+}
+
+.inline {
+  display: flex;
 }
 
 
@@ -98,6 +111,12 @@
 .show-categories {
   padding-left: 1vh;
   margin-top: 1vh;
+  margin-bottom: 2vh;
+
+  ul {
+    width: 50%;
+    margin: auto;
+  }
 }
 
 .show-cat {
