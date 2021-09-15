@@ -4,9 +4,11 @@
   <%= @user.email %></p>
   <% if @user.avatar.present? %>
    <%= cl_image_tag user.avatar.url(:height => 150, :width => 150, :crop => :fill, :gravity => :face, :radius => 75)%>
-    <% end %>
-  </p>
-      <%#= link_to "Update profile", edit_user_registration_path(user), class: "btn btn-info"  %></p>
+   <% end %>
+   <%= link_to "Update profile", edit_user_registration_path(@user), class: "btn-small"  %>
+
+
+
   <hr>
 
   <h4>My favourites</h4>

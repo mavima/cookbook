@@ -9,6 +9,8 @@
     <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Grand+Hotel&family=Oregano&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%#  meta lines from lewagon  %>
@@ -30,7 +32,16 @@
    <!--  <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
 
-    <%= yield %>
+     <% if current_page?('/') %>
+      <main id="panel" style="margin-top: -50px">
+
+        <%= yield %>
+      </main>
+    <% else %>
+      <main id="panel">
+         <%= yield %>
+       </main>
+    <% end %>
 
     <%#= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -16,9 +16,12 @@
 
 .input-box {
   margin: 5px;
-  padding: 3px;
+  padding: 8px;
   border-radius: 4px;
   width: 20rem;
+  line-height: 1rem;
+  border-radius: 10px;
+  // text-align: center;
 }
 
 .input-box-small {
@@ -81,20 +84,6 @@
   border-radius: 4px;
 }
 
-// button for adding ingredient
-.add_fields, .btn-home {
-  display: block;
-  width: 20rem;
-  text-align: center;
-  border: solid 1px green;
-  padding: 12px 22px;
-  background-color: green;
-  font-size: 16px;
-  border-radius: 10px;
-  color: white;
-  margin: 2vh 0;
-}
-
 #upload-img {
   display: none;
 }
@@ -111,4 +100,35 @@
   border-radius: 10px;
   color: white;
   margin: 2vh 0;
+}
+
+.forgot-password {
+  color: black;
+}
+
+.forgot-password:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.top-margin-sm {
+  margin-top: 5px !important;
+}
+
+.password {
+  .required{
+  color: $green;
+  font-weight: bold;
+}
+
+}
+
+
+@media(max-width: 600px) {
+
+  .input-box {
+    width: 80%;
+    line-height: 0.8rem;
+    padding: 2px 10px;
+  }
 }
