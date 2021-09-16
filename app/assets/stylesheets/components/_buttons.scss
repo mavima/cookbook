@@ -1,0 +1,99 @@
+// button for adding ingredient
+.add_fields, .btn-home {
+  display: block;
+  width: 20rem;
+  text-align: center;
+  border: solid 1px green;
+  padding: 10px 22px;
+  background-color: green;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  margin: 2vh 0;
+}
+
+.btn-home {
+  line-height: 2rem;
+}
+
+.btn-home:hover {
+  font-size: 17px;
+  background-color: #4ea349;
+}
+
+.btn-small {
+  display: block;
+  border: solid 1px green;
+  padding: 8px 12px 4px;
+  background-color: green;
+  font-size: 14px;
+  border-radius: 6px;
+  color: white;
+  margin: 2vh 0;
+  width: fit-content;
+}
+
+.btn-small:hover {
+  color: white;
+  font-size: 15px;
+}
+
+.btn-form {
+  display: block;
+  border: solid 1px $blue;
+  padding: 8px 12px 4px;
+  font-size: 14px;
+  border-radius: 6px;
+  color: white;
+  margin: 2vh 0;
+  width: 100px;
+  text-align: center;
+}
+
+.btn-form:hover {
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-blue {
+  background-color: $blue;
+  border: 1px solid $blue;
+}
+
+.btn-green {
+  background-color: $green;
+  border: 1px solid $green;
+}
+
+.btn-fit {
+  width: fit-content;
+}
+
+.btn-slide {
+  display: block;
+  width: 6rem;
+  text-align: center;
+  border: solid 1px green;
+  padding: 6px 10px;
+  background-color: green;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white !important;
+  margin: 2vh auto;
+}
+
+.overlay {
+  background: rgba(39,62,84,0.82);
+  overflow: hidden;
+  height: 100%;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+
+  .btn-home {
+    width: 80%;
+    padding: 5px;
+  }
+}

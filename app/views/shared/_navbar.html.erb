@@ -15,21 +15,49 @@
         Add a recipe
         <% end %>
     </li>
-    <li>About</li>
+    <li>
+      <%= link_to about_path do %>
+        About
+      <% end %>
+    </li>
     <li><i class="fas fa-search"></i></li>
 
     <% if user_signed_in? %>
-      <ul class="user-action">
-        <li>
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li>
-          <%= link_to "My profile", user_path(current_user), class: "nav-link" %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </li>
-      </ul>
+<!--       <div class="dropdown">
+        <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.Firstname %>
+        </div>
+        <div class="dropdown">
+          <h6 class="dropdown-item">
+            <%#= link_to "My profile", user_path(current_user), class: "nav-link" %>
+          </h6>
+          <h6 class="dropdown-item">
+            <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </h6>
+        </div>
+      </div> -->
+      <% if current_user.Firstname.length < 6
+        @name = current_user.Firstname
+      else
+        @name = current_user.Firstname.first + current_user.Lastname.first
+      end
+        %>
+      <li>
+        <div class="dropstart">
+          <button class="button-menu dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+            <span class="light-bg"><%= @name %></span>
+          </button>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <h6 class="dropdown-item">
+                <%= link_to "My profile", user_path(current_user), class: "nav-link" %>
+              </h6>
+            <h6 class="dropdown-item">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </h6>
+          </div>
+        </div>
+      </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -37,3 +65,110 @@
       <% end %>
   </ul>
 </div>
+
+<!-- Mobile navigation -->
+
+
+<div class="mobile-nav">
+
+  <div class="mobile-top" style="background-color: RGBA(255,255,255,0.7)">
+    <div class="logo-center">
+      <%= link_to root_path do %>
+        <h3 class="logo">Recipeper</h3>
+      <% end %>
+    </div>
+    <div class="burger">
+      <i class="fas fa-bars visible" id="openSlideOut"></i>
+    </div>
+
+  </div>
+
+  <!-- Navbar slide mobile -->
+  <nav id="menu" class="panel">
+    <header>
+<!--       <div id="closeSlideOut">
+
+      </div> -->
+      <div class="slide-content">
+        <% if current_user.present? %>
+        <ul>
+          <li>
+            <div class="user-firstname"><%= current_user.Firstname %></div>
+          </li>
+          <li>
+          <% if current_user.avatar.present? %>
+            <%= cl_image_tag current_user.avatar.url(:height => 100, :width => 100, :crop => :fill, :gravity => :face, :radius => 50)%>
+          <% else %>
+           <%=  image_tag('hat.png', class: "navbar-logo")%>
+          <% end %>
+          </li>
+        <div class="slidepage">
+          <li class="dim">
+            <%= link_to "Home", root_path %>
+          </li>
+          <li class="dim">
+              <%= link_to "My profile", user_path(current_user)  %>
+          </li>
+          <li class="dim">
+            <%= link_to "Add a recipe", new_recipe_path %>
+          </li>
+          <li class="dim">
+            <%= link_to "About Recipeper", about_path %>
+          </li>
+
+  <!--           <li class="dim">
+             <%#= link_to "How to use Famtravel", instructions_path %>
+            </li>
+            <li class="dim">
+              <%#= link_to "Privacy Policy", privacy_policy_path, target: "_blank" %>
+            </li> -->
+
+          <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", target: :_blank, class: "fab fa-facebook-square" %></li>
+          <li class="logout"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-slide" %></li>
+
+          <div class="copyright">
+            <li>Copyright &copy; 2019 - 2021 Recipeper</li>
+            <li>Maria Manninen, Luxembourg</li>
+          </div>
+        </ul>
+
+
+        <% else %>
+          <div class="welcome">
+
+              <h3>Welcome to Recipeper</h3>
+              <%= image_tag('hat.png', class: "navbar-logo") %>
+
+            <ul>
+
+                <li class="dim"><%= link_to "About us", about_path %></li>
+                <li class="dim">How to use Recipeper</li>
+                <li class="login">
+                  <%= link_to "Log in", new_user_session_path, class: "btn-slide" %>
+                </li>
+    <!--             <li class="dim">
+                  <%#= link_to "Privacy Policy", privacy_policy_path %>
+                </li> -->
+    <!--             <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", class: "fab fa-facebook-square" %></li> -->
+                <div class="copyright copyright-guest">
+                  <li>Copyright &copy; 2021 Recipeper</li>
+                  <li>Maria Manninen, Luxembourg</li>
+                </div>
+            </ul>
+
+        </div>
+      <% end %>
+    </header>
+  </nav>
+</div>
+<%# end %>
+
+<script>
+  const showMenu = () => {
+    const menu = document.getElementById("menu");
+    menu.hidden = false
+  }
+
+  setTimeout(showMenu, 100);
+
+</script>
