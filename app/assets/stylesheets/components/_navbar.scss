@@ -78,6 +78,15 @@ ul.user-action {
 
 @media(max-width: 600px) {
 
+  .layout {
+    // box-shadow: inset 0 0 99999px rgba(73,160,78, 0.5);
+    filter: opacity(25%);
+    background: rgba(146, 179, 163, 0.5);
+    overflow: hidden;
+    height: 100vh;
+    // z-index: 99;
+    // position: fixed;
+  }
 
   .navbar-wide {
     display: none;
@@ -85,13 +94,12 @@ ul.user-action {
 
   .mobile-nav {
   display: block;
-}
+  }
 
   .mobile-top {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem;
-    width: 90%;
+    padding: 1rem;
   }
 
 
@@ -147,30 +155,32 @@ ul.user-action {
   //   height: 50px;
   // }
 
-  .slideout-panel {
-    position: relative;
-    z-index: 1;
-    will-change: transform;
-    background-color: #FFF; /* A background-color is required */
-    min-height: 100vh;
-  }
+  // .slideout-panel {
+  //   position: relative;
+  //   z-index: 1;
+  //   will-change: transform;
+  //   background-color: #FFF;
+  //   min-height: 100vh;
+  // }
 
-  .slideout-open,
-  .slideout-open body,
-  .slideout-open .slideout-panel {
-    overflow: hidden;
-  }
+  // .slideout-open,
+  // .slideout-open body,
+  // .slideout-open .slideout-panel {
+  //   overflow: hidden;
+  // }
 
-  .slideout-open .slideout-menu {
-    display: block;
-  }
+  // .slideout-open .slideout-menu {
+  //   display: block;
+  // }
 
   .slide-content {
     white-space: nowrap;
     justify-content: center;
 
+
     ul {
       padding-left: 0;
+      margin-top: 10vh;
     }
 
     li {
@@ -178,6 +188,11 @@ ul.user-action {
       text-align: center;
       list-style-type: none;
     }
+
+    a {
+      color: #212529;
+    }
+
     img {
       height: 100px;
       width: 100px;
@@ -198,13 +213,15 @@ ul.user-action {
   }
 }
 
-  .copyright {
-    font-size: 12px;
-    opacity: 0.6;
-    line-height: 80%;
-    justify-content: flex-end;
-  }
+.copyright-guest {
 
-  .red {
-    background-color: red;
-  }
+}
+
+.copyright {
+  font-size: 12px;
+  opacity: 0.6;
+  line-height: 80%;
+  margin-top: 5vh;
+}
+
+

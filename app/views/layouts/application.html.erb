@@ -32,16 +32,16 @@
    <!--  <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
 
-     <% if current_page?('/') %>
+<!--      <%# if current_page?('/') %>
       <main id="panel" style="margin-top: -50px">
 
-        <%= yield %>
+        <%#= yield %>
       </main>
-    <% else %>
+    <%# else %> -->
       <main id="panel">
-         <%= yield %>
+        <%= yield %>
        </main>
-    <% end %>
+    <%# end %>
 
     <%#= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -1,36 +1,38 @@
-<div class="container">
-  <h1>Recipes</h1>
-  <%= form_tag recipes_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      placeholder: "Find a recipe",
-      class: "input-box"
-    %>
-    <%= submit_tag "Search", class: "btn-home" %>
-  <% end %>
-
-  <div class="index-grid">
-    <% @recipes.each do |recipe| %>
-      <div class="index-card">
-        <div class="img-box-index">
-          <% if recipe.photo.url %>
-            <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
-          <% else %>
-            <%= image_tag("recipe_default.jpg", class:"index-default") %>
-          <% end %>
-        </div>
-        <div class="index-card-content">
-          <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-          <ul>
-            <% recipe.categories.each do |category| %>
-              <li class="index-cat">
-                <%= category.name %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+<div class="pages">
+  <div class="container">
+    <h1>Recipes</h1>
+    <%= form_tag recipes_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Find a recipe",
+        class: "input-box"
+      %>
+      <%= submit_tag "Search", class: "btn-home" %>
     <% end %>
+
+    <div class="index-grid">
+      <% @recipes.each do |recipe| %>
+        <div class="index-card">
+          <div class="img-box-index">
+            <% if recipe.photo.url %>
+              <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
+            <% else %>
+              <%= image_tag("recipe_default.jpg", class:"index-default") %>
+            <% end %>
+          </div>
+          <div class="index-card-content">
+            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            <ul>
+              <% recipe.categories.each do |category| %>
+                <li class="index-cat">
+                  <%= category.name %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Add a new recipe", new_recipe_path, class: "btn add_fields" %>
   </div>
-  <%= link_to "Add a new recipe", new_recipe_path, class: "btn add_fields" %>
 </div>

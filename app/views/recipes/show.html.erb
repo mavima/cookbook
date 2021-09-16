@@ -1,116 +1,117 @@
 <% content_for :meta_title, "#{@recipe.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @recipe.description %>
 <% if @recipe.photo.present? %>
-<% content_for :meta_image, cl_image_path(@recipe.photo) %>
+  <% content_for :meta_image, cl_image_path(@recipe.photo) %>
 <% end %>
 
-<div class="show-container">
-  <div class="show-left">
-    <% if @recipe.photo.present? %>
-      <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 540, width: 1000, crop: :fill %>')">
-      </div>
-    <% else %>
-       <div class="banner-show banner-photo">
-          <%=image_tag("recipe_default.jpg", class: "show-default") %>
-      </div>
-    <% end %>
-
-    <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
-    <div class="show-icons">
-    <% if current_user.favorited?(@recipe) %>
-      <% favourite = current_user.get_fav_instances(@recipe) %>
-      <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
+<div class="pages">
+  <div class="show-container">
+    <div class="show-left">
+      <% if @recipe.photo.present? %>
+        <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 540, width: 1000, crop: :fill %>')">
+        </div>
       <% else %>
-      <p><%= link_to "", recipe_favourites_path(@recipe), method: :post, class: "far fa-heart" %></p>
+         <div class="banner-show banner-photo">
+            <%=image_tag("recipe_default.jpg", class: "show-default") %>
+        </div>
       <% end %>
-    </div>
-    <div class="show-stars">
-      <% @recipe.average_rating.times do%>
-        <span class="fa fa-star checked"></span>
+
+      <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+      <div class="show-icons">
+      <% if current_user.favorited?(@recipe) %>
+        <% favourite = current_user.get_fav_instances(@recipe) %>
+        <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
+        <% else %>
+        <p><%= link_to "", recipe_favourites_path(@recipe), method: :post, class: "far fa-heart" %></p>
         <% end %>
-        <% (5 - @recipe.average_rating).times do%>
-        <span class="fa fa-star empty"></span>
-      <% end %>
-    </div>
-    <div class="recipe-description">
-      <%= @recipe.description %>
-    </div>
-    <div class="show-numbers">
-      <div class="inline">
-        <i class="fas fa-utensils space-right"></i>
-        <p class="portions_number_original"><%= @recipe.portions %></p>
       </div>
-      <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> minutes</p>
-    </div>
-      <ul class="show-doses">
-      <% @recipe.doses.each do |dose| %>
-        <li class="show-dose-line">
-          <div class="dose-unit">
-          <p class="dose-amount"><%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %></p>
-          <%= dose.unit %>
-          </div>
-          <p style="last-element" class="ingredient"><%= dose.ingredient.capitalize %></p>
-        </li>
-      <% end %>
-      </ul>
-      <ul class="show-steps">
-        <% @recipe.steps.each do |step| %>
-          <li> <%= step.detail %> </li>
+      <div class="show-stars">
+        <% @recipe.average_rating.times do%>
+          <span class="fa fa-star checked"></span>
+          <% end %>
+          <% (5 - @recipe.average_rating).times do%>
+          <span class="fa fa-star empty"></span>
         <% end %>
-      </ul>
-    <% if @recipe.categories.count > 0 %>
-      <div class="show-categories">
-        <h5>Categories:</h5>
-        <ul>
-        <% @recipe.categories.each do |category| %>
-          <li class="show-cat">
-            <%= category.name %>
+      </div>
+      <div class="recipe-description">
+        <%= @recipe.description %>
+      </div>
+      <div class="show-numbers">
+        <div class="inline">
+          <i class="fas fa-utensils space-right"></i>
+          <p class="portions_number_original"><%= @recipe.portions %></p>
+        </div>
+        <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> minutes</p>
+      </div>
+        <ul class="show-doses">
+        <% @recipe.doses.each do |dose| %>
+          <li class="show-dose-line">
+            <div class="dose-unit">
+            <p class="dose-amount"><%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %></p>
+            <%= dose.unit %>
+            </div>
+            <p style="last-element" class="ingredient"><%= dose.ingredient.capitalize %></p>
           </li>
         <% end %>
         </ul>
-      </div>
-    <% end %>
-
-
-    <div class="show-buttons">
-     <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn btn-info" %>
-    <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-    <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
-    <%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
-    </div>
-  </div>
-  <div class="show-right">
-    <div class="note-box">
-      <h4>My notes:</h4>
-      <% if current_user && current_user.commented?(@recipe) %>
-      <p><%= current_user.get_comment_instances(@recipe).content %></p>
-      <% else %>
-      <%= link_to "Write a note", new_recipe_comment_path(@recipe), class: "btn btn-info" %>
+        <ul class="show-steps">
+          <% @recipe.steps.each do |step| %>
+            <li> <%= step.detail %> </li>
+          <% end %>
+        </ul>
+      <% if @recipe.categories.count > 0 %>
+        <div class="show-categories">
+          <h5>Categories:</h5>
+          <ul>
+          <% @recipe.categories.each do |category| %>
+            <li class="show-cat">
+              <%= category.name %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-    </div>
-    <div class="calculator">
-      <h4>Recalculate amounts</h4>
-      Number of persons:
-      <form>
-        <input type="number" id="rations">
-        <button type="submit" id="btn-calculator">Change</button>
-      </form>
 
+
+      <div class="show-buttons">
+       <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn btn-info" %>
+      <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
+      <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
+      <%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
+      </div>
     </div>
-    <div class="show-reviews">
-      <% @recipe.reviews.each do |review| %>
-        <% review.rating.times do%>
-          <span class="fa fa-star checked"></span>
+    <div class="show-right">
+      <div class="note-box">
+        <h4>My notes:</h4>
+        <% if current_user && current_user.commented?(@recipe) %>
+        <p><%= current_user.get_comment_instances(@recipe).content %></p>
+        <% else %>
+        <%= link_to "Write a note", new_recipe_comment_path(@recipe), class: "btn btn-info" %>
         <% end %>
-        <% (5 - review.rating).times do%>
-          <span class="fa fa-star empty"></span>
-        <% end %>
-        <p>"<%= review.content %>"</p>
-        <p class="reviewer"><%= review.user.Firstname %> </p>
-        <hr>
-    <% end %>
+      </div>
+      <div class="calculator">
+        <h4>Recalculate amounts</h4>
+        Number of persons:
+        <form>
+          <input type="number" id="rations">
+          <button type="submit" id="btn-calculator">Change</button>
+        </form>
+
+      </div>
+      <div class="show-reviews">
+        <% @recipe.reviews.each do |review| %>
+          <% review.rating.times do%>
+            <span class="fa fa-star checked"></span>
+          <% end %>
+          <% (5 - review.rating).times do%>
+            <span class="fa fa-star empty"></span>
+          <% end %>
+          <p>"<%= review.content %>"</p>
+          <p class="reviewer"><%= review.user.Firstname %> </p>
+          <hr>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
-
 

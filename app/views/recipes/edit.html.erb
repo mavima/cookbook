@@ -1,13 +1,14 @@
+<div class="pages">
+  <div class="container">
+    <div class="recipe-form">
+      <div class="form-banner">
+          <h1>Modify the recipe</h1>
+      </div>
 
-<div class="container">
-  <div class="recipe-form">
-    <div class="form-banner">
-        <h1>Modify the recipe</h1>
+      <%= render 'form' %>
+
+      <br>
     </div>
-
-    <%= render 'form' %>
-
-    <br>
+  <h4><%= link_to "Back", recipe_path(@recipe), class: "btn-home" %></h4>
   </div>
-<h4><%= link_to "Back", recipe_path(@recipe), class: "btn-home" %></h4>
 </div>

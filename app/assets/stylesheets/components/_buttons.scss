@@ -70,6 +70,26 @@
   width: fit-content;
 }
 
+.btn-slide {
+  display: block;
+  width: 6rem;
+  text-align: center;
+  border: solid 1px green;
+  padding: 6px 10px;
+  background-color: green;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white !important;
+  margin: 2vh auto;
+}
+
+.overlay {
+  background: rgba(39,62,84,0.82);
+  overflow: hidden;
+  height: 100%;
+  z-index: 2;
+}
+
 @media (max-width: 600px) {
 
   .btn-home {

@@ -86,35 +86,35 @@
   <!-- Navbar slide mobile -->
   <nav id="menu" class="panel">
     <header>
-      <div id="closeSlideOut">
+<!--       <div id="closeSlideOut">
 
-      </div>
+      </div> -->
       <div class="slide-content">
         <% if current_user.present? %>
         <ul>
-            <li>
-              <div class="user-firstname"><%= current_user.Firstname %></div>
-            </li>
-            <li>
-            <% if current_user.avatar.present? %>
-              <%= cl_image_tag current_user.avatar.url(:height => 100, :width => 100, :crop => :fill, :gravity => :face, :radius => 50)%>
-            <% else %>
-             <%=  image_tag('hat.png', class: "navbar-logo")%>
-            <% end %>
-            </li>
-          <div class="slidepage">
-            <li class="dim">
-              <%= link_to "Home", root_path %>
-            </li>
-            <li class="dim">
-                <%= link_to "My profile", user_path(current_user)  %>
-            </li>
-            <li class="dim">
-              <%= link_to "Add a recipe", new_recipe_path %>
-            </li>
-            <li class="dim">
-              <%= link_to "About Recipeper", about_path %>
-            </li>
+          <li>
+            <div class="user-firstname"><%= current_user.Firstname %></div>
+          </li>
+          <li>
+          <% if current_user.avatar.present? %>
+            <%= cl_image_tag current_user.avatar.url(:height => 100, :width => 100, :crop => :fill, :gravity => :face, :radius => 50)%>
+          <% else %>
+           <%=  image_tag('hat.png', class: "navbar-logo")%>
+          <% end %>
+          </li>
+        <div class="slidepage">
+          <li class="dim">
+            <%= link_to "Home", root_path %>
+          </li>
+          <li class="dim">
+              <%= link_to "My profile", user_path(current_user)  %>
+          </li>
+          <li class="dim">
+            <%= link_to "Add a recipe", new_recipe_path %>
+          </li>
+          <li class="dim">
+            <%= link_to "About Recipeper", about_path %>
+          </li>
 
   <!--           <li class="dim">
              <%#= link_to "How to use Famtravel", instructions_path %>
@@ -123,36 +123,39 @@
               <%#= link_to "Privacy Policy", privacy_policy_path, target: "_blank" %>
             </li> -->
 
-            <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", target: :_blank, class: "fab fa-facebook-square" %></li>
-              <li class="logout"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button-ghost" %></li>
+          <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", target: :_blank, class: "fab fa-facebook-square" %></li>
+          <li class="logout"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-slide" %></li>
 
-            <li class="copyright">Copyright &copy; 2019 - 2021 Recipeper</li>
-            <li class="copyright">Maria Manninen, Luxembourg</li>
+          <div class="copyright">
+            <li>Copyright &copy; 2019 - 2021 Recipeper</li>
+            <li>Maria Manninen, Luxembourg</li>
+          </div>
         </ul>
 
 
         <% else %>
           <div class="welcome">
-            <h3>Welcome to Recipeper</h3>
-             <%= image_tag('hat.png', class: "navbar-logo") %>
+
+              <h3>Welcome to Recipeper</h3>
+              <%= image_tag('hat.png', class: "navbar-logo") %>
+
             <ul>
-              <li class="dim"><%= link_to "About us", about_path %></li>
-              <li class="dim">How to use Recipeper</li>
-  <!--             <li class="dim">
-                <%#= link_to "Privacy Policy", privacy_policy_path %>
-              </li> -->
-  <!--             <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", class: "fab fa-facebook-square" %></li> -->
-            <div class="navbar-bottom">
-              <li class="login">
-              <%= link_to "Log in", new_user_session_path, class: "button-pink" %>
-              </li>
 
-
-
-              <li class="copyright-guest">Copyright &copy; 2021 Recipeper</li>
-              <li class="copyright-guest">Maria Manninen, Luxembourg</li>
+                <li class="dim"><%= link_to "About us", about_path %></li>
+                <li class="dim">How to use Recipeper</li>
+                <li class="login">
+                  <%= link_to "Log in", new_user_session_path, class: "btn-slide" %>
+                </li>
+    <!--             <li class="dim">
+                  <%#= link_to "Privacy Policy", privacy_policy_path %>
+                </li> -->
+    <!--             <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", class: "fab fa-facebook-square" %></li> -->
+                <div class="copyright copyright-guest">
+                  <li>Copyright &copy; 2021 Recipeper</li>
+                  <li>Maria Manninen, Luxembourg</li>
+                </div>
             </ul>
-          </div>
+
         </div>
       <% end %>
     </header>
