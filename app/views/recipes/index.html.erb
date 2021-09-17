@@ -11,8 +11,10 @@
     <% end %>
 
     <div class="index-grid">
+      <!-- <div class="index-cards"> -->
       <% @recipes.each do |recipe| %>
         <div class="index-card">
+          <%= link_to recipe_path(recipe) do %>
           <div class="img-box-index">
             <% if recipe.photo.url %>
               <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
@@ -22,16 +24,33 @@
           </div>
           <div class="index-card-content">
             <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            <div class="card-stars">
+              <% recipe.average_rating.times do%>
+                <span class="fa fa-star checked"></span>
+                <% end %>
+                <% (5 - recipe.average_rating).times do%>
+                <span class="fa fa-star empty"></span>
+              <% end %>
+            </div>
+            <div class="card-numbers">
+              <div class="inline">
+                <i class="fas fa-utensils space-right"></i>
+                <p class="portions_number_original"><%= recipe.portions %></p>
+              </div>
+              <p><i class="fas fa-clock space-right"></i><%= recipe.time %> min</p>
+            </div>
             <ul>
-              <% recipe.categories.each do |category| %>
+              <% recipe.categories[0..2].each do |category| %>
                 <li class="index-cat">
                   <%= category.name %>
                 </li>
               <% end %>
             </ul>
           </div>
+          <% end %>
         </div>
       <% end %>
+    <!-- </div> -->
     </div>
     <%= link_to "Add a new recipe", new_recipe_path, class: "btn add_fields" %>
   </div>

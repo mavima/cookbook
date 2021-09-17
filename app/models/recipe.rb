@@ -46,6 +46,6 @@ class Recipe < ApplicationRecord
    5 - self.average_rating.to_i
   end
 
-
+  scope :favourited_by, -> (email) { joins(:favourites).where(favourites: { user: User.where(email: email) }) }
 
 end
