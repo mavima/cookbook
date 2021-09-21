@@ -34,7 +34,7 @@
 }
 
 .recipe_doses_amount {
-  width: 4rem;
+  max-width: 5rem;
 }
 
 .recipe_doses_ingredient {
@@ -124,6 +124,17 @@
 
 }
 
+textarea.form-control {
+  min-height: 200px;
+}
+
+.recipe_steps_detail textarea.form-control {
+  min-height: 20px;
+}
+
+#review_content {
+min-height: 200px;
+}
 
 @media(max-width: 600px) {
 
@@ -131,5 +142,21 @@
     width: 80%;
     line-height: 0.8rem;
     padding: 2px 10px;
+  }
+
+  .recipe_doses_amount {
+    max-width: 5rem;
+  }
+
+  .recipe_doses_unit {
+    padding-left: 10px;
+  }
+
+  .recipe_doses_ingredient {
+    padding-left: 5px;
+  }
+
+  .remove_fields {
+    padding: 3px;
   }
 }

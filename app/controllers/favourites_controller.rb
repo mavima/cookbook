@@ -5,7 +5,7 @@ class FavouritesController < ApplicationController
       user: current_user,
       recipe: @recipe
     )
-    redirect_to :back(fallback_location: root_path)
+    redirect_to recipe_path(@recipe)
     # authorize @favourite
   end
 
@@ -16,4 +16,21 @@ class FavouritesController < ApplicationController
     redirect_back(fallback_location: root_path)
     # authorize @favourite
   end
+
+  # def find_recipe!
+  #   @recipe = Recipe.id!(params[:recipe_id])
+  # end
+
+  # private
+
+  # def create
+  #   current_user.favourite(@recipe)
+  #   render 'recipes/show'
+  # end
+
+  # def destroy
+  #   current_user.unfavourite(@recipe)
+  #   render 'recipes/show'
+  # end
+
 end

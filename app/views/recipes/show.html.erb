@@ -18,7 +18,7 @@
 
       <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
       <div class="show-icons">
-      <% if current_user.favorited?(@recipe) %>
+      <% if current_user&.favourited?(@recipe) %>
         <% favourite = current_user.get_fav_instances(@recipe) %>
         <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
         <% else %>
@@ -74,10 +74,9 @@
 
 
       <div class="show-buttons">
-       <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn btn-info" %>
-      <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn btn-primary" %>
-      <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn btn-info" %>
-      <%= link_to "Back to the list", recipes_path, class: "btn btn-warning" %>
+       <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn-show btn-green" %>
+      <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
+      <%= link_to "Back to the list", recipes_path, class: "btn-show btn-blue" %>
       </div>
     </div>
     <div class="show-right">
@@ -92,12 +91,13 @@
       <div class="calculator">
         <h4>Recalculate amounts</h4>
         Number of persons:
-        <form>
+        <form class="ration-form">
           <input type="number" id="rations">
-          <button type="submit" id="btn-calculator">Change</button>
+          <button type="submit" id="btn-calculator" class="btn-show btn-green">Change</button>
         </form>
 
       </div>
+      <% if @recipe.reviews.present? %>
       <div class="show-reviews">
         <% @recipe.reviews.each do |review| %>
           <% review.rating.times do%>
@@ -110,6 +110,58 @@
           <p class="reviewer"><%= review.user.Firstname %> </p>
           <hr>
       <% end %>
+      <% end %>
+      </div>
+
+      <div class="show-tips">
+        <h4>You might also like:</h4>
+          <% similars = [] %>
+          <% Recipe.all.each do |recipe|
+            if recipe.categories.include?(@recipe.categories[0] || @recipe.categories[1] || @recipe.categories[2])
+              next if recipe == @recipe
+              similars << recipe
+            end %>
+          <% end %>
+          <div class="tip-grid">
+            <% similars[0..6].each do |similar| %>
+              <div class="index-card">
+                <%= link_to recipe_path(similar) do %>
+                  <div class="img-box-index">
+                    <% if similar.photo.url %>
+                      <%= cl_image_tag similar.photo, height: 200, width: 200, crop: :fill %>
+                    <% else %>
+                      <%= image_tag("recipe_default.jpg", class:"index-default") %>
+                    <% end %>
+                  </div>
+                  <div class="index-card-content">
+                    <h3><%= link_to similar.name, recipe_path(similar) %></h3>
+                    <div class="card-stars">
+                      <% similar.average_rating.times do%>
+                        <span class="fa fa-star checked"></span>
+                        <% end %>
+                        <% (5 - similar.average_rating).times do%>
+                        <span class="fa fa-star empty"></span>
+                      <% end %>
+                    </div>
+                    <div class="card-numbers">
+                      <div class="inline">
+                        <i class="fas fa-utensils space-right"></i>
+                        <p class="portions_number_original"><%= similar.portions %></p>
+                      </div>
+                      <p><i class="fas fa-clock space-right"></i><%= similar.time %> min</p>
+                    </div>
+                    <ul>
+                      <% similar.categories[0..2].each do |category| %>
+                        <li class="index-cat">
+                          <%= category.name %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>

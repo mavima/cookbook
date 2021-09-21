@@ -4,7 +4,7 @@
     <div>
       <%= simple_form_for([@recipe, @review]) do |f| %>
 
-      <%= f.input :content, label: "Tell us what do you think of this recipe" %>
+      <%= f.input :content, label: "Tell us what do you think of this recipe", as: :text, :input_html => { :rows => 10 } %>
       <p>Your rating for it:</p>
      <!--    <%# 5.times do |n|%>
           <i id="star_rating" class="fas fa-star fa-lg", data-value="<%#= n + 1%>"></i>
@@ -17,7 +17,7 @@
         </div>
         <%= f.input :photo_cache, as: :hidden %>
         <div>
-          <%= f.submit "Add your review", class: "review-button" %>
+          <%= f.submit "Add your review", class: "btn-home" %>
         </div>
       <% end %>
     </div>

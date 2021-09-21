@@ -7,4 +7,19 @@
   display: grid;
 }
 
+.profile-review {
+
+  h5 {
+    color: $green;
+  }
+
+  a {
+    color: black;
+  }
+
+  .review-icons a {
+    color: $blue;
+  }
+}
+
 

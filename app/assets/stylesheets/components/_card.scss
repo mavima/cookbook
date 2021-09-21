@@ -6,6 +6,8 @@
   margin: 10px 10px 30px 10px;
   background-color: $alabaster;
   display: flex;
+  height: 200px;
+  width: 300px;
 
 
     img {
@@ -13,15 +15,51 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 150px;
     object-fit: cover;
+  }
+
+  h3 {
+    margin-bottom: 0;
+    }
+
+  i {
+    margin-right: -10px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .index-card-content {
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    ul {
+      padding-left: 0;
+    }
+  }
+}
+
+.card-stars {
+  font-size: 12px;
+}
+
+
+.card-numbers {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.3rem 0;
+
+  .portions_number_original {
+    padding-right: 5px;
   }
 }
 
 .img-box-index {
   position: relative;
   height: 200px;
-  width: 60%;
+  width: 50%;
 }
 
 .index-default {
@@ -49,42 +87,61 @@
   display:grid;
 }
 
-
 .profile-card {
   height: 200px;
+  width: 300px;
   border-radius: 2px;
   background: transparent;
   overflow: hidden;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   margin: 10px 10px 30px 10px;
-  background-color: $alabaster;
+  background-color: $light-blue;
   display: flex;
 
 
-  img {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    object-fit: cover;
-  }
+    img {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      object-fit: cover;
+    }
 
-  a {
-    text-decoration: none;
-  }
+    .comment-icon {
+      width: 25px;
+    }
 
-  .profile-icons {
-    position: absolute;
-    width: 4vh;
-    height: 4vh;
-    top: 15px;
-    right: 15px;
-    z-index: 5;
-    background-color: white;
-    padding: 6px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .profile-card-content {
+
+      padding-left: 1rem;
+      h3 {
+        font-size: 1.5rem;
+        color: green;
+        padding: 0.5rem;
+      }
+
+      a {
+        color: green;
+        text-decoration: none;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .profile-icons {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      top: 15px;
+      left: 15px;
+      z-index: 5;
+      background-color: white;
+      padding: 6px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 }

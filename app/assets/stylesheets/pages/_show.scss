@@ -81,6 +81,7 @@
   margin: auto;
   justify-content: space-between;
   border-bottom: 1px solid $grey;
+  padding-top: 8px;
 
   .dose-unit {
     display: flex;
@@ -93,6 +94,10 @@
   .dose-amount {
     padding-right: 1rem;
   }
+}
+
+.show-dose-line:last-child {
+  border-bottom: none;
 }
 
 .inline {
@@ -109,12 +114,11 @@
 }
 
 .show-categories {
-  padding-left: 1vh;
+  padding-left: 1rem;
   margin-top: 1vh;
   margin-bottom: 2vh;
 
   ul {
-    width: 50%;
     margin: auto;
   }
 }
@@ -144,11 +148,19 @@
 
 .calculator {
   background-color: $light-green;
-  height: 15vh;
+  // height: 15vh;
   margin-left: 3vh;
   margin-bottom: 2vh;
   padding: 1rem;
+}
 
+.ration-form {
+  display: flex;
+}
+
+#rations {
+  width: 2rem;
+  height: 2rem;
 }
 
 .show-reviews {
@@ -163,4 +175,60 @@
   font-size: 0.8rem;
   padding: 0;
   margin: 0;
+}
+
+.show-tips {
+  margin-left: 3vh;
+  margin-top: 1vh;
+}
+
+.tip-grid {
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media(max-width: 768px) {
+
+  .show-container {
+    flex-direction: column;
+  }
+
+  .show-left {
+    width: 100%;
+  }
+
+  .show-right {
+    width: 100%;
+  }
+
+  .show-dose-line {
+    width: 80%;
+  }
+
+  .show-categories ul {
+    padding-inline-start: 0;
+    width: 80%;
+  }
+
+  .note-box {
+    margin: 0.5rem;
+  }
+
+  .calculator {
+    margin: 0.5rem;
+    height: 20vh;
+  }
+
+  .show-reviews {
+    margin: 0.5rem;
+    height: fit-content;
+  }
+
+  .tip-grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr);
+    grid-template-columns: (1fr);
+  }
 }
