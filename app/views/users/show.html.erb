@@ -12,58 +12,115 @@
   <hr>
 
   <h4>My favourites</h4>
-  <div class="index-grid">
-    <% @user.favourites.each do |favourite| %>
-      <div class="profile-card">
-
-        <div class="img-box-index">
-          <% if favourite.recipe.photo.url %>
-            <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
-          <% else %>
-            <%= image_tag("recipe_default.jpg", class:"profile-default-img") %>
-          <% end %>
-
+    <div class="index-grid">
+      <% my_favourites = @user.favourites %>
+      <% my_favourites.each do |favourite| %>
+        <div class="profile-card">
+          <%= link_to recipe_path(favourite) do %>
+          <div class="img-box-index">
+            <% if favourite.recipe.photo.url %>
+              <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
+            <% else %>
+              <%= image_tag("recipe_default.jpg", class:"index-default") %>
+            <% end %>
             <% if  current_user.commented?(favourite.recipe) %>
-            <div class="profile-icons">
-              <%= image_tag("post-it.png", class:"comment-icon") %>
+              <div class="profile-icons">
+                <%= image_tag("post-it.png", class:"comment-icon") %>
               </div>
             <% end %>
+          </div>
+          <div class="profile-card-content">
+            <h3><%= link_to favourite.recipe.name, recipe_path(favourite) %></h3>
+            <div class="card-stars">
+              <% favourite.recipe.average_rating.times do%>
+                <span class="fa fa-star checked"></span>
+                <% end %>
+                <% (5 - favourite.recipe.average_rating).times do%>
+                <span class="fa fa-star empty"></span>
+              <% end %>
+            </div>
+            <div class="card-numbers">
+              <div class="inline">
+                <i class="fas fa-utensils space-right"></i>
+                <p class="portions_number_original"><%= favourite.recipe.portions %></p>
+              </div>
+              <p><i class="fas fa-clock space-right"></i><%= favourite.recipe.time %> min</p>
+            </div>
+            <ul>
+              <% favourite.recipe.categories[0..2].each do |category| %>
+                <li class="index-cat">
+                  <%=category.name %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
 
-        </div>
-        <%= link_to recipe_path(favourite.recipe) do %>
-        <div class="index-card-content">
-          <h3><%= favourite.recipe.name %></h3>
-          <ul>
-            <% favourite.recipe.categories.each do |category| %>
-              <li class="index-cat">
-                <%= category.name %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-        <% end %>
-      </div>
-  <% end %>
-  </div>
+    </div>
+
     <h4>My recipes</h4>
-  <% @user.recipes.each do |recipe| %>
-    <%= link_to recipe_path(recipe) do %>
-      <p><%=recipe.name%></p>
-    <% end %>
-  <% end %>
+    <div class="index-grid">
+      <% my_recipes = @user.recipes.order('name ASC') %>
+      <% my_recipes.each do |recipe| %>
+        <div class="index-card">
+          <%= link_to recipe_path(recipe) do %>
+          <div class="img-box-index">
+            <% if recipe.photo.url %>
+              <%= cl_image_tag recipe.photo, height: 200, width: 200, crop: :fill %>
+            <% else %>
+              <%= image_tag("recipe_default.jpg", class:"index-default") %>
+            <% end %>
+          </div>
+          <div class="index-card-content">
+            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            <div class="card-stars">
+              <% recipe.average_rating.times do%>
+                <span class="fa fa-star checked"></span>
+                <% end %>
+                <% (5 - recipe.average_rating).times do%>
+                <span class="fa fa-star empty"></span>
+              <% end %>
+            </div>
+            <div class="card-numbers">
+              <div class="inline">
+                <i class="fas fa-utensils space-right"></i>
+                <p class="portions_number_original"><%= recipe.portions %></p>
+              </div>
+              <p><i class="fas fa-clock space-right"></i><%= recipe.time %> min</p>
+            </div>
+            <ul>
+              <% recipe.categories[0..2].each do |category| %>
+                <li class="index-cat">
+                  <%= category.name %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    <!-- </div> -->
+    </div>
   <br>
   <h4>My reviews</h4>
-  <% @user.reviews.each do |review| %>
-    <%= link_to recipe_path(review.recipe) do %>
-      <h5><%=review.recipe.name %></h5>
-      <p>"<%= review.content %>"</p>
-        <% review.rating.times do%>
-          <span class="fa fa-star checked"></span>
-        <% end %>
-        <% (5 - review.rating).times do%>
-          <span class="fa fa-star empty"></span>
-        <% end %>
-        <hr>
+  <div class="profile-review">
+    <% @user.reviews.each do |review| %>
+      <% @recipe = review.recipe %>
+      <%= link_to recipe_path(review.recipe) do %>
+        <h5><%=review.recipe.name %></h5>
+        <p>"<%= review.content %>"</p>
+          <% review.rating.times do%>
+            <span class="fa fa-star checked"></span>
+          <% end %>
+          <% (5 - review.rating).times do%>
+            <span class="fa fa-star empty"></span>
+          <% end %>
+          <% end %>
+          <%= link_to "", edit_recipe_review_path(@recipe, review), class: "fas fa-pencil-alt opacity_7"%>
+            <%=  link_to "", recipe_review_path(@recipe,review), method: :delete, data: { confirm: "are you sure?" }, class: "fa fa-trash opacity_7 " %></p>
+          <hr>
     <% end %>
-  <% end %>
+  </div>
 </div>

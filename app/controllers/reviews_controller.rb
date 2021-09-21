@@ -49,6 +49,7 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find_by(id:[params[:id], params[:review_id]])
+    @recipe = @review.recipe
   end
 
   def review_strong_params

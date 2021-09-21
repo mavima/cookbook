@@ -76,7 +76,6 @@
       <div class="show-buttons">
        <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn-show btn-green" %>
       <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
-      <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete, data: { confirm: 'are you sure?'}, class: "btn-show btn-green" %>
       <%= link_to "Back to the list", recipes_path, class: "btn-show btn-blue" %>
       </div>
     </div>
