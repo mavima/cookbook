@@ -1,36 +1,38 @@
 class FavouritesController < ApplicationController
     def create
+      # @favourite = current_user.favourites.new(favourite_params)
+      # if !@favourite.save
+      #   flash[:notice] = @favourite.full_messages.to_sentence
+      # end
+      # redirect_to @favourite.recipe, success: "Recipe added to your favourites"
+
     @recipe = Recipe.find(params[:recipe_id])
     @favourite = Favourite.create(
       user: current_user,
       recipe: @recipe
     )
-    redirect_to recipe_path(@recipe)
+    if @favourite.create(user, recipe)
+      render status: :ok
+    else
+      render :new
+    end
     # authorize @favourite
   end
 
   def destroy
-    @favourite = Favourite.find(params[:id])
-    @user = current_user
+    @favourite = current_user.favourites.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+    # @user = current_user
     @favourite.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to recipe_path(@recipe)
     # authorize @favourite
   end
 
-  # def find_recipe!
-  #   @recipe = Recipe.id!(params[:recipe_id])
+  private
+
+  # def favourite_params
+  #   params.require(:favourite).permit(:recipe_id)
   # end
 
-  # private
-
-  # def create
-  #   current_user.favourite(@recipe)
-  #   render 'recipes/show'
-  # end
-
-  # def destroy
-  #   current_user.unfavourite(@recipe)
-  #   render 'recipes/show'
-  # end
 
 end

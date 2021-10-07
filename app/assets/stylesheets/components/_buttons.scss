@@ -83,6 +83,16 @@
   margin: 2vh auto;
 }
 
+#favourite-button {
+  border: none;
+  background: transparent;
+  color: #D3D3D3;
+}
+
+.favourited {
+  color: green;
+}
+
 
 .btn-show {
   display: block;

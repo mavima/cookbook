@@ -18,11 +18,12 @@
 
       <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
       <div class="show-icons">
-      <% if current_user&.favourited?(@recipe) %>
-        <% favourite = current_user.get_fav_instances(@recipe) %>
-        <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
+        <% if current_user&.favourited?(@recipe) %>
+          <% favourite = current_user.get_fav_instances(@recipe) %>
+          <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
+
         <% else %>
-        <p><%= link_to "", recipe_favourites_path(@recipe), method: :post, class: "far fa-heart" %></p>
+          <p><%= link_to "", recipe_favourites_path(@recipe), method: :post, class: "far fa-heart" %></p>
         <% end %>
       </div>
       <div class="show-stars">

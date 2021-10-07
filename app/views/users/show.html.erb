@@ -15,8 +15,9 @@
     <div class="index-grid">
       <% my_favourites = @user.favourites %>
       <% my_favourites.each do |favourite| %>
+      <% @recipe = favourite.recipe %>
         <div class="profile-card">
-          <%= link_to recipe_path(favourite) do %>
+          <%= link_to recipe_path(@recipe) do %>
           <div class="img-box-index">
             <% if favourite.recipe.photo.url %>
               <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
