@@ -12,6 +12,7 @@ class Recipe < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 5 }
   mount_uploader :photo, PhotoUploader
+  # validates: :photo, file_size: { less_than: 2.megabytes }
 
   include PgSearch::Model
   # scope name whatever

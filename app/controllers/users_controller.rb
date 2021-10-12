@@ -3,13 +3,13 @@ class UsersController < ApplicationController
     # authorize current_user
   end
 
-  # def favourited?(recipe)
-  #   self.favourites.find_by(recipe_id: recipe.id).present?
-  # end
+  def favourited?(recipe)
+    self.favourites.find_by(recipe_id: recipe.id).present?
+  end
 
-  # def get_fav_instances(recipe)
-  #   self.favourites.find_by(recipe_id: recipe.id)
-  # end
+  def get_fav_instances(recipe)
+    self.favourites.find_by(recipe_id: recipe.id)
+  end
 
   private
 

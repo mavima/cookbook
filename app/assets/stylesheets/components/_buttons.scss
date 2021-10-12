@@ -83,6 +83,34 @@
   margin: 2vh auto;
 }
 
+#favourite-button {
+  border: none;
+  color: #D3D3D3;
+}
+
+.unfav-button {
+  border: none;
+  background: asset-data-url('heart_red.png') no-repeat;
+  width: 26px;
+  height: 25px;
+  color: #D3D3D3;
+  background-size: contain;
+}
+
+.fav:hover {
+  width: 27px;
+  height: 26px;
+}
+
+.favourite-button {
+  border: none;
+  background: asset-data-url('heart.png') no-repeat;
+  width: 26px;
+  height: 25px;
+  color: #D3D3D3;
+  background-size: contain;
+}
+
 
 .btn-show {
   display: block;

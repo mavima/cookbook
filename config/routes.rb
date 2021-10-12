@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
 
 
+
   resources :recipes, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
+    resources :favourites, only: :create
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
-    resources :favourites, only: [:create, :destroy]
   end
 
-   # resources :favourites, only: :destroy
+   resources :favourites, only: :destroy
 
   get 'users/profile/:id', to: 'users#show', as: 'user'
 

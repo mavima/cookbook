@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+
   def index
   if params[:query].present?
       @recipes = Recipe.search_by_name_and_description(params[:query])
@@ -54,7 +55,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_strong_params
-    params.require(:recipe).permit(:name, :description, :time, :portions, :rating, :photo, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
+    params.require(:recipe).permit(:name, :description, :time, :portions, :rating, :photo, :photo_cache, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
   end
 
 end
