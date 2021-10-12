@@ -20,10 +20,10 @@
       <div class="show-icons">
         <% if current_user&.favourited?(@recipe) %>
           <% favourite = current_user.get_fav_instances(@recipe) %>
-          <%= button_to "unfavourite", { action: 'destroy', controller: 'favourites', id: favourite.id }, method: :delete %>
+          <%= button_to "", { action: 'destroy', controller: 'favourites', id: favourite.id }, method: :delete, class: 'unfav-button fav' %>
 
         <% else %>
-          <%= button_to "favourite", { action: 'create', controller: 'favourites', recipe_id: @recipe.id }%>
+          <%= button_to "", { action: 'create', controller: 'favourites', recipe_id: @recipe.id }, class: 'favourite-button fav'%>
 
         <% end %>
       </div>
