@@ -20,10 +20,11 @@
       <div class="show-icons">
         <% if current_user&.favourited?(@recipe) %>
           <% favourite = current_user.get_fav_instances(@recipe) %>
-          <p><%= link_to "", favourite_path(favourite), method: :delete, class: "fas fa-heart heart_unchecked" %></p>
+          <%= button_to "unfavourite", { action: 'destroy', controller: 'favourites', id: favourite.id }, method: :delete %>
 
         <% else %>
-          <p><%= link_to "", recipe_favourites_path(@recipe), method: :post, class: "far fa-heart" %></p>
+          <%= button_to "favourite", { action: 'create', controller: 'favourites', recipe_id: @recipe.id }%>
+
         <% end %>
       </div>
       <div class="show-stars">

@@ -17,7 +17,7 @@
       <% my_favourites.each do |favourite| %>
       <% @recipe = favourite.recipe %>
         <div class="profile-card">
-          <%= link_to recipe_path(@recipe) do %>
+          <%= link_to recipe_path(favourite.recipe) do %>
           <div class="img-box-index">
             <% if favourite.recipe.photo.url %>
               <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
@@ -31,7 +31,8 @@
             <% end %>
           </div>
           <div class="profile-card-content">
-            <h3><%= link_to favourite.recipe.name, recipe_path(favourite) %></h3>
+            <%= link_to recipe_path(favourite.recipe) do %>
+            <h3><%= link_to favourite.recipe.name, recipe_path(favourite.recipe) %></h3>
             <div class="card-stars">
               <% favourite.recipe.average_rating.times do%>
                 <span class="fa fa-star checked"></span>
@@ -54,6 +55,7 @@
                 </li>
               <% end %>
             </ul>
+            <% end %>
           </div>
           <% end %>
         </div>
