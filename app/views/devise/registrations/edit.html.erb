@@ -10,12 +10,12 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-      <%= f.input :Firstname,
+      <%= f.input :first_name,
                   required: true,
                   autofocus: true,
                   label: 'First name',
                   input_html: { autocomplete: "First name" }%>
-      <%= f.input :Lastname,
+      <%= f.input :last_name,
                   required: true,
                   autofocus: true,
                   label: 'Last name',

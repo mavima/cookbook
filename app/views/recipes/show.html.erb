@@ -100,20 +100,21 @@
 
       </div>
       <% if @recipe.reviews.present? %>
-      <div class="show-reviews">
-        <% @recipe.reviews.each do |review| %>
-          <% review.rating.times do%>
-            <span class="fa fa-star checked"></span>
+        <div class="show-reviews">
+          <% @recipe.reviews.each do |review| %>
+            <% review.rating.times do%>
+              <span class="fa fa-star checked"></span>
+            <% end %>
+            <% (5 - review.rating).times do%>
+              <span class="fa fa-star empty"></span>
+            <% end %>
+            <p>"<%= review.content %>"</p>
+            <p class="reviewer"><%= review.user.first_name %> </p>
+            <hr>
           <% end %>
-          <% (5 - review.rating).times do%>
-            <span class="fa fa-star empty"></span>
-          <% end %>
-          <p>"<%= review.content %>"</p>
-          <p class="reviewer"><%= review.user.Firstname %> </p>
-          <hr>
+        </div>
       <% end %>
-      <% end %>
-      </div>
+
 
       <div class="show-tips">
         <h4>You might also like:</h4>

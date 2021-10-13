@@ -12,9 +12,9 @@ User.destroy_all
 
 puts "Models destroyed"
 
-user1 = User.create!(email: "user1@a.a", password: "password", Firstname: "Emilie", Lastname: "Moulin")
-user2 = User.create!(email: "user2@a.a", password: "password", Firstname: "Marta", Lastname: "Sanchez")
-admin = User.create!(email: "pit@mail.com", password: "password", Firstname: "Pit", Lastname: "Muller", admin: true)
+user1 = User.create!(email: "user1@a.a", password: "password", first_name: "Emilie", last_name: "Moulin")
+user2 = User.create!(email: "user2@a.a", password: "password", first_name: "Marta", last_name: "Sanchez")
+admin = User.create!(email: "pit@mail.com", password: "password", first_name: "Pit", last_name: "Muller", admin: true)
 
 puts "Users created"
 
