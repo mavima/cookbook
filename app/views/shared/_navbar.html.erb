@@ -25,7 +25,7 @@
     <% if user_signed_in? %>
 <!--       <div class="dropdown">
         <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= current_user.Firstname %>
+          <%= current_user.first_name %>
         </div>
         <div class="dropdown">
           <h6 class="dropdown-item">
@@ -36,10 +36,10 @@
           </h6>
         </div>
       </div> -->
-      <% if current_user.Firstname.length < 6
-        @name = current_user.Firstname
+      <% if current_user.first_name.length < 6
+        @name = current_user.first_name
       else
-        @name = current_user.Firstname.first + current_user.Lastname.first
+        @name = current_user.first_name.first + current_user.last_name.first
       end
         %>
       <li>
@@ -93,7 +93,7 @@
         <% if current_user.present? %>
         <ul>
           <li>
-            <div class="user-firstname"><%= current_user.Firstname %></div>
+            <div class="user-firstname"><%= current_user.first_name %></div>
           </li>
           <li>
           <% if current_user.avatar.present? %>
