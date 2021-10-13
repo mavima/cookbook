@@ -30,7 +30,15 @@ const changeAmounts = () => {
         if(newPortions) {
         amountsPerPortion.forEach((amountPerPortion, index) => {
           // count new amounts according to new ration number
-          let newAmount = (amountPerPortion * newPortions).toFixed(1);
+          let newAmount = (amountPerPortion * newPortions);
+          //avoid useless decimals
+          if ((newAmount - Math.floor(newAmount)) < 0.1) {
+            console.log(newAmount)
+            console.log(newAmount - Math.floor(newAmount))
+            newAmount = Math.floor(newAmount)
+          } else {
+            newAmount = newAmount.toFixed(1)
+          }
           amountArray[index].innerHTML = newAmount;
         });
         // replace the portion number in recipe
