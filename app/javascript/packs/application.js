@@ -7,6 +7,7 @@ import "bootstrap";
 //= require("turbolinks").start()
 // require("channels")
 //= require("jquery")
+//= require activestorage
 
 // import "../functions/slideout.js"
 
