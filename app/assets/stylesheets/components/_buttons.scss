@@ -3,9 +3,9 @@
   display: block;
   width: 20rem;
   text-align: center;
-  border: solid 1px green;
+  border: solid 1px $green;
   padding: 10px 22px;
-  background-color: green;
+  background-color: $green;
   font-size: 16px;
   border-radius: 10px;
   color: white;
@@ -23,9 +23,9 @@
 
 .btn-small {
   display: block;
-  border: solid 1px green;
+  border: solid 1px $green;
   padding: 8px 12px 4px;
-  background-color: green;
+  background-color: $green;
   font-size: 14px;
   border-radius: 6px;
   color: white;
@@ -74,9 +74,9 @@
   display: block;
   width: 6rem;
   text-align: center;
-  border: solid 1px green;
+  border: solid 1px $green;
   padding: 6px 10px;
-  background-color: green;
+  background-color: $green;
   font-size: 16px;
   border-radius: 10px;
   color: white !important;
@@ -129,12 +129,20 @@
   padding: 6px 4px;
 }
 
-// .overlay {
-//   background: rgba(39,62,84,0.82);
-//   overflow: hidden;
-//   height: 100%;
-//   z-index: 2;
-// }
+.btn-photo {
+  display: block;
+  width: 20rem;
+  text-align: center;
+  border: solid 1px #ac3973;
+  padding: 12px 22px;
+  background-color: #ac3973;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  margin: 2vh 0;
+}
+
+
 
 @media (max-width: 600px) {
 
