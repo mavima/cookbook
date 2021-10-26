@@ -38,6 +38,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'simple_form'
 
+#authorisation
+gem 'pundit'
+
 # Add .env file for api-keys
 gem 'dotenv-rails', groups: [:development, :test]
 
