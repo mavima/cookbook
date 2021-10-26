@@ -89,18 +89,19 @@
   display: none;
 }
 
-// button for adding a photo
-.btn-photo {
-  display: block;
-  width: 20rem;
-  text-align: center;
-  border: solid 1px #ac3973;
-  padding: 12px 22px;
-  background-color: #ac3973;
-  font-size: 16px;
-  border-radius: 10px;
-  color: white;
-  margin: 2vh 0;
+#img-preview {
+  display: none;
+  width: 180px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.visible {
+  display: block !important;
 }
 
 .forgot-password {

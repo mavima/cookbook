@@ -4,7 +4,9 @@ class Dose < ApplicationRecord
 
 
   def no_decimals?
-    self.amount % 1 == 0
+    unless self.amount == nil
+      self.amount % 1 == 0
+    end
   end
 
   def integer

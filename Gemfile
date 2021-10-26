@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#restrict image size on upload
+gem 'activestorage-validator', '~> 0.2.0'
+
 gem "nokogiri", ">= 1.12.5"
 gem "activerecord", ">= 6.0.3.5"
 gem "actionpack", ">= 6.0.4.1"

@@ -19,9 +19,17 @@
     <%= link_to_add_association 'Add line', f, :steps %>
   </div>
   <%= f.input :time, input_html: {class: "input-box input-box-small"},  label: "Time of preparation in minutes" %>
+
+
   <%= f.input :portions, input_html: {class: "input-box input-box-small"}, label: "Number of portions" %>
-  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: "Add a photo", label_html: { class: "btn-photo"} %>
+
+  <div id="img-preview"></div>
+  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: "Add a photo", label_html: { class: "btn-show btn-blue" } %>
+
   <%= f.input :photo_cache, as: :hidden %>
 
 <%= f.submit "Save", class: "btn-show btn-green" %>
 <% end %>
+
+
+

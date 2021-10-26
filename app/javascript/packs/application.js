@@ -7,6 +7,7 @@ import "bootstrap";
 //= require("turbolinks").start()
 // require("channels")
 //= require("jquery")
+//= require activestorage
 
 // import "../functions/slideout.js"
 
@@ -14,8 +15,10 @@ import 'cocoon';
 import { reviewStars } from '../functions/stars_review'
 import { changeAmounts } from '../functions/change_amounts'
 import { slideMenu } from '../functions/slideout'
+import {preview} from '../functions/photo_input'
 
 
 reviewStars();
 changeAmounts();
 slideMenu();
+preview();
