@@ -1,16 +1,15 @@
 class RecipesController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
   def index
     @recipes = policy_scope(Recipe)
-  if params[:query].present?
-      @recipes = Recipe.search_by_name_and_description(params[:query])
+    if params[:query].present?
+      @recipes = policy_scope(Recipe).search_by_name_and_description(params[:query])
     else
-      @recipes = Recipe.all
+      @recipes = policy_scope(Recipe).order(:name)
     end
-    authorize @recipes
   end
 
   def search
@@ -25,7 +24,6 @@ class RecipesController < ApplicationController
 
   def show
     @categories = @recipe.categories
-    authorize @recipe
   end
 
   def new
@@ -48,7 +46,6 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    authorize @recipe
   end
 
   def update
@@ -57,13 +54,11 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
-    authorize @recipe
   end
 
   def destroy
     @recipe.destroy
     redirect_to recipes_path
-    authorize @recipe
   end
 
   private

@@ -25,12 +25,12 @@ class RecipePolicy < ApplicationPolicy
     record.user == user || user.admin
   end
 
-  def edit?
-    record.user == user || user.admin
-  end
-
   def update?
-    record.user == user || user.admin
+    if user == nil
+      false
+    elsif record.user == user || user.admin
+      true
+    end
   end
 
 end

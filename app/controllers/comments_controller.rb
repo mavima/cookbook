@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @recipe = Recipe.find(params[:recipe_id])
-    # authorize @comment
+    authorize @comment
   end
 
   def create
@@ -17,14 +17,13 @@ class CommentsController < ApplicationController
     else
       render :new
     end
-    # authorize @comment
+    authorize @comment
   end
 
   def edit
     # @comment = Comment.find(params[:id])
     @user = current_user
     @recipe = Recipe.find(params[:recipe_id])
-    # authorize @comment
   end
 
   def update
@@ -34,7 +33,6 @@ class CommentsController < ApplicationController
     else
       render :edit
     end
-   # authorize @comment
   end
 
   def destroy
@@ -43,13 +41,13 @@ class CommentsController < ApplicationController
     @user = current_user
     @comment.destroy
     redirect_to recipe_path(@recipe)
-    # authorize @comment
   end
 
   private
 
   def set_comment
     @comment = comment.find_by(id:[params[:id], params[:comment_id]])
+    authorize @comment
   end
 
   def comment_strong_params
