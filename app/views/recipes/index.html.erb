@@ -23,29 +23,33 @@
             <% end %>
           </div>
           <div class="index-card-content">
-            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-            <div class="card-stars">
-              <% recipe.average_rating.times do%>
-                <span class="fa fa-star checked"></span>
+            <div>
+              <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+              <div class="card-stars">
+                <% recipe.average_rating.times do%>
+                  <span class="fa fa-star checked"></span>
+                  <% end %>
+                  <% (5 - recipe.average_rating).times do%>
+                  <span class="fa fa-star empty"></span>
                 <% end %>
-                <% (5 - recipe.average_rating).times do%>
-                <span class="fa fa-star empty"></span>
-              <% end %>
-            </div>
-            <div class="card-numbers">
-              <div class="inline">
-                <i class="fas fa-utensils space-right"></i>
-                <p class="portions_number_original"><%= recipe.portions %></p>
               </div>
-              <p><i class="fas fa-clock space-right"></i><%= recipe.time %> min</p>
+              <div class="card-numbers">
+                <div class="inline">
+                  <i class="fas fa-utensils space-right"></i>
+                  <p class="portions_number_original"><%= recipe.portions %></p>
+                </div>
+                <p><i class="fas fa-clock space-right"></i><%= recipe.time %> min</p>
+              </div>
             </div>
-            <ul>
-              <% recipe.categories[0..2].each do |category| %>
-                <li class="index-cat">
-                  <%= category.name %>
-                </li>
-              <% end %>
-            </ul>
+            <div>
+              <ul class="card-categories">
+                <% recipe.categories[0..2].each do |category| %>
+                  <li class="index-cat">
+                    <%= category.name %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
           <% end %>
         </div>

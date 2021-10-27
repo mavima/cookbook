@@ -49,7 +49,10 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <%= current_user.get_comment_instances(favourite.recipe).content  %>
+                      <p>
+                        <%= current_user.get_comment_instances(favourite.recipe).content  %>
+                      </p>
+                      <button type="button" class="btn-small" data-dismiss="modal">Close</button>
                     </div>
                   </div>
                 </div>
@@ -113,7 +116,7 @@
               </div>
             </div>
             <div>
-              <ul>
+              <ul class="card-categories">
                 <% recipe.categories[0..3].each do |category| %>
                   <li class="index-cat">
                     <%= category.name %>

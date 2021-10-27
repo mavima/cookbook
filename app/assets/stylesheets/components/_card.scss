@@ -34,7 +34,21 @@
 
   .index-card-content {
     padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+
+  h3 {
+    font-size: 1.5rem;
+    color: green;
+    padding: 0.5rem;
+  }
+
+  a {
+    color: green;
+    text-decoration: none;
+  }
 
     ul {
       padding-left: 0;
@@ -69,20 +83,7 @@
   opacity: 0.4;
 }
 
-.index-card-content {
-  align-items: flex-end;
 
-  h3 {
-    font-size: 1.5rem;
-    color: green;
-    padding: 0.5rem;
-  }
-
-  a {
-    color: green;
-    text-decoration: none;
-  }
-}
 
 .card-categories {
   display:grid;
