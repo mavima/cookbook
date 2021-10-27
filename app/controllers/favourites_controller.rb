@@ -11,18 +11,7 @@ class FavouritesController < ApplicationController
     else
       render :new
     end
-
-
-    # @recipe = Recipe.find(params[:recipe_id])
-    # @favourite = Favourite.create(params[favourite_params])
-    #   if @favourite.save
-    #     flash[:success] = 'The recipe was added in your favourites'
-    #     redirect_to(@recipe)
-    #   else
-    #     raise
-    #   end
-    # redirect_to recipe_path(@recipe)
-    # # authorize @favourite
+    authorize @favourite
   end
 
   def destroy
@@ -31,7 +20,7 @@ class FavouritesController < ApplicationController
     @recipe = @favourite.recipe
     @favourite.destroy
     redirect_to recipe_path(@recipe)
-    # authorize @favourite
+    authorize @favourite
   end
 
   private

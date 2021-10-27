@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @recipe = Recipe.find(params[:recipe_id])
-    # authorize @review
+    authorize @review
   end
 
   def create
@@ -17,14 +17,13 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
-    # authorize @review
+    authorize @review
   end
 
   def edit
     @review = Review.find(params[:id])
     @user = current_user
     @recipe = Recipe.find(params[:recipe_id])
-    # authorize @review
   end
 
   def update
@@ -34,7 +33,6 @@ class ReviewsController < ApplicationController
     else
       render :edit
     end
-   # authorize @review
   end
 
   def destroy
@@ -42,7 +40,6 @@ class ReviewsController < ApplicationController
     @user = current_user
     @review.destroy
     redirect_to user_path(@user)
-    # authorize @review
   end
 
   private
@@ -50,6 +47,7 @@ class ReviewsController < ApplicationController
   def set_review
     @review = Review.find_by(id:[params[:id], params[:review_id]])
     @recipe = @review.recipe
+    authorize @review
   end
 
   def review_strong_params

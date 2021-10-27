@@ -1,15 +1,26 @@
 class RecipesController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
   def index
-  if params[:query].present?
-      @recipes = Recipe.search_by_name_and_description(params[:query])
+    @recipes = policy_scope(Recipe)
+    if params[:query].present?
+      @recipes = policy_scope(Recipe).search_by_name_and_description(params[:query])
+    else
+      @recipes = policy_scope(Recipe).order(:name)
+    end
+  end
+
+  def search
+    if params[:query].present?
+    @recipes = Recipe.where("name ILIKE ?", "%#{params[:query]}%")
     else
       @recipes = Recipe.all
     end
+    authorize @recipes
   end
+
 
   def show
     @categories = @recipe.categories
@@ -19,6 +30,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     4.times { @recipe.doses.build }
     4.times { @recipe.steps.build }
+    authorize @recipe
   end
 
   def create
@@ -30,6 +42,7 @@ class RecipesController < ApplicationController
     else
       render :new
     end
+    authorize @recipe
   end
 
   def edit
@@ -52,6 +65,7 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+    authorize @recipe
   end
 
   def recipe_strong_params
