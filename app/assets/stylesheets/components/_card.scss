@@ -6,8 +6,9 @@
   margin: 10px 10px 30px 10px;
   background-color: $alabaster;
   display: flex;
-  height: 200px;
-  width: 300px;
+  flex-direction: column;
+  height: 360px;
+  width: 250px;
 
 
     img {
@@ -15,7 +16,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 150px;
+    width: 250px;
     object-fit: cover;
   }
 
@@ -33,7 +34,21 @@
 
   .index-card-content {
     padding-left: 0.5rem;
-    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+
+  h3 {
+    font-size: 1.5rem;
+    color: green;
+    padding: 0.5rem;
+  }
+
+  a {
+    color: green;
+    text-decoration: none;
+  }
 
     ul {
       padding-left: 0;
@@ -50,6 +65,7 @@
   display: flex;
   justify-content: space-evenly;
   margin: 0.3rem 0;
+  height: 1.2rem;
 
   .portions_number_original {
     padding-right: 5px;
@@ -58,7 +74,6 @@
 
 .img-box-index {
   position: relative;
-  height: 200px;
   width: 50%;
 }
 
@@ -68,28 +83,22 @@
   opacity: 0.4;
 }
 
-.index-card-content {
-  align-items: flex-end;
 
-  h3 {
-    font-size: 1.5rem;
-    color: green;
-    padding: 0.5rem;
-  }
 
-  a {
-    color: green;
-    text-decoration: none;
-  }
-}
-
-.index-cat {
+.card-categories {
   display:grid;
+  grid-template-columns: 1fr 1fr;
+  opacity: 0.7;
+  list-style-type: none;
+  padding-top: 1rem;
+  padding-left: 0;
 }
+
+
 
 .profile-card {
-  height: 200px;
-  width: 300px;
+  height: 360px;
+  width: 250px;
   border-radius: 2px;
   background: transparent;
   overflow: hidden;
@@ -97,13 +106,14 @@
   margin: 10px 10px 30px 10px;
   background-color: $light-blue;
   display: flex;
+  flex-direction: column;
 
 
     img {
       top: 0;
       bottom: 0;
       left: 0;
-      width: 150px;
+      width: 250px;
       object-fit: cover;
     }
 
@@ -112,8 +122,12 @@
     }
 
     .profile-card-content {
-
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
       padding-left: 1rem;
+
       h3 {
         font-size: 1.5rem;
         color: green;
@@ -130,15 +144,23 @@
       text-decoration: none;
     }
 
+    .profile-star-box {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #comment-click {
+      justify-self: flex-end;
+    }
+
     .profile-icons {
-      position: absolute;
       width: 35px;
       height: 35px;
-      top: 15px;
-      left: 15px;
       z-index: 5;
       background-color: white;
       padding: 6px;
+      margin-left: 10px;
+      margin-top: -12px;
       border-radius: 50%;
       display: flex;
       align-items: center;

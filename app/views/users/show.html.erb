@@ -20,26 +20,44 @@
           <%= link_to recipe_path(favourite.recipe) do %>
           <div class="img-box-index">
             <% if favourite.recipe.photo.url %>
-              <%= cl_image_tag favourite.recipe.photo, height: 200, width: 200, crop: :fill %>
+              <%= cl_image_tag favourite.recipe.photo, height: 150, width: 200, crop: :fill %>
             <% else %>
               <%= image_tag("recipe_default.jpg", class:"index-default") %>
             <% end %>
-            <% if  current_user.commented?(favourite.recipe) %>
-              <div class="profile-icons">
-                <%= image_tag("post-it.png", class:"comment-icon") %>
-              </div>
-            <% end %>
+
           </div>
           <div class="profile-card-content">
             <%= link_to recipe_path(favourite.recipe) do %>
             <h3><%= link_to favourite.recipe.name, recipe_path(favourite.recipe) %></h3>
-            <div class="card-stars">
-              <% favourite.recipe.average_rating.times do%>
-                <span class="fa fa-star checked"></span>
+            <div class="profile-star-box">
+              <div class="card-stars">
+                <% favourite.recipe.average_rating.times do%>
+                  <span class="fa fa-star checked"></span>
+                  <% end %>
+                  <% (5 - favourite.recipe.average_rating).times do%>
+                  <span class="fa fa-star empty"></span>
                 <% end %>
-                <% (5 - favourite.recipe.average_rating).times do%>
-                <span class="fa fa-star empty"></span>
-              <% end %>
+
+              </div>
+              <% if  current_user.commented?(favourite.recipe) %>
+                <% @comment = current_user.get_comment_instances(favourite.recipe) %>
+                <div class="profile-icons" id="comment-click" data-toggle="modal" data-target="#modal-<%=@comment.id%>">
+                  <%= image_tag("post-it.png", class:"comment-icon") %>
+                </div>
+
+              <div class="modal fade" id="modal-<%= @comment.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <p>
+                        <%= current_user.get_comment_instances(favourite.recipe).content  %>
+                      </p>
+                      <button type="button" class="btn-small" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
             </div>
             <div class="card-numbers">
               <div class="inline">
@@ -48,8 +66,8 @@
               </div>
               <p><i class="fas fa-clock space-right"></i><%= favourite.recipe.time %> min</p>
             </div>
-            <ul>
-              <% favourite.recipe.categories[0..2].each do |category| %>
+            <ul class="card-categories">
+              <% favourite.recipe.categories[0..3].each do |category| %>
                 <li class="index-cat">
                   <%=category.name %>
                 </li>
@@ -77,29 +95,35 @@
             <% end %>
           </div>
           <div class="index-card-content">
-            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-            <div class="card-stars">
-              <% recipe.average_rating.times do%>
-                <span class="fa fa-star checked"></span>
+            <div>
+              <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            </div>
+            <div>
+              <div class="card-stars">
+                <% recipe.average_rating.times do%>
+                  <span class="fa fa-star checked"></span>
+                  <% end %>
+                  <% (5 - recipe.average_rating).times do%>
+                  <span class="fa fa-star empty"></span>
                 <% end %>
-                <% (5 - recipe.average_rating).times do%>
-                <span class="fa fa-star empty"></span>
-              <% end %>
-            </div>
-            <div class="card-numbers">
-              <div class="inline">
-                <i class="fas fa-utensils space-right"></i>
-                <p class="portions_number_original"><%= recipe.portions %></p>
               </div>
-              <p><i class="fas fa-clock space-right"></i><%= recipe.time %> min</p>
+              <div class="card-numbers">
+                <div class="inline">
+                  <i class="fas fa-utensils space-right"></i>
+                  <p class="portions_number_original"><%= recipe.portions %></p>
+                </div>
+                <p><i class="fas fa-clock space-right"></i><%= recipe.time %> min</p>
+              </div>
             </div>
-            <ul>
-              <% recipe.categories[0..2].each do |category| %>
-                <li class="index-cat">
-                  <%= category.name %>
-                </li>
-              <% end %>
-            </ul>
+            <div>
+              <ul class="card-categories">
+                <% recipe.categories[0..3].each do |category| %>
+                  <li class="index-cat">
+                    <%= category.name %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
           <% end %>
         </div>
@@ -127,3 +151,4 @@
     <% end %>
   </div>
 </div>
+
