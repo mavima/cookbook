@@ -46,7 +46,8 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
-    @comment = comment.find_by(id:[params[:id], params[:comment_id]])
+    @comment = Comment.find_by(id:[params[:id], params[:comment_id]])
+    # @recipe = @comment.recipe
     authorize @comment
   end
 

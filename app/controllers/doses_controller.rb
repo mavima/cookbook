@@ -19,7 +19,6 @@ class DosesController < ApplicationController
   end
 
   def edit
-    # @dose.amount.round(0) if @dose.amount % 1 == 0
   end
 
   def update
