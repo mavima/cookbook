@@ -11,7 +11,7 @@
 
   <hr>
 
-  <h4>My favourites</h4>
+  <h4 class="profile-title">My favourites</h4>
     <div class="index-grid">
       <% my_favourites = @user.favourites %>
       <% my_favourites.each do |favourite| %>
@@ -81,7 +81,7 @@
 
     </div>
 
-    <h4>My recipes</h4>
+    <h4 class="profile-title">My recipes</h4>
     <div class="index-grid">
       <% my_recipes = @user.recipes.order('name ASC') %>
       <% my_recipes.each do |recipe| %>
@@ -131,9 +131,10 @@
     <!-- </div> -->
     </div>
   <br>
-  <h4>My reviews</h4>
-  <div class="profile-review">
+  <h4 class="profile-title">My reviews</h4>
+  <div class="profile-review-grid">
     <% @user.reviews.each do |review| %>
+      <div class="profile-review">
       <% @recipe = review.recipe %>
       <%= link_to recipe_path(review.recipe) do %>
         <h5><%=review.recipe.name %></h5>
@@ -147,7 +148,7 @@
           <% end %>
           <%= link_to "", edit_recipe_review_path(@recipe, review), class: "fas fa-pencil-alt opacity_7"%>
             <%=  link_to "", recipe_review_path(@recipe,review), method: :delete, data: { confirm: "are you sure?" }, class: "fa fa-trash opacity_7 " %></p>
-          <hr>
+      </div>
     <% end %>
   </div>
 </div>
