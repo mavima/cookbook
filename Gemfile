@@ -51,6 +51,9 @@ gem 'cloudinary'
 # User authentication
 gem 'devise'
 
+# Guest user
+gem 'devise-guests', '~> 0.5.0'
+
 # nested form
 gem "cocoon"
 
