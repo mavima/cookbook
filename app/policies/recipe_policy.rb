@@ -23,6 +23,7 @@ class RecipePolicy < ApplicationPolicy
 
   def destroy?
     record.user == user || user.admin
+
   end
 
   def update?

@@ -1,3 +1,15 @@
+.index-top {
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.9),rgba(126, 194, 112, 0.35)), asset-data-url('index-banner2.jpg');
+  background-position: center;
+  padding: 1rem;
+}
+
+.index-title {
+  padding-bottom: 1rem;
+  margin-left: 10px;
+}
+
 .index-grid {
   display: -ms-grid;
   display: grid;
@@ -41,6 +53,7 @@
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
+
 }
 
 @supports (display:grid) {

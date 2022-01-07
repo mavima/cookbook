@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:edit, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
 
@@ -33,7 +33,9 @@ class RecipesController < ApplicationController
     authorize @recipe
   end
 
+
   def create
+    current_user = current_or_guest_user
     @recipe = Recipe.new(recipe_strong_params)
     @recipe.user_id = User.find(current_user.id).id
     @categories = Category.where(category_ids: @recipe.category_ids)
