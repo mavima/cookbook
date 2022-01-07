@@ -79,10 +79,6 @@
     min-height: 0;
   }
 
-  @media only screen and (min-device-width: 993px) and (max-device-width: 2559px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
 
   @media(min-width: 2560px) {
     .profile-review-grid {

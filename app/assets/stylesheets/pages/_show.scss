@@ -78,10 +78,11 @@
 .show-dose-line {
   display: flex;
   width: 50%;
-  margin: auto;
+  margin-left: 1rem;
   justify-content: space-between;
   border-bottom: 1px solid $grey;
   padding-top: 8px;
+  line-height: 1rem;
 
   .dose-unit {
     display: flex;
@@ -113,6 +114,12 @@
   padding: 1rem;
 }
 
+.show-steps {
+  // list-style-type: none;
+  margin-left: 1rem;
+  line-height: 1.5rem;
+}
+
 .show-categories {
   padding-left: 1rem;
   margin-top: 1vh;
@@ -120,6 +127,10 @@
 
   ul {
     margin: auto;
+  }
+
+  h5 {
+    margin-left: 1em;
   }
 }
 
