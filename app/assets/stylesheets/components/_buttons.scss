@@ -152,6 +152,7 @@
 
 
 
+
 @media (max-width: 600px) {
 
   .btn-home {
@@ -163,5 +164,12 @@
     width: 5rem;
     margin: 0.5rem;
     padding: 6px 6px;
+  }
+}
+
+@media (max-width: 414px) {
+
+  .btn-search {
+    margin: auto;
   }
 }
