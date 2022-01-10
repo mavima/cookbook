@@ -29,6 +29,16 @@
         color: green;
         text-decoration: none;
       }
+
+      .navbar-search {
+        position: relative;
+      }
+
+      .nav-search-form {
+        position: absolute;
+        top: 5rem;
+        right: 3rem;
+      }
     }
 
     li:hover {
@@ -141,6 +151,10 @@ ul.user-action {
     -webkit-overflow-scrolling: touch;
     z-index: 0;
     display: none;
+  }
+
+  .slide-input {
+    margin-left: 0;
   }
 
   // .slideout-menu-left {
