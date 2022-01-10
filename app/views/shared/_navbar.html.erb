@@ -127,6 +127,16 @@
           <li class="dim">
             <%= link_to "About Recipeper", about_path %>
           </li>
+          <li>
+            <%= form_tag recipes_path, method: :get do %>
+              <%= text_field_tag :query,
+              params[:query],
+              placeholder: "Find a recipe",
+              class: "input-box input-search slide-input"
+            %>
+          <%= submit_tag "Search", class: "btn-home btn-search btn-dropdown" %>
+        <% end %>
+          </li>
 
   <!--           <li class="dim">
              <%#= link_to "How to use Famtravel", instructions_path %>
