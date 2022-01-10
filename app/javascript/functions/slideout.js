@@ -1,5 +1,4 @@
 const slideMenu = () => {
-  console.log("sliding baby!")
 
   // const panel = document.querySelector('.panel')
   // const menu = document.getElementById('menu')
@@ -7,7 +6,6 @@ const slideMenu = () => {
 
   $('#openSlideOut').on('click', (e) => {
     if ($('.panel').hasClass("slideout-open")) {
-      console.log("slide up!")
       $('.panel').removeClass("slideout-open visible");
       $('.pages').removeClass("layout");
   }

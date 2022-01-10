@@ -20,7 +20,19 @@
         About
       <% end %>
     </li>
-    <li><i class="fas fa-search"></i></li>
+    <li class="navbar-search">
+      <i class="fas fa-search nav-search-img"></i>
+      <div class="nav-search-form">
+        <%= form_tag recipes_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Find a recipe",
+            class: "input-box input-search"
+          %>
+          <%= submit_tag "Search", class: "btn-home btn-search btn-dropdown" %>
+        <% end %>
+      </div>
+    </li>
 
     <% if user_signed_in? %>
 <!--       <div class="dropdown">

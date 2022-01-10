@@ -29,6 +29,16 @@
         color: green;
         text-decoration: none;
       }
+
+      .navbar-search {
+        position: relative;
+      }
+
+      .nav-search-form {
+        position: absolute;
+        top: 5rem;
+        right: 3rem;
+      }
     }
 
     li:hover {

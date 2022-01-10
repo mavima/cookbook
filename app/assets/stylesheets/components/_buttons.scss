@@ -1,10 +1,10 @@
 // button for adding ingredient
 .add_fields, .btn-home {
   display: block;
-  width: 20rem;
+  width: 15rem;
   text-align: center;
   border: solid 1px $green;
-  padding: 10px 22px;
+  padding: 7px 15px;
   background-color: $green;
   font-size: 16px;
   border-radius: 10px;
@@ -13,7 +13,7 @@
 }
 
 .btn-home {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .btn-home:hover {
@@ -148,6 +148,10 @@
   border-radius: 10px;
   color: white;
   margin: 2vh 0;
+}
+
+.btn-dropdown {
+  border: 1px solid white;
 }
 
 
