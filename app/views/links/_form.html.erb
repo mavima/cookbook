@@ -1,0 +1,12 @@
+  <div class="container">
+    <div>
+      <%= simple_form_for(@link) do |f| %>
+        <%= f.input :url, label: "Link address" %>
+        <% @categories = Category.all %>
+        <%= f.label "Choose categories:" %>
+        <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid" %>
+        <%= f.input :note, label: "My note" %>
+        <%= f.submit "Save your link", class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
