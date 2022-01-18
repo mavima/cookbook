@@ -4,6 +4,6 @@ one:
   user: one
   recipe: one
 
-two:
-  user: two
-  recipe: two
+# two:
+#   user: two
+#   recipe: two

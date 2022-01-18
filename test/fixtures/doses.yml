@@ -3,9 +3,9 @@
 one:
   amount: 1.5
   recipe: one
-  ingredient: one
+  ingredient: 'secret ingredient'
 
-two:
-  amount: 1.5
-  recipe: two
-  ingredient: two
+# two:
+#   amount: 1.5
+#   recipe: two
+#   ingredient: two

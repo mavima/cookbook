@@ -78,9 +78,9 @@
       <div class="show-buttons">
        <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn-show btn-green" %>
        <% if policy(@recipe).edit? %>
-        <%= link_to "Change recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
+        <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
        <% end %>
-      <%= link_to "Back to the list", recipes_path, class: "btn-show btn-blue" %>
+      <%= link_to "All recipes", recipes_path, class: "btn-show btn-blue" %>
       </div>
     </div>
     <div class="show-right">
