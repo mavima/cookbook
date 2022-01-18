@@ -18,6 +18,7 @@ import { slideMenu } from '../functions/slideout'
 import { preview } from '../functions/photo_input'
 import { fadeOut } from '../functions/alert_fade'
 import { nav_search_display } from '../functions/navbar_search'
+// import { screenshot } from '../functions/screenshot'
 
 reviewStars();
 changeAmounts();
@@ -25,3 +26,4 @@ slideMenu();
 preview();
 fadeOut();
 nav_search_display();
+// screenshot()

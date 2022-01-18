@@ -33,8 +33,6 @@ const changeAmounts = () => {
           let newAmount = (amountPerPortion * newPortions);
           //avoid useless decimals
           if ((newAmount - Math.floor(newAmount)) < 0.1) {
-            console.log(newAmount)
-            console.log(newAmount - Math.floor(newAmount))
             newAmount = Math.floor(newAmount)
           } else {
             newAmount = newAmount.toFixed(1)

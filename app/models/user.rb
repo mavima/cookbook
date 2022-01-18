@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :reviews
   has_many :favourites, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments
+  has_many :links, dependent: :destroy
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
   validates :email, presence: true, on: :update

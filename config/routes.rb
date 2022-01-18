@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
 
-   resources :favourites, only: :destroy
+  resources :links, only: [:index, :new, :create, :destroy, :edit, :update] 
+  resources :favourites, only: :destroy
 
   get 'users/profile/:id', to: 'users#show', as: 'user'
 

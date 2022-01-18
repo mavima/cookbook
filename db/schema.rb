@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_154155) do
+ActiveRecord::Schema.define(version: 2022_01_18_164316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 2021_10_20_154155) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories_links", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "link_id", null: false
   end
 
   create_table "categories_recipes", id: false, force: :cascade do |t|
@@ -76,6 +81,16 @@ ActiveRecord::Schema.define(version: 2021_10_20_154155) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
+  create_table "links", force: :cascade do |t|
+    t.string "image"
+    t.string "url"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "note"
+    t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -90,7 +105,6 @@ ActiveRecord::Schema.define(version: 2021_10_20_154155) do
     t.string "photo"
     t.integer "portion"
     t.text "description"
-    t.text "instruction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
@@ -142,6 +156,7 @@ ActiveRecord::Schema.define(version: 2021_10_20_154155) do
   add_foreign_key "doses", "recipes"
   add_foreign_key "favourites", "recipes"
   add_foreign_key "favourites", "users"
+  add_foreign_key "links", "users"
   add_foreign_key "recipes", "users"
   add_foreign_key "reviews", "recipes"
   add_foreign_key "reviews", "users"

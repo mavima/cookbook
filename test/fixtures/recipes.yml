@@ -1,15 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  photo: MyString
-  portion: 1
-  description: MyText
-  instruction: MyText
+  name: 'Delicious Recipe'
+  photo: nil
+  portion: 5
+  description: 'Good food for all'
+  user_id: 1
 
-two:
-  name: MyString
-  photo: MyString
-  portion: 1
-  description: MyText
-  instruction: MyText
+
+# two:
+#   name: MyString
+#   photo: MyString
+#   portion: 1
+#   description: MyText
+#   instruction: MyText

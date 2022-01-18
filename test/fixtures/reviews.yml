@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyString
-  photo: MyString
+  content: 'my review'
+  photo: nil
   rating: 1
   user: one
   recipe: one
 
-two:
-  content: MyString
-  photo: MyString
-  rating: 1
-  user: two
-  recipe: two
+# two:
+#   content: MyString
+#   photo: MyString
+#   rating: 1
+#   user: two
+#   recipe: two
