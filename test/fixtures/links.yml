@@ -1,13 +1,12 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  image: MyString
-  url: MyString
+  image: "MyString"
+  url: "MyString"
   user: one
-  category: one
+  note: "MyString"
 
-two:
-  image: MyString
-  url: MyString
-  user: two
-  category: two
+# two:
+#   image: MyString
+#   url: MyString
+#   user: two

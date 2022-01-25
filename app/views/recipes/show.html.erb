@@ -106,14 +106,23 @@
       <% if @recipe.reviews.present? %>
         <div class="show-reviews">
           <% @recipe.reviews.each do |review| %>
-            <% review.rating.times do%>
-              <span class="fa fa-star checked"></span>
-            <% end %>
-            <% (5 - review.rating).times do%>
-              <span class="fa fa-star empty"></span>
-            <% end %>
-            <p>"<%= review.content %>"</p>
-            <p class="reviewer"><%= review.user.first_name %> </p>
+            <div class="show-review-box">
+              <div>
+                <% review.rating.times do%>
+                  <span class="fa fa-star checked"></span>
+                <% end %>
+                <% (5 - review.rating).times do%>
+                  <span class="fa fa-star empty"></span>
+                <% end %>
+                <p>"<%= review.content %>"</p>
+                <p class="reviewer"><%= review.user.first_name %> </p>
+              </div>
+              <div>
+                <% if review.photo?%>
+                  <%= cl_image_tag review.photo, height: 100, width: 100, crop: :fill  %>
+                <% end %>
+              </div>
+            </div>
             <hr>
           <% end %>
         </div>

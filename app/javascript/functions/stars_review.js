@@ -27,7 +27,6 @@ const reviewStars = () => {
 
     stars.forEach((star) => {
       star.addEventListener("click", () => {
-        console.log(star.dataset.value)
         input.value = star.dataset.value
         fillStars(stars, star.dataset.value)
       })

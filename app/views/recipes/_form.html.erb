@@ -9,7 +9,7 @@
     <%= render 'dose_fields', f: dose %>
   <% end %>
   <div class="links">
-    <%= link_to_add_association 'Add ingredient', f, :doses %>
+    <%= link_to_add_association 'Add another ingredient', f, :doses %>
   </div>
   <h4>Instructions step by step</h4>
   <%= f.simple_fields_for :steps do |step| %>

@@ -62,7 +62,7 @@
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <h6 class="dropdown-item">
-                <%= link_to "My profile", user_path(current_user), class: "nav-link" %>
+                <%= link_to "My Cookbook", user_path(current_user), class: "nav-link" %>
               </h6>
             <h6 class="dropdown-item">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -119,7 +119,12 @@
             <%= link_to "Home", root_path %>
           </li>
           <li class="dim">
-              <%= link_to "My profile", user_path(current_user)  %>
+            <%= link_to recipes_path do %>
+              All recipes
+            <% end %>
+          </li>
+          <li class="dim">
+              <%= link_to "My Cookbook", user_path(current_user)  %>
           </li>
           <li class="dim">
             <%= link_to "Add a recipe", new_recipe_path %>
@@ -138,18 +143,10 @@
         <% end %>
           </li>
 
-  <!--           <li class="dim">
-             <%#= link_to "How to use Famtravel", instructions_path %>
-            </li>
-            <li class="dim">
-              <%#= link_to "Privacy Policy", privacy_policy_path, target: "_blank" %>
-            </li> -->
-
-          <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", target: :_blank, class: "fab fa-facebook-square" %></li>
           <li class="logout"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-slide" %></li>
 
           <div class="copyright">
-            <li>Copyright &copy; 2019 - 2021 Recipeper</li>
+            <li>Copyright &copy; 2022 Recipeper</li>
             <li>Maria Manninen, Luxembourg</li>
           </div>
         </ul>
@@ -159,12 +156,25 @@
           <div class="welcome">
 
               <h3>Welcome to Recipeper</h3>
-              <%= image_tag('hat.png', class: "navbar-logo") %>
 
             <ul>
+            <li>              
+              <%= image_tag('hat.png', class: "navbar-logo") %>
+            </li>
+            <li class="dim">
+            <%= link_to "Home", root_path %>
+          </li>
+          <li class="dim">
+            <%= link_to recipes_path do %>
+              All recipes
+            <% end %>
+          </li>
+          <li class="dim">
+            <%= link_to "Add a recipe", new_recipe_path %>
+          </li>
 
                 <li class="dim"><%= link_to "About us", about_path %></li>
-                <li class="dim">How to use Recipeper</li>
+                <%# <li class="dim">How to use Recipeper</li> %>
                 <li class="login">
                   <%= link_to "Log in", new_user_session_path, class: "btn-slide" %>
                 </li>
@@ -173,7 +183,7 @@
                 </li> -->
     <!--             <li class="fb"><%#= link_to "", "http://www.facebook.com/famtravel.eu", class: "fab fa-facebook-square" %></li> -->
                 <div class="copyright copyright-guest">
-                  <li>Copyright &copy; 2021 Recipeper</li>
+                  <li>Copyright &copy; 2022 Recipeper</li>
                   <li>Maria Manninen, Luxembourg</li>
                 </div>
             </ul>

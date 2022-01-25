@@ -135,21 +135,52 @@
   <div class="profile-review-grid">
     <% @user.reviews.each do |review| %>
       <div class="profile-review">
-      <% @recipe = review.recipe %>
-      <%= link_to recipe_path(review.recipe) do %>
-        <h5><%=review.recipe.name %></h5>
-        <p>"<%= review.content %>"</p>
-          <% review.rating.times do%>
-            <span class="fa fa-star checked"></span>
+        <div>
+          <% @recipe = review.recipe %>
+          <%= link_to recipe_path(review.recipe) do %>
+            <h5><%=review.recipe.name %></h5>
+            <p>"<%= review.content %>"</p>
+            <% review.rating.times do%>
+              <span class="fa fa-star checked"></span>
+            <% end %>
+            <% (5 - review.rating).times do%>
+              <span class="fa fa-star empty"></span>
+            <% end %>
           <% end %>
-          <% (5 - review.rating).times do%>
-            <span class="fa fa-star empty"></span>
+          <span class="profile-review-icons">
+            <%= link_to "", edit_recipe_review_path(@recipe, review), class: "fas fa-pencil-alt opacity_7 green"%>
+            <%=  link_to "", recipe_review_path(@recipe,review), method: :delete, data: { confirm: "are you sure?" }, class: "fa fa-trash opacity_7 green" %></p>
+          </span>
+        </div>
+        <div>
+          <% if review.photo?%>
+            <%= cl_image_tag review.photo, height: 100, width: 100, crop: :fill  %>
           <% end %>
-          <% end %>
-          <%= link_to "", edit_recipe_review_path(@recipe, review), class: "fas fa-pencil-alt opacity_7"%>
-            <%=  link_to "", recipe_review_path(@recipe,review), method: :delete, data: { confirm: "are you sure?" }, class: "fa fa-trash opacity_7 " %></p>
+        </div>
       </div>
     <% end %>
   </div>
+  <br>
+  <h4 class="profile-title">My links</h4>
+  <div class="profile-review-grid">
+    <% @user.links.each do |link| %>
+      <div class="profile-link">
+      <%= link_to link.url do %>
+        <h5><%= link.title %></h5>
+        <p><%= link.url.first(30) %>...</p>
+        <p>"<%= link.note %>"</p>
+        <% if link.image? %>
+          <%= cl_image_tag link.image, height: 200, width: 200, crop: :fill %>
+        <% end %>
+        <p>          
+          <%= link_to "", edit_link_path(link), class: "fas fa-pencil-alt opacity_7 green"%>
+          <%=  link_to "", link_path(link), method: :delete, data: { confirm: "are you sure?" }, class: "fa fa-trash opacity_7 green" %></p>
+      <% end %>
+      
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Add a new link", new_link_path, class: "btn-show btn-green" %>
 </div>
 
+ 

@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
-   before_action :set_link, only: [:edit, :update, :destroy]
+   before_action :set_link, only: [:edit, :update, :destroy, :upload_image]
+   include ActionController::MimeResponds
 
   def new
     @link = Link.new
@@ -10,7 +11,9 @@ class LinksController < ApplicationController
     @user = current_user
     @link = Link.new(link_strong_params)
     @link.user = current_user
+    
     if @link.save
+
       redirect_to user_path(@user)
     else
       render :new
@@ -36,6 +39,26 @@ class LinksController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  # @kit = IMGKit.new(render_to_string)
+
+  # respond_to do |format|
+  #   send_data(@kit.to_img(format.to_sym),
+  #             :type => "image/#{format}", :disposition => 'inline')
+  # end
+
+#   def upload_image
+#     html  = render_to_string
+#     kit   = IMGKit.new(html)
+#     img   = kit.to_img(:png)
+#     file  = Tempfile.new(["template_#{model.id}", 'png'], 'tmp',
+#                           :encoding => 'ascii-8bit')
+#     file.write(img)
+#     file.flush
+#     @link.snapshot = file
+#     @link.save
+#     file.unlink
+#  end
+
   private
 
   def set_link
@@ -44,6 +67,6 @@ class LinksController < ApplicationController
   end
 
   def link_strong_params
-    params.require(:link).permit(:url, :image, :user_id, :note, :category_ids => [])
+    params.require(:link).permit(:url, :image, :user_id, :note, :title, :category_ids => [])
   end
 end
