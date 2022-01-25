@@ -11,7 +11,16 @@
   display: grid;
 }
 
-.profile-review {
+.profile-review, .profile-link {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  max-width: 350px;
+  border-bottom: 2px solid $light-gray;
+
+  .fa {
+    font-size: 0.7rem;
+  }
 
   h5 {
     color: $green;
@@ -26,6 +35,10 @@
   }
 
 
+}
+
+.profile-review-icons {
+  padding-left: 15px;
 }
 
 .modal {
@@ -106,14 +119,6 @@
     }
   }
 
-.profile-review {
-  padding: 1rem;
-  max-width: 350px;
-  border-bottom: 2px solid $light-gray;
 
-  .fa {
-    font-size: 0.7rem;
-  }
-}
 
 

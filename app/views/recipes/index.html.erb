@@ -1,17 +1,21 @@
 <div class="pages">
 
   <div class="index-top">
-    <h1 class="index-title">Recipes</h1>
-    <%= form_tag recipes_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        placeholder: "Find a recipe",
-        class: "input-box input-search"
-      %>
-      <%= submit_tag "Search", class: "btn-home btn-search" %>
-    <% end %>
+    <div class="index-top-container">
+      <h1 class="index-title">Recipes</h1>
+      <div class= "index-form-grid">
+      <%= form_tag recipes_path, method: :get, class: "index-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          placeholder: "Find a recipe",
+          class: "input-box input-box-index input-search"
+        %>
+        <%= submit_tag "Search", class: "btn-home btn-search" %>
+      <% end %>
+      </div>
+    </div>
   </div>
-  <div class="container">
+  <div class="index-container">
     <div class="index-grid">
       <!-- <div class="index-cards"> -->
       <% @recipes.each do |recipe| %>

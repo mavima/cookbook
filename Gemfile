@@ -14,11 +14,12 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.2'
 #
-gem 'react-rails'
 
 # for screenshots
-gem 'wkhtmltoimage-binary', '~> 0.12.2'
-gem 'imgkit', '~> 1.6', '>= 1.6.1'
+gem 'grover'
+
+# gem 'wkhtmltoimage-binary', '~> 0.12.2'
+# gem 'imgkit', '~> 1.6', '>= 1.6.1'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

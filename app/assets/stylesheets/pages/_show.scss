@@ -182,6 +182,11 @@
   padding: 1rem;
 }
 
+.show-review-box {
+  display: flex;
+  justify-content: space-between;
+}
+
 .reviewer {
   font-size: 0.8rem;
   padding: 0;

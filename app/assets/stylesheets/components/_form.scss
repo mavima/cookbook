@@ -166,7 +166,11 @@ min-height: 200px;
 @media(max-width: 414px) {
 
   .input-search {
-    margin-left: 10%;
-    margin-bottom: 1rem;
+    margin: 10px auto;
+  }
+
+  .input-box-index {
+    width: 100%;
+    margin: 10px auto;
   }
 }
