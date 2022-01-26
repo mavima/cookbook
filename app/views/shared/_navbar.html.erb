@@ -111,7 +111,7 @@
           <% if current_user.avatar.present? %>
             <%= cl_image_tag current_user.avatar.url(:height => 100, :width => 100, :crop => :fill, :gravity => :face, :radius => 50)%>
           <% else %>
-           <%=  image_tag('hat_small.png', class: "navbar-logo")%>
+           <%=  image_tag('hat_lightblue.png', class: "navbar-logo")%>
           <% end %>
           </li>
         <div class="slidepage">
@@ -159,7 +159,7 @@
 
             <ul>
             <li>              
-              <%= image_tag('hat.png', class: "navbar-logo") %>
+              <%= image_tag('hat_lightblue.png', class: "navbar-logo") %>
             </li>
             <li class="dim">
             <%= link_to "Home", root_path %>
