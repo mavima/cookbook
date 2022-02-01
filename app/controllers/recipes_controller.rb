@@ -56,11 +56,20 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
+    authorize @recipe
   end
 
   def destroy
     @recipe.destroy
     redirect_to recipes_path
+    authorize @recipe
+  end
+
+  def send_recipe
+    @recipe = Recipe.find(params[:id])
+    RecipeMailer.send_recipe(current_user, @recipe).deliver_now
+    redirect_to recipe_path(@recipe)
+    authorize @recipe
   end
 
   private

@@ -1,0 +1,38 @@
+<div>
+  <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+      
+  <% if @recipe.photo.present? %>
+    <%= cl_image_tag @recipe.photo, height: 100, width: 100, crop: :fill  %>
+  <% end %>
+
+  <div class="recipe-description">
+    <%= @recipe.description %>
+  </div>
+  <div style="opacity: 0.8; font-size: 90%">
+    <p>Time of preparation: <%=@recipe.time %> minutes</p>
+    <p>Portions: <%= @recipe.portions %></p>
+  </div>
+  <div>
+    <% @recipe.doses.each do |dose| %>
+      <p style="line-height: 0.8">
+          <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %> 
+          <%= dose.unit %> <%= dose.ingredient.capitalize %>
+      </p>
+    <% end %>
+    <ul class="show-steps" style="padding-bottom: 1rem">
+      <% @recipe.steps.each do |step| %>
+        <li> <%= step.detail.capitalize %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <% if @user.commented?(@recipe) %>
+    <h4>My notes:</h4>
+        <p><%= @user.get_comment_instances(@recipe).content %></p>
+        <% @comment = @user.get_comment_instances(@recipe) %>
+    <% end %>
+  </div>
+</div>
+
+<p>* * * </p>
+<p>Thank you for choosing <%= link_to "Recipeper", root_url %></p>

@@ -1,0 +1,15 @@
+
+    <h4>Dear <%= @user.first_name %>,</h4>
+    <p>Welcome to Recipeper!</p>
+    <p>
+      You have successfully signed up,
+      your username is: <%= @user.email %>.<br>
+    </p>
+    <p>
+      <%= link_to "Return to Recipeper", root_url %>
+    </p>
+    <p>Thanks for joining, we are happy to have you among us!</p>
+
+    <p>Kind regards,</p>
+
+    <p>Recipeper team</p>
