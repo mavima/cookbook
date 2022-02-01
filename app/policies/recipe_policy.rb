@@ -34,4 +34,8 @@ class RecipePolicy < ApplicationPolicy
     end
   end
 
+  def send_recipe?
+    return true
+  end
+
 end

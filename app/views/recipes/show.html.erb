@@ -80,6 +80,8 @@
        <% if policy(@recipe).edit? %>
         <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
        <% end %>
+       <%= link_to "Send email", send_recipe_path(@recipe), class: "btn-blue btn-show"%>
+       <button class="btn-show btn-green" id="btn-email">Send as email</button>
       <%= link_to "All recipes", recipes_path, class: "btn-show btn-blue" %>
       </div>
     </div>

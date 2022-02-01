@@ -1,0 +1,51 @@
+<div class="pages">
+  <div class="show-container">
+    <div class="show-left">
+      <% if @recipe.photo.present? %>
+        <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 200, width: 400, crop: :fill %>')">
+        </div>
+      <% end %>
+
+      <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+
+      <div class="recipe-description">
+        <%= @recipe.description %>
+      </div>
+      <div class="show-numbers">
+        <div class="inline">
+          <i class="fas fa-utensils space-right"></i>
+          <p class="portions_number_original"><%= @recipe.portions %></p>
+        </div>
+        <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> minutes</p>
+      </div>
+        <ul class="show-doses">
+        <% @recipe.doses.each do |dose| %>
+          <li class="show-dose-line">
+            <div class="dose-unit">
+            <p class="dose-amount"><%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %></p>
+            <%= dose.unit %>
+            </div>
+            <p style="last-element" class="ingredient"><%= dose.ingredient.capitalize %></p>
+          </li>
+        <% end %>
+        </ul>
+        <ul class="show-steps">
+          <% @recipe.steps.each do |step| %>
+            <li> <%= step.detail %> </li>
+          <% end %>
+        </ul>
+    </div>
+    <div class="show-right">
+      <div class="note-box">
+        <h4>My notes:</h4>
+        <% if current_user && current_user.commented?(@recipe) %>
+            <p><%= current_user.get_comment_instances(@recipe).content %></p>
+            <% @comment =  current_user.get_comment_instances(@recipe) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -26,10 +26,12 @@ class LinksController < ApplicationController
   end
 
   def update
+    @user = current_user
     if @link.update(link_strong_params)
-        user_path(@user)
+    redirect_to user_path(@user)
     else
       render :edit
+    authorize @link
     end
   end
 
@@ -37,6 +39,7 @@ class LinksController < ApplicationController
     @user = current_user
     @link.destroy
     redirect_to user_path(@user)
+    authorize @link
   end
 
   # @kit = IMGKit.new(render_to_string)

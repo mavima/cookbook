@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
   get '/about', to: 'pages#about'
+  get '/recipes/recipe/:id/send_recipe', to: 'recipes#send_recipe', as: 'send_recipe'
 
 
 
@@ -16,8 +17,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :links, only: [:index, :new, :create, :destroy, :edit, :update] 
+  resources :links, only: [:index, :new, :create, :edit, :update] 
   resources :favourites, only: :destroy
+  resources :links, only: :destroy
 
   get 'users/profile/:id', to: 'users#show', as: 'user'
 
