@@ -168,13 +168,26 @@
       <%= link_to link.url do %>
         <h5><%= link.title %></h5>
         <p><%= link.url.first(30) %>...</p>
-        <p>"<%= link.note %>"</p>
         <% if link.image? %>
           <%= cl_image_tag link.image, height: 200, width: 200, crop: :fill %>
         <% end %>
-        <p>          
-          <%= link_to "", edit_link_path(link), class: "fas fa-pencil-alt opacity_7 green"%>
-          <%=  link_to "", link_path(link), method: :delete, data: { confirm: "are you sure?" }, class: "fa fa-trash opacity_7 green" %></p>
+        <% if link.categories.count > 0 %>
+        <div>
+          <ul class="link-categories">
+          <% link.categories.first(3).each do |category| %>
+            <li>
+              <%= category.name %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <p>"<%= link.note %>"</p>
+        <div>          
+          <%= link_to "", edit_link_path(link), class: "fas fa-pencil-alt link-icon"%>     
+          <%= button_to "x", link_path(link), method: :delete, class: "delete-link link-icon" %> 
+        </div>
+          
       <% end %>
       
       </div>

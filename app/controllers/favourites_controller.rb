@@ -23,11 +23,5 @@ class FavouritesController < ApplicationController
     authorize @favourite
   end
 
-  private
-
-  # def favourite_params
-  #   params.require(:favourite).permit(:recipe_id)
-  # end
-
 
 end

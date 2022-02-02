@@ -10,6 +10,7 @@ import "bootstrap";
 //= require activestorage
 //= require ('puppeteer')
 //= require('fs/promises')
+//= require_tree
 
 // import "../functions/slideout.js"
 
@@ -20,7 +21,6 @@ import { slideMenu } from '../functions/slideout'
 import { preview } from '../functions/photo_input'
 import { fadeOut } from '../functions/alert_fade'
 import { nav_search_display } from '../functions/navbar_search'
-import { sendRecipe } from '../functions/send_recipe'
 // import { snap } from '../functions/snapshot'
 
 reviewStars();
@@ -29,5 +29,4 @@ slideMenu();
 preview();
 fadeOut();
 nav_search_display();
-sendRecipe();
 // snap();

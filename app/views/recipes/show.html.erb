@@ -76,12 +76,11 @@
 
 
       <div class="show-buttons">
-       <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn-show btn-green" %>
+       <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn-show btn-blue" %>
        <% if policy(@recipe).edit? %>
         <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
        <% end %>
-       <%= link_to "Send email", send_recipe_path(@recipe), class: "btn-blue btn-show"%>
-       <button class="btn-show btn-green" id="btn-email">Send as email</button>
+       <%= link_to "Send as email", send_recipe_path(@recipe), class: "btn-blue btn-show"%>
       <%= link_to "All recipes", recipes_path, class: "btn-show btn-blue" %>
       </div>
     </div>
@@ -91,17 +90,17 @@
         <% if current_user && current_user.commented?(@recipe) %>
         <p><%= current_user.get_comment_instances(@recipe).content %></p>
           <% @comment =  current_user.get_comment_instances(@recipe) %>
-        <%= link_to "Edit my note", edit_recipe_comment_path(@recipe, @comment), class: "btn btn-info" %>
+        <%= link_to "Edit my note", edit_recipe_comment_path(@recipe, @comment), class: "btn-note btn-blue" %>
         <% else %>
-        <%= link_to "Write a note", new_recipe_comment_path(@recipe), class: "btn btn-info" %>
+        <%= link_to "Write a note", new_recipe_comment_path(@recipe), class: "btn-note btn-blue" %>
         <% end %>
       </div>
       <div class="calculator">
         <h4>Recalculate amounts</h4>
-        Number of persons:
+        Number of portions:
         <form class="ration-form">
           <input type="number" id="rations">
-          <button type="submit" id="btn-calculator" class="btn-show btn-green">Change</button>
+          <button type="submit" id="btn-calculator" class="btn-note btn-blue">Change</button>
         </form>
 
       </div>

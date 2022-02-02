@@ -36,9 +36,10 @@ class LinksController < ApplicationController
   end
 
   def destroy
+    # @link = Link.find_by(id:[params[:id])
     @user = current_user
     @link.destroy
-    redirect_to user_path(@user)
+    redirect_to request.referer
     authorize @link
   end
 
