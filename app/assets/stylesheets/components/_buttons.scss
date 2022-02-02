@@ -29,21 +29,16 @@
   height: 45px;
 }
 
-.btn-small {
+.btn-note {
   display: block;
-  border: solid 1px $green;
   padding: 8px 12px 4px;
-  background-color: $green;
   font-size: 14px;
   border-radius: 6px;
-  color: white;
   margin: 2vh 0;
   width: fit-content;
 }
-
-.btn-small:hover {
-  color: white;
-  font-size: 15px;
+#btn-calculator {
+  margin-left: 10px;
 }
 
 .btn-form {
@@ -67,6 +62,7 @@
 .btn-blue {
   background-color: $blue;
   border: 1px solid $blue;
+  color: white;
 }
 
 .btn-green {
@@ -89,6 +85,23 @@
   border-radius: 10px;
   color: white !important;
   margin: 2vh auto;
+}
+
+.btn-small {
+  display: block;
+  border: solid 1px $green;
+  padding: 8px 12px 4px;
+  background-color: $green;
+  font-size: 14px;
+  border-radius: 6px;
+  color: white;
+  margin: 2vh 0;
+  width: fit-content;
+}
+
+.btn-small:hover {
+  color: white;
+  font-size: 15px;
 }
 
 #favourite-button {

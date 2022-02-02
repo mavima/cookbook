@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/about', to: 'pages#about'
   get '/recipes/recipe/:id/send_recipe', to: 'recipes#send_recipe', as: 'send_recipe'
+  get 'users/profile/:id', to: 'users#show', as: 'user'
 
 
 
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   resources :favourites, only: :destroy
   resources :links, only: :destroy
 
-  get 'users/profile/:id', to: 'users#show', as: 'user'
+
+  
+
 
 end
