@@ -4,7 +4,7 @@ class Link < ApplicationRecord
   # has_attached_file :image, :storage => :s3,
   # :s3_credentials => "#{Rails.root}/config/s3.yml"
 
-  validates :url, uniqueness: true
+  validates :url, uniqueness: { scope: :user_id }
   # mount_uploader :image, SnapshotUploader
 
   # after_create :create_screenshot

@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-   before_action :set_link, only: [:edit, :update, :destroy, :upload_image]
+   before_action :set_link, only: [:edit, :update, :upload_image]
    include ActionController::MimeResponds
 
   def new
@@ -36,11 +36,16 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    # @link = Link.find_by(id:[params[:id])
+    @link = Link.find_by(id:[params[:id]])
     @user = current_user
     @link.destroy
-    redirect_to request.referer
     authorize @link
+    respond_to do |format|
+      format.html {redirect_to request.referer, status: :see_other}
+      format.json { head :no_content}
+    end
+    # redirect_to request.referer
+    
   end
 
   # @kit = IMGKit.new(render_to_string)

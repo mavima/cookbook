@@ -37,6 +37,10 @@
 
 .profile-review-icons {
   padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  min-width: 50px;
 }
 
 .modal {
@@ -52,6 +56,22 @@
   min-height: 0;
 }
 
+.delete-confirmation {
+  display: none;
+} 
+
+.visible-confirmation {
+  display: block;
+  z-index: 10;
+  background-color: $light-green;
+  border: 1px dotted red;
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+}
+
+
+
 .link-categories {
   display: flex;
   justify-content: space-between;
@@ -63,12 +83,12 @@
   color: $green !important;
 }
 
-.delete-link {
-  border: 1px solid $green;
+.delete-link, .delete-review {
+  border: 1px solid red;
   border-radius: 6px;
-  background-color: white;
+  background-color: red;
+  color: white;
   font-family: sans-serif;
-  font-weight: 600;
 }
 
 @media(min-width: 2560px) {
