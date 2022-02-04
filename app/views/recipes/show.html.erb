@@ -58,7 +58,7 @@
         </ul>
         <ul class="show-steps">
           <% @recipe.steps.each do |step| %>
-            <li> <%= step.detail %> </li>
+            <li> <%= step.detail.capitalize %> </li>
           <% end %>
         </ul>
       <% if @recipe.categories.count > 0 %>
