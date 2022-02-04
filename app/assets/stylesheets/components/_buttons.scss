@@ -7,7 +7,7 @@
   padding: 7px 15px;
   background-color: $green;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 6px;
   color: white;
   margin: 2vh 0;
 }
@@ -82,7 +82,7 @@
   padding: 6px 10px;
   background-color: $green;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 6px;
   color: white !important;
   margin: 2vh auto;
 }
@@ -139,7 +139,7 @@
   text-align: center;
   padding: 10px 6px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 6px;
   color: white !important;
   margin: 0.5rem;
 }
@@ -158,7 +158,7 @@
   padding: 12px 22px;
   background-color: #ac3973;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 6px;
   color: white;
   margin: 2vh 0;
 }
@@ -172,7 +172,26 @@
   background-color: $green;
   border: 1px solid $green;
   border-radius: 6px;
-  margin-bottom: 8px;
+  font-family: sans-serif;
+}
+
+.btn-delete-link, .btn-delete-review {
+  border: 1px solid red;
+  border-radius: 6px;
+  background-color: red;
+  color: white;
+  font-family: sans-serif;
+}
+
+.btn-back {
+  color: $green;
+  border: 1px solid $green;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.btn-no-marg {
+  margin: 0;
 }
 
 

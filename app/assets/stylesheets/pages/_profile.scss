@@ -57,18 +57,23 @@
 }
 
 .delete-confirmation {
-  display: none;
-} 
-
-.visible-confirmation {
-  display: block;
-  z-index: 10;
-  background-color: $light-green;
-  border: 1px dotted red;
-  border-radius: 6px;
-  padding: 6px;
   text-align: center;
+  p {
+    padding-top: 10px;
+  }
 }
+
+
+
+// .visible-confirmation {
+//   display: block;
+//   z-index: 10;
+//   background-color: $light-green;
+//   border: 1px dotted red;
+//   border-radius: 6px;
+//   padding: 6px;
+//   text-align: center;
+// }
 
 
 
@@ -83,13 +88,7 @@
   color: $green !important;
 }
 
-.delete-link, .delete-review {
-  border: 1px solid red;
-  border-radius: 6px;
-  background-color: red;
-  color: white;
-  font-family: sans-serif;
-}
+
 
 @media(min-width: 2560px) {
   .profile-review-grid {

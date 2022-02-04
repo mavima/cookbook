@@ -7,7 +7,11 @@
         <%= f.label "Choose categories:" %>
         <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid" %>
         <%= f.input :note, label: "My note" %>
-        <%= f.submit "Save your link", class: "btn btn-info", id: "get-snap"%>
+        <%= f.submit "Save your link", class: "btn btn-home btn-green", id: "get-snap"%>
+      <% end %>
+      <br>
+      <%= link_to :back do%>
+        <button class="btn-back"><i class="fas fa-backward"></i></button>
       <% end %>
     </div>
   </div>
