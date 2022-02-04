@@ -24,11 +24,15 @@
   <%= f.input :portions, input_html: {class: "input-box input-box-small"}, label: "Number of portions" %>
 
   <div id="img-preview"></div>
-  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: "Add a photo", label_html: { class: "btn-show btn-blue" } %>
+  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: "Add a photo", label_html: { class: "btn-show btn-blue btn-no-marg" } %>
 
   <%= f.input :photo_cache, as: :hidden %>
 
-<%= f.submit "Save", class: "btn-show btn-green" %>
+<%= f.submit "Save", class: "btn-show btn-green btn-no-marg" %>
+<% end %>
+<br>
+<%= link_to :back do%>
+  <button class="btn-back"><i class="fas fa-backward"></i></button>
 <% end %>
 
 
