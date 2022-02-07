@@ -43,7 +43,6 @@ class DosesController < ApplicationController
   end
 
   def dose_strong_params
-    params.require(:dose).permit(:amount, :recipe_id :ingredient, :unit)
-
+    params.require(:dose).permit(:amount, :recipe_id, :ingredient, :unit)
   end
 end
