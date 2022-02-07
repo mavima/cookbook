@@ -5,8 +5,7 @@ class UserMailer < ApplicationMailer
     def welcome(user)
         @user = user
 
-        # change url!
-        @url  = 'http://www.gmail.com'
+        @url  = 'http://www.recipeper.com'
         mail(to: @user.email, subject: 'Welcome to Recipeper')
       end
 
