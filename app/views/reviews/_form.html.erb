@@ -15,6 +15,7 @@
           <div id="img-preview" class="review-preview"></div>
           <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: "Add a photo", label_html: { class: " btn-home"} %>
         </div>
+        
         <%= f.input :photo_cache, as: :hidden %>
         <div>
           <%= f.submit "Add your review", class: "btn-home" %>

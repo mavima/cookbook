@@ -5,6 +5,6 @@ ActionMailer::Base.smtp_settings = {
   user_name: 'apikey',
   password: ENV["SENDGRID_API_KEY"],
 
-  domain: 'famtravel.eu',
+  domain: 'recipeper.com',
   enable_starttls_auto: true
 }
