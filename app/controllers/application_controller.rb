@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  # after_action :transfer_guest_to_user, only: :create, if: :devise_controller?
+  after_action :transfer_guest_to_user, only: :create, if: :devise_controller?
 
   include Pundit
 
