@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+  
 
   # transfer recipe from guest to new user
   def transfer_guest_to_user
