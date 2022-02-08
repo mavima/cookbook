@@ -5,6 +5,6 @@ ActionMailer::Base.smtp_settings = {
   user_name: 'apikey',
   password: ENV["SENDGRID_API_KEY"],
 
-  domain: 'recipeper.com',
+  domain: 'https://recipepers.herokuapp.com',
   enable_starttls_auto: true
 }

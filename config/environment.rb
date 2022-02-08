@@ -9,7 +9,7 @@ Rails.application.initialize!
 ActionMailer::Base.smtp_settings = {
   :user_name => 'info@recipeper.com', 
   :password => ENV["SENDGRID_API_KEY"], # This is the secret sendgrid API key which was issued during API key creation
-  :domain => 'recipeper.com',
+  :domain => 'https://recipepers.herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,

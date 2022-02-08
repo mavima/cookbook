@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     def welcome(user)
         @user = user
 
-        @url  = 'http://www.recipeper.com'
+        @url  = 'https://recipepers.herokuapp.com'
         mail(to: @user.email, subject: 'Welcome to Recipeper')
       end
 
