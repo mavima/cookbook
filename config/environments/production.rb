@@ -109,7 +109,7 @@ Rails.application.configure do
 
 
   # UNCOMMENT
-  # config.action_mailer.default_url_options = { host: 'https://www.recipeper.com' }
+  config.action_mailer.default_url_options = { host: 'https://recipepers.herokuapp.com' }
   config.active_storage.service = :cloudinary
   
 end

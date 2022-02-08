@@ -5,6 +5,7 @@ require_relative 'application'
 Rails.application.initialize!
 
 # config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = { :host => 'localhost' }
 
 ActionMailer::Base.smtp_settings = {
   :user_name => 'info@recipeper.com', 
