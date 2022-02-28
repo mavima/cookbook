@@ -1,15 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  # after_action :transfer_guest_to_user, only: :create, if: :devise_controller?
+  after_action :transfer_guest_to_user, only: :create, if: :devise_controller?
 
   include Pundit
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
-
-
 
 
   # Uncomment when you *really understand* Pundit!
@@ -30,10 +28,10 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+  
 
   # transfer recipe from guest to new user
   def transfer_guest_to_user
-    UserMailer.welcome(current_user).deliver_now
     my_recipies = Recipe.all.where(:user_id => guest_user.id)
     if my_recipies
       my_recipies.each do |recipe|

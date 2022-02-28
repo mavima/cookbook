@@ -1,6 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
 
 
+  def create
+    super do |resource|
+      UserMailer.welcome(current_user).deliver_now
+    end
+  end
+
   private
 
 
