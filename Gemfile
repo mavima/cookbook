@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'activestorage-validator', '~> 0.2.0'
 
 gem "mini_magick"
-gem "image_processing", "~> 1.0"
+gem "image_processing", "~> 1.12"
 
 gem "nokogiri", ">= 1.12.5"
 gem "activerecord", ">= 6.0.3.5"
