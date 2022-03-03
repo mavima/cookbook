@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  .form-group {
+    margin: 5px 0;
+  }
 }
 
 .input-box {
@@ -128,6 +132,7 @@
 
 textarea.form-control {
   min-height: 200px;
+  margin-bottom: 12px;
 }
 
 .recipe_steps_detail textarea.form-control {
