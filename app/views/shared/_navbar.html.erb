@@ -33,7 +33,7 @@
         <% end %>
       </div>
     </li>
-
+ 
     <% if user_signed_in? %>
       <% if current_user.first_name.length < 6
         @name = current_user.first_name
@@ -43,13 +43,13 @@
         %>
       <li>
         <div class="dropstart">
-          <button class="button-menu dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+          <button class="button-menu dropdown-toggle" href="#" role="button" id="dropdownMenuButton" aria-expanded="false">
           <%=image_tag("hat_lightblue.png", class: "navbar-logo-sm") %>
-            <span class="light-bg"><%= @name %></span>
+            <span class="center-text"><%= @name %></span>
           </button>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <h6 class="dropdown-item">
+          <div class="dropdown-menu user-dropdown" aria-labelledby="dropdownMenuButton">
+            <h6 class="dropdown-item ">
                 <%= link_to "My Cookbook", user_path(current_user), class: "nav-link" %>
               </h6>
             <h6 class="dropdown-item">

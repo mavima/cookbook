@@ -8,6 +8,10 @@
   }
 }
 
+.form-group {
+  margin: 1rem 0 !important;
+}
+
 .form-inputs {
   display: flex;
   flex-direction: column;
@@ -19,7 +23,7 @@
   padding: 3px 3px 3px 10px;
   border-radius: 4px;
   width: 250px;
-  height: 45px;
+  height: 35px;
   line-height: 42px;
   border-radius: 10px;
   border: 1px solid #cccccc;

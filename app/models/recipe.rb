@@ -10,10 +10,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :doses, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
   validates :name, presence: true
-  # validates :photo,
-  #   :file_size => {
-  #     :maximum => 3.megabytes.to_i
-  #   }
   # validates :photo, presence: true, blob: { size_range: 1..(3.megabytes) }
   validates :description, presence: true, length: { minimum: 5 }
   mount_uploader :photo, PhotoUploader
@@ -33,17 +29,13 @@ class Recipe < ApplicationRecord
       tsearch: {prefix: true }
     }
 
-  # def photo_validation
-  #   if self.photo
-  #     if photo.blob.byte_size > 3000000
-  #       photo.purge
-  #       errors[:base] << 'Too big'
-  #     end
-  #   end
-  # end
-
-  def thumbnail
-    return self.photo.variant(resize: '300x300')
+  def photo_validation
+    if self.photo
+      if photo.blob.byte_size > 3000000
+        photo.purge
+        errors[:base] << 'Too big'
+      end
+    end
   end
 
 
