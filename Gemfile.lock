@@ -49,19 +49,19 @@ GEM
     activejob (7.0.2.2)
       activesupport (= 7.0.2.2)
       globalid (>= 0.3.6)
-    activemodel (7.0.2.2)
-      activesupport (= 7.0.2.2)
-    activerecord (7.0.2.2)
-      activemodel (= 7.0.2.2)
-      activesupport (= 7.0.2.2)
-    activestorage (7.0.2.2)
-      actionpack (= 7.0.2.2)
-      activejob (= 7.0.2.2)
-      activerecord (= 7.0.2.2)
-      activesupport (= 7.0.2.2)
-      marcel (~> 1.0)
-      mini_mime (>= 1.1.0)
-    activesupport (7.0.2.2)
+    activemodel (6.0.4.4)
+      activesupport (= 6.0.4.4)
+    activerecord (6.0.4.4)
+      activemodel (= 6.0.4.4)
+      activesupport (= 6.0.4.4)
+    activestorage (6.0.4.4)
+      actionpack (= 6.0.4.4)
+      activejob (= 6.0.4.4)
+      activerecord (= 6.0.4.4)
+      marcel (~> 1.0.0)
+    activestorage-validator (0.2.0)
+      rails (>= 6.0.4.1)
+    activesupport (6.0.4.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -119,9 +119,6 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     ffi (1.15.5)
-    file_validators (3.0.0)
-      activemodel (>= 3.2)
-      mime-types (>= 1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     grover (1.1.1)
@@ -321,6 +318,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack (>= 6.0.4.1)
   activerecord (>= 6.0.3.5)
+  activestorage-validator (~> 0.2.0)
   addressable (>= 2.8.0)
   bootsnap (>= 1.4.2)
   byebug
@@ -331,15 +329,12 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.5.0)
   dotenv-rails
-  file_validators
   grover
-  image_processing (~> 1.0)
   jbuilder (~> 2.7)
   jquery-rails
   launchy
   letter_opener
   listen (~> 3.2)
-  mini_magick
   nokogiri (>= 1.12.5)
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.3.0)

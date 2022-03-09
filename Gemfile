@@ -31,10 +31,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 #restrict image size on upload
-# gem 'activestorage-validator', '~> 0.2.0'
-
-gem "mini_magick"
-gem "image_processing", "~> 1.0"
+gem 'activestorage-validator', '~> 0.2.0'
 
 gem "nokogiri", ">= 1.12.5"
 gem "activerecord", ">= 6.0.3.5"
@@ -55,10 +52,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 # image upload
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary'
-
-# file size restriction
-gem 'file_validators'
-
 
 # User authentication
 gem 'devise'
