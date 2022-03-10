@@ -344,6 +344,7 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.2)
   sass-rails (>= 6)
+  sassc-rails
   selenium-webdriver
   sendgrid-ruby
   simple_form
