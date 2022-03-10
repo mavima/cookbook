@@ -15,6 +15,7 @@
 // import "../functions/slideout.js"
 
 import "bootstrap";
+import "./src/application.scss";
 import 'cocoon';
 import { reviewStars } from '../functions/stars_review'
 import { changeAmounts } from '../functions/change_amounts'
