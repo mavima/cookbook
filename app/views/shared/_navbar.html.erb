@@ -35,19 +35,6 @@
     </li>
 
     <% if user_signed_in? %>
-<!--       <div class="dropdown">
-        <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= current_user.first_name %>
-        </div>
-        <div class="dropdown">
-          <h6 class="dropdown-item">
-            <%#= link_to "My profile", user_path(current_user), class: "nav-link" %>
-          </h6>
-          <h6 class="dropdown-item">
-            <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </h6>
-        </div>
-      </div> -->
       <% if current_user.first_name.length < 6
         @name = current_user.first_name
       else
@@ -57,10 +44,11 @@
       <li>
         <div class="dropstart">
           <button class="button-menu dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-            <span class="light-bg"><%= @name %></span>
+            <%=image_tag("hat_lightblue.png", class: "navbar-logo-sm") %>
+            <span class="center-text"><%= @name %></span>
           </button>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-menu"aria-labelledby="dropdownMenuButton">
             <h6 class="dropdown-item">
                 <%= link_to "My Cookbook", user_path(current_user), class: "nav-link" %>
               </h6>
@@ -68,7 +56,7 @@
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </h6>
           </div>
-        </div>
+        
       </li>
       <% else %>
         <li class="nav-item">
