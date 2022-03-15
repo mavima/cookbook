@@ -64,21 +64,40 @@ ul.user-action {
 .button-menu {
   border: none;
   background-color: transparent;
-  background-image: asset-data-url('hat_lightblue.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 100px;
+  display: flex;
+  flex-direction: column;
   color: $blue;
-}
-
-.light-bg {
-  // background-color: rgba(255,255,255, 0.7);
   text-align: center;
 }
+
+.navbar-logo-sm {
+  height: 30px;
+}
+
+.dropdown-toggle::after {
+  margin-left: 15px;
+}
+
+.center-text {
+  // background-color: rgba(255,255,255, 0.7);
+  text-align: center;
+  margin: auto;
+}
+
 
 
 .dropdown-menu {
   display: none;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 5rem;
+  right: 0.5rem;
+}
+
+.dropdown-toggle::before { 
+  content: none !important; 
 }
 
 .mobile-nav {
