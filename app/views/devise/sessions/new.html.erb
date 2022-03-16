@@ -17,13 +17,14 @@
       <%= f.button :submit, "Log in", class: "btn-form btn-green" %>
     </div>
   <% end %>
-<!--  UNCOMMENT WHEN MAILING OK
+ 
     <br>
-  <%#= link_to "Forgot your password?   ", new_password_path(resource_name), class: "forgot-password"  %>
-  <%#= link_to "Change it", new_password_path(resource_name), class: "btn-form btn-blue"  %>
-  <br> -->
   <p>Not a member yet?
       <%= link_to "Sign up", new_registration_path(resource_name), class: "btn-form btn-blue"  %></p>
+  <br>
+  <%= link_to "Forgot your password?   ", new_password_path(resource_name), class: "forgot-password"  %>
+  <%= link_to "Change it", new_password_path(resource_name), class: "btn-form btn-blue"  %>
+  <br>
 
   <%#= render "devise/shared/links" %>
   <%= link_to :back do%>

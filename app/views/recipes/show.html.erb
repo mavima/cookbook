@@ -80,7 +80,6 @@
        <% if policy(@recipe).edit? %>
         <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
        <% end %>
-       <%#= link_to "Send to me", send_recipe_path(@recipe), class: "btn-blue btn-show"%>
         <a href="#" data-toggle="modal" data-target="#mail-confirmation">
                 <button class="btn-show btn-blue", data-toggle="modal">Send to me</button>
               </a>
