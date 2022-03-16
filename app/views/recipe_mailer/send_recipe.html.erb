@@ -1,11 +1,11 @@
-<div>
-  <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+<div style="background-color: #FBF8F3; padding: 15px; font-family: arial, helvetica, sans-serif; color: #413E38 ">
+  <h2 style="font-family:'Oregano', 'sans-serif'; font-weight: 300"><%= @recipe.name.split.map(&:capitalize)*' '%></h2> 
       
   <% if @recipe.photo.present? %>
     <%= cl_image_tag @recipe.photo, height: 100, width: 100, crop: :fill  %>
   <% end %>
 
-  <div class="recipe-description">
+  <div style="font-style: italic; padding: 10px 0;">
     <%= @recipe.description %>
   </div>
   <div style="opacity: 0.8; font-size: 90%">
@@ -14,14 +14,14 @@
   </div>
   <div>
     <% @recipe.doses.each do |dose| %>
-      <p style="line-height: 0.8">
+      <p style="line-height: 0.8; font-family: arial, helvetica, sans-serif">
           <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %> 
           <%= dose.unit %> <%= dose.ingredient.capitalize %>
       </p>
     <% end %>
-    <ul class="show-steps" style="padding-bottom: 1rem">
+    <ul class="show-steps" style="padding-bottom: 20px; padding-left:0;">
       <% @recipe.steps.each do |step| %>
-        <li> <%= step.detail.capitalize %> </li>
+        <li style="list-style-type: none; line-height: 1.2;"> <%= step.detail.capitalize %> </li>
       <% end %>
     </ul>
   </div>
@@ -32,7 +32,8 @@
         <% @comment = @user.get_comment_instances(@recipe) %>
     <% end %>
   </div>
-</div>
+
 
 <p>* * * </p>
 <p>Thank you for choosing <%= link_to "Recipeper", root_url %></p>
+</div>

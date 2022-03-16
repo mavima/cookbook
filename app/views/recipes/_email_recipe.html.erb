@@ -1,3 +1,5 @@
+
+
 <div class="pages">
   <div class="show-container">
     <div class="show-left">
@@ -5,6 +7,7 @@
         <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 200, width: 400, crop: :fill %>')">
         </div>
       <% end %>
+     
 
       <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
 
