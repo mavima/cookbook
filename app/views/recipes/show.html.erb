@@ -80,7 +80,32 @@
        <% if policy(@recipe).edit? %>
         <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
        <% end %>
-       <%= link_to "Send as email", send_recipe_path(@recipe), class: "btn-blue btn-show"%>
+        <a href="#" data-toggle="modal" data-target="#mail-confirmation">
+                <button class="btn-show btn-blue", data-toggle="modal">Send to me</button>
+              </a>
+          <div class="delete-confirmation modal" id="mail-confirmation" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <% if current_user %> 
+                  <div class="my-modal-body">
+                    <p>Do you want to send this recipe to your email address?</p> 
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn-cancel" data-dismiss="modal">Cancel</button>
+                    <%= link_to "Send it!", send_recipe_path(@recipe), class: "btn-blue btn-show btn-tight" %> 
+                  </div>
+                <% else %>
+                  <div class="my-modal-body">
+                    <p>Log in to send the recipe to your email address</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn-cancel" data-dismiss="modal">Cancel</button>
+                      <%= link_to "Log in", new_user_session_path, class: "btn-blue btn-show btn-tight" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
       <%= link_to "All recipes", recipes_path, class: "btn-show btn-blue" %>
       </div>
     </div>
