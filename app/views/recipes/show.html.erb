@@ -49,7 +49,9 @@
         <% @recipe.doses.each do |dose| %>
           <li class="show-dose-line">
             <div class="dose-unit">
-            <p class="dose-amount"><%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %></p>
+            <% if dose.amount != nil %>
+              <p class="dose-amount"><%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %></p>
+            <% end %>
             <%= dose.unit %>
             </div>
             <p style="last-element" class="ingredient"><%= dose.ingredient.capitalize %></p>
