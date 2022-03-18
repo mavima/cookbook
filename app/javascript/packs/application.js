@@ -8,7 +8,8 @@
 // require("channels")
 //= require("jquery")
 //= require activestorage
-//= require ('puppeteer')
+
+
 //= require('fs/promises')
 //= require_tree .
 
