@@ -23,11 +23,11 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
     padding: 7px 12% 0;
+    margin-bottom: 30px;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
@@ -51,6 +51,22 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  
+  .error-img {
+    background-image: url("../broken.jpg");
+    background-repeat: no-repeat;
+    height: 350px;
+  }
+
+  .btn-error {
+    background-color: #49A04E;
+    color: white;
+    border-radius: 12px !important;
+    padding: 8px 24px !important;
+    text-align: center;
+    text-decoration: none;
+  }
+
   </style>
 </head>
 
@@ -58,10 +74,11 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
+      <div class="error-img"></div>
+      <h1>Oops, we can't find the page you are looking for.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <a href="https://recipepers.herokuapp.com/", class="btn-error">Homepage</a>
   </div>
 </body>
 </html>
