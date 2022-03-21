@@ -15,7 +15,9 @@
   <div>
     <% @recipe.doses.each do |dose| %>
       <p style="line-height: 0.8; font-family: arial, helvetica, sans-serif">
-          <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %> 
+          <% if dose.amount != nil %>
+            <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %>
+          <% end %>
           <%= dose.unit %> <%= dose.ingredient.capitalize %>
       </p>
     <% end %>

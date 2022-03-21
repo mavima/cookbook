@@ -4,7 +4,10 @@ Time of preparation: <%=@recipe.time %> minutes
 Portions: <%= @recipe.portions %>
 
 <% @recipe.doses.each do |dose| %>
-    <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %> <%= dose.unit %> <%= dose.ingredient.capitalize %>
+    <% if dose.amount != nil %>
+        <%= dose.amount.round == dose.amount ? dose.amount.round : dose.amount %> 
+    <% end %>
+    <%= dose.unit %> <%= dose.ingredient.capitalize %>
 <% end %>
 
 <% @recipe.steps.each do |step| %>
