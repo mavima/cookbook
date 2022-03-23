@@ -1,34 +1,34 @@
   <%= simple_form_for(@recipe) do |f|%>
-  <%= f.input :name, label: "Recipe name" %>
+  <%= f.input :name, label: t('.name') %>
   <% @categories = Category.all %>
-  <%= f.label "Choose categories:" %>
+  <%= f.label t('.choose_category') %>
   <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid" %>
-  <%= f.input :description, label: "Description" %>
-  <h4>Ingredients</h4>
+  <%= f.input :description, label: t('.description') %>
+  <h4><%= t('.ingredients')%></h4>
   <%= f.simple_fields_for :doses do |dose| %>
     <%= render 'dose_fields', f: dose %>
   <% end %>
   <div class="links">
-    <%= link_to_add_association 'Add another ingredient', f, :doses %>
+    <%= link_to_add_association t('.add_ingredient'), f, :doses %>
   </div>
-  <h4>Instructions step by step</h4>
+  <h4><%= t('.steps')%></h4>
   <%= f.simple_fields_for :steps do |step| %>
     <%= render 'step_fields', f: step %>
   <% end %>
   <div class="links">
-    <%= link_to_add_association 'Add line', f, :steps %>
+    <%= link_to_add_association t('.add_line'), f, :steps %>
   </div>
-  <%= f.input :time, input_html: {class: "input-box input-box-small"},  label: "Time of preparation in minutes" %>
+  <%= f.input :time, input_html: {class: "input-box input-box-small"},  label: t('.time') %>
 
 
-  <%= f.input :portions, input_html: {class: "input-box input-box-small"}, label: "Number of portions" %>
+  <%= f.input :portions, input_html: {class: "input-box input-box-small"}, label: t('.portions') %>
 
   <div id="img-preview"></div>
-  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: "Add a photo", label_html: { class: "btn-show btn-blue btn-no-marg" } %>
+  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: t('.add_photo'), label_html: { class: "btn-show btn-blue btn-no-marg" } %>
 
   <%= f.input :photo_cache, as: :hidden %>
 
-<%= f.submit "Save", class: "btn-show btn-green btn-no-marg" %>
+<%= f.submit t('.save'), class: "btn-show btn-green btn-no-marg" %>
 <% end %>
 <br>
 <%= link_to :back do%>

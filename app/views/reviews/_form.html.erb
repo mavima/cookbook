@@ -1,24 +1,23 @@
-<div class="review-all">
+<div class="review-all"> 
   <div class="container">
-    <h2>Share your opinion with other users</h2>
+    <h2><%= t('.review_title')%></h2>
     <div>
       <%= simple_form_for([@recipe, @review]) do |f| %>
 
-      <%= f.input :content, label: "Tell us what do you think of this recipe", as: :text, :input_html => { :rows => 10 } %>
-      <p>Your rating for it:</p>
+      <%= f.input :content, label: t('.review_question'), as: :text, :input_html => { :rows => 10 } %>
      <!--    <%# 5.times do |n|%>
           <i id="star_rating" class="fas fa-star fa-lg", data-value="<%#= n + 1%>"></i>
         <%# end %> -->
 
-      <%= f.input :rating, collection: 1..5, prompt: "Give a rating", selected: 5%>
+      <%= f.input :rating, label: t('.rating'), collection: 1..5, selected: 5%>
         <div>
           <div id="img-preview" class="review-preview"></div>
-          <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: "Add a photo", label_html: { class: " btn-home"} %>
+          <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: t('.add_photo'), label_html: { class: " btn-home"} %>
         </div>
         
         <%= f.input :photo_cache, as: :hidden %>
         <div>
-          <%= f.submit "Add your review", class: "btn-home" %>
+          <%= f.submit t('.publish'), class: "btn-home" %>
         </div>
       <% end %>
       <%= link_to :back do%>

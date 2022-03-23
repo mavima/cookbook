@@ -43,7 +43,7 @@
           <i class="fas fa-utensils space-right"></i>
           <p class="portions_number_original"><%= @recipe.portions %></p>
         </div>
-        <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> minutes</p>
+        <p><i class="fas fa-clock space-right"></i><%= @recipe.time %> <%= t('.minutes') %></p>
       </div>
         <ul class="show-doses">
         <% @recipe.doses.each do |dose| %>
@@ -65,7 +65,7 @@
         </ul>
       <% if @recipe.categories.count > 0 %>
         <div class="show-categories">
-          <h5>Categories:</h5>
+          <h5><%= t('.categories') %></h5>
           <ul>
           <% @recipe.categories.each do |category| %>
             <li class="show-cat">
@@ -78,56 +78,80 @@
 
 
       <div class="show-buttons">
-       <%= link_to "Add a review", new_recipe_review_path(@recipe), class: "btn-show btn-blue" %>
+       <%= link_to new_recipe_review_path(@recipe) do %>
+        <button class="btn-show btn-blue">
+          <%= t('.add_review') %>
+        </button>
+       <% end %>
        <% if policy(@recipe).edit? %>
-        <%= link_to "Edit recipe", edit_recipe_path(@recipe), class: "btn-show btn-blue" %>
+        <%= link_to edit_recipe_path(@recipe) do %>
+            <button class="btn-show btn-blue">
+              <%= t('.edit') %>
+            </button>
+          <% end %>
        <% end %>
         <a href="#" data-toggle="modal" data-target="#mail-confirmation">
-                <button class="btn-show btn-blue", data-toggle="modal">Send to me</button>
+                <button class="btn-show btn-blue", data-toggle="modal"><%= t('.send')%></button>
               </a>
           <div class="delete-confirmation modal" id="mail-confirmation" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <% if current_user %> 
                   <div class="my-modal-body">
-                    <p>Do you want to send this recipe to your email address?</p> 
+                    <p><%= t('.send_confirm') %></p> 
                   </div>
                   <div class="modal-footer">
-                    <button class="btn-cancel" data-dismiss="modal">Cancel</button>
-                    <%= link_to "Send it!", send_recipe_path(@recipe), class: "btn-blue btn-show btn-tight" %> 
+                    <button class="btn-cancel" data-dismiss="modal"><%= t('.cancel') %></button>
+                    <%= link_to send_recipe_path(@recipe) do %>
+                      <button class="btn-blue btn-show btn-tight">
+                        <%= t('.send_it')%>
+                      </button>
+                    <% end %>
                   </div>
                 <% else %>
                   <div class="my-modal-body">
-                    <p>Log in to send the recipe to your email address</p>
+                    <p><%= t('.log_in_send')%></p>
                   </div>
                   <div class="modal-footer">
-                    <button class="btn-cancel" data-dismiss="modal">Cancel</button>
-                      <%= link_to "Log in", new_user_session_path, class: "btn-blue btn-show btn-tight" %>
+                    <button class="btn-cancel" data-dismiss="modal"><%= t('.cancel') %></button>
+                      <%= link_to new_user_session_path do %>
+                        <button class="btn-blue btn-show btn-tight">
+                          <%= t('.login')%>
+                        </button>
+                      <% end %>
                   </div>
                 <% end %>
               </div>
             </div>
           </div>
-      <%= link_to "All recipes", recipes_path, class: "btn-show btn-blue" %>
+      <%= link_to recipes_path do %>
+        <button class="btn-show btn-blue">
+          <%= t('.all')%>
+        </button>
+      <% end %>
       </div>
     </div>
     <div class="show-right">
       <div class="note-box">
-        <h4>My notes:</h4>
+        <h4><%= t('.my_notes')%></h4>
         <% if current_user && current_user.commented?(@recipe) %>
         <p><%= current_user.get_comment_instances(@recipe).content %></p>
           <% @comment =  current_user.get_comment_instances(@recipe) %>
         <%= link_to "Edit my note", edit_recipe_comment_path(@recipe, @comment), class: "btn-note btn-blue" %>
         <% else %>
-        <%= link_to "Write a note", new_recipe_comment_path(@recipe), class: "btn-note btn-blue" %>
+        <%= link_to new_recipe_comment_path(@recipe) do %>
+          <button class="btn-note btn-blue">
+            <%= t('.write_note')%>
+          </button>
+        <% end %>
         <% end %>
       </div>
       <div class="calculator">
-        <h4>Recalculate amounts</h4>
-        Number of portions:
+        <h4><%= t('.recalculate')%></h4>
+        <%= t('.portions')%>
         <form class="ration-form">
           <input type="number" id="rations">
-          <button type="submit" id="btn-calculator" class="btn-note btn-blue">Change</button>
+          <button type="submit" id="btn-calculator" class="btn-note btn-blue"><%= t('.change') %></button>
         </form>
 
       </div>
@@ -158,7 +182,7 @@
 
 
       <div class="show-tips">
-        <h4>You might also like:</h4>
+        <h4><%= t('.suggestions')%></h4>
           <% similars = [] %>
           <% Recipe.all.each do |recipe|
             if recipe.categories.include?(@recipe.categories[0] || @recipe.categories[1] || @recipe.categories[2])
@@ -167,7 +191,7 @@
             end %>
           <% end %>
           <div class="tip-grid">
-            <% similars[0..6].each do |similar| %>
+            <% similars[0..3].each do |similar| %>
               <div class="index-card">
                 <%= link_to recipe_path(similar) do %>
                   <div class="img-box-index">

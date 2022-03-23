@@ -7,17 +7,17 @@
     </li>
     <li>
       <%= link_to recipes_path do %>
-        All recipes
+        <%= t('.index')%>
       <% end %>
     </li>
     <li>
       <%= link_to new_recipe_path do %>
-        Add a recipe
+        <%= t('.add')%>
         <% end %>
     </li>
     <li>
       <%= link_to about_path do %>
-        About
+        <%= t('.about')%>
       <% end %>
     </li>
     <li class="navbar-search">
@@ -26,10 +26,10 @@
         <%= form_tag recipes_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
-            placeholder: "Find a recipe",
+            placeholder: t('.placeholder_recipe'),
             class: "input-box input-search"
           %>
-          <%= submit_tag "Search", class: "btn-home btn-search btn-dropdown" %>
+          <%= submit_tag t('search'), class: "btn-home btn-search btn-dropdown" %>
         <% end %>
       </div>
     </li>
@@ -49,18 +49,24 @@
           </button>
 
           <div class="dropdown-menu"aria-labelledby="dropdownMenuButton">
-            <h6 class="dropdown-item">
-                <%= link_to "My Cookbook", user_path(current_user), class: "nav-link" %>
+            <h6 class="dropdown-item nav-link">
+                <%= link_to user_path(current_user) do %>
+                  <%= t('.cookbook') %>
+                <% end %>
               </h6>
             <h6 class="dropdown-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= t('.logout')%>
+              <% end %>
             </h6>
           </div>
         
       </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item nav-link">
+          <%= link_to new_user_session_path do %>
+            <%= t('login')%>
+          <% end %>
         </li>
       <% end %>
   </ul>

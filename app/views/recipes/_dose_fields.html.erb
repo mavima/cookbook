@@ -1,9 +1,9 @@
 <div class="nested-fields">
    <div class="form-input-horizontal">
-    <%= f.input :amount, class: "form-unit input-box-small" %>
+    <%= f.input :amount, class: "form-unit input-box-small",label: t('.amount') %>
     <% @units = ['liters', 'dl', 'ml', 'tbsp', 'tsp', 'g', 'kg', 'slices'] %>
-    <%= f.input :unit, collection: @units %>
-    <%= f.input :ingredient, class: "form-unit" %>
+    <%= f.input :unit, collection: @units, label: t('.unit') %>
+    <%= f.input :ingredient, class: "form-unit", label: t('.ingredient') %>
     <%= link_to_remove_association "x", f %>
   </div>
 </div>

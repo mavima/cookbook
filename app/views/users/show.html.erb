@@ -5,13 +5,18 @@
   <% if @user.avatar.present? %>
    <%= cl_image_tag user.avatar.url(:height => 150, :width => 150, :crop => :fill, :gravity => :face, :radius => 75)%>
    <% end %>
-   <%= link_to "Update profile", edit_user_registration_path(@user), class: "btn-small"  %>
+
+  <%= link_to edit_user_registration_path(@user) do %>
+    <button class="btn-small">
+      <%= t('.update')%>
+    </button>
+  <% end %>
 
 
-
+ 
   <hr>
 
-  <h4 class="profile-title">My favourites</h4>
+  <h4 class="profile-title"><%= t('.favourites')%></h4>
     <div class="index-grid">
       <% my_favourites = @user.favourites %>
       <% my_favourites.each do |favourite| %>
@@ -52,7 +57,7 @@
                       <p>
                         <%= current_user.get_comment_instances(favourite.recipe).content  %>
                       </p>
-                      <button type="button" class="btn-small" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn-small" data-dismiss="modal"><%= t('.close')%></button>
                     </div>
                   </div>
                 </div>
@@ -81,7 +86,7 @@
 
     </div>
 
-    <h4 class="profile-title">My recipes</h4>
+    <h4 class="profile-title"><%= t('.my_recipes')%></h4>
     <div class="index-grid">
       <% my_recipes = @user.recipes.order('name ASC') %>
       <% my_recipes.each do |recipe| %>
@@ -131,7 +136,7 @@
     <!-- </div> -->
     </div>
   <br>
-  <h4 class="profile-title">My reviews</h4>
+  <h4 class="profile-title"><%= t('.my_reviews')%></h4>
   <div class="profile-review-grid">
     <% @user.reviews.each do |review| %>
       <div class="profile-review">
@@ -179,7 +184,7 @@
     <% end %>
   </div>
   <br>
-  <h4 class="profile-title">My links</h4>
+  <h4 class="profile-title"><%= t('.my_links')%></h4>
   <div class="profile-review-grid">
     <% @user.links.each do |link| %>
       <div class="profile-link">
@@ -233,7 +238,11 @@
       </div>
     <% end %>
   </div>
-  <%= link_to "Add a new link", new_link_path, class: "btn-show btn-green" %>
+  <%= link_to new_link_path do %>
+    <button class="btn-show btn-green">
+      <%= t('.add_link')%>
+    </button>
+  <% end %>
 </div>
 
  

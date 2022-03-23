@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Sign up</h2>
+  <h2><%= t('.join')%></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -8,32 +8,39 @@
       <%= f.input :first_name,
                   required: true,
                   autofocus: true,
-                  label: 'First name',
+                  label: t('.first'),
                   input_html: { autocomplete: "First name" }%>
       <%= f.input :last_name,
                   required: true,
                   autofocus: true,
-                  label: 'Last name',
+                  label: t('.last'),
                   input_html: { autocomplete: "Last name" }%>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
+                  label: t('.email'),
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
+                  label: t('.password'),
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
+                  label: t('.password_conf'),
                   input_html: { autocomplete: "new-password" } %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn-form btn-green" %>
+      <%= f.button :submit, t('.sign_up'), class: "btn-form btn-green" %>
     </div>
   <% end %>
-  <p>Already a member?
-    <%= link_to "Log in", new_session_path(resource_name), class: "btn-form btn-blue"  %>
+  <p> <%= t('.member')%>
+    <%= link_to new_session_path(resource_name) do %>
+      <button class="btn-form btn-blue">
+        <%= t('.login')%>
+      </button>
+    <% end %>
   </p>
 
   <%= link_to :back do%>
