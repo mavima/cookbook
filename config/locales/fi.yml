@@ -2,6 +2,7 @@ fi:
   placeholder_recipe: 'Löydä resepti'
   search: "Etsi"
   login: "Kirjaudu sisään"
+  login_s: "Kirjaudu"
   update: "Päivitä"
   sure: "Oletko varma?"
   pages:
@@ -24,6 +25,7 @@ fi:
 
   shared:
     navbar:
+      home: "Kotisivulle"
       index: "Kaikki reseptit"
       add: "Lisää resepti"
       about: "Mikä Recipeper?"
@@ -32,6 +34,7 @@ fi:
       login: "Kirjaudu sisään"
       logout: "Kirjaudu ulos"
       cookbook: "Oma keittokirjani"
+      welcome: "Tervetuloa Recipeperiin"
   
   recipes:
     index:

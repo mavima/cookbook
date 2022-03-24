@@ -96,6 +96,14 @@
   <!-- Navbar slide mobile -->
   <nav id="menu" class="panel">
     <header>
+      <div class="mobile-flags">
+        <span class="flag-icon">
+          <%= link_to image_tag("uk.png"), { :locale=>'en' } %>
+        </span>
+        <span class="flag-icon">
+          <%= link_to image_tag("finland.png"), { :locale=>'fi' } %>
+        </span>
+      </div>
 <!--       <div id="closeSlideOut">
 
       </div> -->
@@ -114,30 +122,30 @@
           </li>
         <div class="slidepage">
           <li class="dim">
-            <%= link_to "Home", root_path %>
+            <%= link_to t('.home'), root_path %>
           </li>
           <li class="dim">
             <%= link_to recipes_path do %>
-              All recipes
+              <%= t('.index') %>
             <% end %>
           </li>
           <li class="dim">
-              <%= link_to "My Cookbook", user_path(current_user)  %>
+              <%= link_to t('.cookbook'), user_path(current_user)  %>
           </li>
           <li class="dim">
-            <%= link_to "Add a recipe", new_recipe_path %>
+            <%= link_to t('.add'), new_recipe_path %>
           </li>
           <li class="dim">
-            <%= link_to "About Recipeper", about_path %>
+            <%= link_to t('.about'), about_path %>
           </li>
           <li>
             <%= form_tag recipes_path, method: :get do %>
               <%= text_field_tag :query,
               params[:query],
-              placeholder: "Find a recipe",
+              placeholder: t('.placeholder_recipe'),
               class: "input-box input-search slide-input"
             %>
-          <%= submit_tag "Search", class: "btn-home btn-search btn-dropdown" %>
+          <%= submit_tag "Search", class: "btn-slide btn-no-marg-bot" %>
         <% end %>
           </li>
 
@@ -153,28 +161,28 @@
         <% else %>
           <div class="welcome">
 
-              <h3>Welcome to Recipeper</h3>
+              <h3><%= t('.welcome')%></h3>
 
             <ul>
             <li>              
               <%= image_tag('hat_lightblue.png', class: "navbar-logo") %>
             </li>
             <li class="dim">
-            <%= link_to "Home", root_path %>
+            <%= link_to t('.home'), root_path %>
           </li>
           <li class="dim">
             <%= link_to recipes_path do %>
-              All recipes
+             <%= t('.index') %> 
             <% end %>
           </li>
           <li class="dim">
-            <%= link_to "Add a recipe", new_recipe_path %>
+            <%= link_to t('.add'), new_recipe_path %>
           </li>
 
-                <li class="dim"><%= link_to "About us", about_path %></li>
+                <li class="dim"><%= link_to t('.about'), about_path %></li>
                 <%# <li class="dim">How to use Recipeper</li> %>
                 <li class="login">
-                  <%= link_to "Log in", new_user_session_path, class: "btn-slide" %>
+                  <%= link_to t('login_s'), new_user_session_path, class: "btn-slide" %>
                 </li>
     <!--             <li class="dim">
                   <%#= link_to "Privacy Policy", privacy_policy_path %>
