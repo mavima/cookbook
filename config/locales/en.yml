@@ -1,33 +1,145 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  placeholder_recipe: 'Find a recipe'
+  search: "Search"
+  login: "Log in"
+  login_s: "Log in"
+  update: "Update"
+  sure: "Are you sure?"
+  pages:
+    home: 
+      slogan: "My cookbook online"
+      longer_slogan: "Save and organise recipes and links and find new favourites."
+      placeholder_recipe: 'Find a recipe'
+      search: "Search"
+    about:
+      about_title: "About Recipeper"
+      about_begin: "Recipeper is a website for storing and sharing recipes. "
+      about_li_1: "Add your own favourites and have them available always on all your devices. Other users will be happy to have a recipe for your famous Pad Thai or Tiramisu."
+      about_li_2: "Search for recipes added by others."
+      about_li_3: "Modify the amounts on the recipes according to the number of portions by a simple click. No more calculation mistakes when you do it on the fly while cooking and accidentally forget to double the amount of the baking powder... With eggs you will have to be a bit creative though :-)"
+      about_li_4: "Add your personal notes on the recipes. Your note will be visible only for you when you are signed in, so it's totally fine to write down, that you plan to serve this for the Millers or that Holly didn't like this dish..."
+      about_li_5: "Send the recipe including your personal notes to your email address with a simple click."
+      about_li_6: "Write reviews on the recipes to let the other users know if the recipe is any good. You can also add a photo on the review."
+      about_li_7: "Save your favourite links to other recipe sites on your own cookbook. Add a note so you can remember why you wanted to save the link."
+      about_thanks: "Thank you for using Recipeper!"
+
+  shared:
+    navbar:
+      home: "Home"
+      index: "All Recipes"
+      add: "Add a Recipe"
+      about: "About"
+      placeholder_recipe: "Find a recipe"
+      search: "Search"
+      login: "Log in"
+      logout: "Log out"
+      cookbook: "My Cookbook"
+      welcome: "Welcome to Recipeper"
+
+  recipes:
+    index:
+      recipes: "Recipes"
+
+    new:
+      add: "Add a new recipe"
+
+    form:
+      name: "Recipe name"
+      choose_category: "Choose categories"
+      description: "Description"
+      ingredients: "Ingredients"
+      add_ingredient: "Add another ingredient"
+      steps: "Instructions step by step"
+      add_line: "Add a line"
+      time: "Time of preparation in minutes"
+      portions: "Number of portions"
+      add_photo: "Add a photo"
+      save: "Save"
+
+    dose_fields:
+      amount: "Amount"
+      unit: "Unit"
+      ingredient: "Ingredient"
+
+    edit:
+      edit_recipe: "Modify the recipe"
+
+    show:
+      minutes: "Minutes"
+      categories: "Categories"
+      add_review: "Add a review"
+      edit: "Edit recipe"
+      send: "Send to me"
+      send_confirm: "Do you want to send this recipe to your email address?"
+      cancel: "Cancel"
+      send_it: "Send it!"
+      log_in_send: "Log in to send the recipe to your email address"
+      login: "Log in"
+      all: "All recipes"
+      my_notes: "My notes"
+      write_note: "Write a note"
+      edit_note: "Edit my note"
+      recalculate: "Recalculate amounts"
+      portions: "Portions"
+      change: "Change"
+      suggestions: "You might also like:"
+
+  users:
+    show:
+      update: "Update profile"
+      favourites: "My favourites"
+      my_recipes: "My recipes"
+      my_reviews: "My reviews"
+      my_links: "My links"
+      add_link: "Add a new link"
+      close: "Close"
+
+  reviews:
+    form:
+      review_title: "Share your opinion with other users"
+      review_question: "Tell us what do you think of this recipe"
+      rating: "How many stars?"
+      add_photo: "Add a photo"
+      publish: "Publish your review"
+
+  comments:
+    form:
+      my_note: "My note:"
+      save: "Save"
+
+  devise:
+    sessions:
+      new:
+        email: "Email"
+        password: "Password"
+        remember: "Remember me"
+        login: "Log in"
+        not_member: "Not a member yet?"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        change: "Change"
+
+    registrations:
+      new:
+        join: "Join Recipeper"
+        first: "First name"
+        last: "Last name"
+        email: "Email"
+        password: "Password"
+        password_conf: "Password confirmation"
+        sign_up: "Sign up"
+        member: Already a member?
+        login: "Log in"
+      edit:
+        edit_title: "Edit your profile"
+        close_account: "Do you want to delete your profile?"
+        cancel_confirm: "Cancel my account"
+
+    passwords:
+      new:
+        forgot: "Forgot your password?"
+        email: "Email"
+        send: "Send me reset password instructions"
+
+

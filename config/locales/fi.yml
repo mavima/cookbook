@@ -1,0 +1,161 @@
+fi:
+  placeholder_recipe: 'Löydä resepti'
+  search: "Etsi"
+  login: "Kirjaudu sisään"
+  login_s: "Kirjaudu"
+  update: "Päivitä"
+  sure: "Oletko varma?"
+  pages:
+    home:
+      slogan: "Keittokirjasi verkossa"
+      longer_slogan: "Tallenna ja järjestä reseptisi ja linkkisi ja löydä uusia suosikkeja."
+      placeholder_recipe: 'Löydä resepti'
+      search: "Etsi"
+    about:
+      about_title: "Mikä Recipeper on?"
+      about_begin: "Recipeperissä voit tallentaa ja järjestää reseptisi ja linkkisi ja löytää uusia suosikkeja."
+      about_li_1: "Lisää lempireseptisi ja löydät ne aina niin puhelimella, tabletilla kuin muillakin laitteillasi. Toiset käyttäjät ovat tyytyväisiä saadessaan reseptin kuuluisaan mustikkapiirakkaasi tai kokeilemaasi Pad Thaihin." 
+      about_li_2: "Etsi toisten lisäämiä reseptejä."
+      about_li_3: "Muokkaa ainesosien määriä helposti sen mukaan, kuinka monelle ruokaa valmistetaan. Ei enää laskuvirheitä, joita sattuu kun muokkaat reseptiä ruokaa valmistaessasi ja unohdatkin tuplata leivinjauheen määrän..."
+      about_li_4: "Lisää omia muistiinpanojasi resepteihin. Muistiinpanosi näkyy ainoastaan sinulle itsellesi, kun olet kirjautunut sivustolle, joten voit huoletta kirjoittaa vaikkapa aikovasi tarjota tätä Miettisille, tai että Pekalle tuli tästä vatsa kipeäksi..."
+      about_li_5: "Lähetä resepti muistiinpanoineen omaan sähköpostiosoitteeseesi nappia painamalla."
+      about_li_6: "Kirjoita arvosteluja resepteihin ja kerro muillekin, ovatko ne hyviä. Voit lisätä myös valokuvia."
+      about_li_7: "Tallenna mielilinkkisi muiden kokkaussivustojen resepteihin omaan keittokirjaasi. Lisää pikku viesti, jotta muistat miksi tallensit linkin."
+      about_thanks: "Kiitos kun käytät Recipeperiä!"
+
+  shared:
+    navbar:
+      home: "Kotisivulle"
+      index: "Kaikki reseptit"
+      add: "Lisää resepti"
+      about: "Mikä Recipeper?"
+      placeholder_recipe: 'Löydä resepti'
+      search: "Etsi"
+      login: "Kirjaudu sisään"
+      logout: "Kirjaudu ulos"
+      cookbook: "Oma keittokirjani"
+      welcome: "Tervetuloa Recipeperiin"
+  
+  recipes:
+    index:
+      recipes: "Reseptit"
+
+    new:
+      add: "Lisää uusi resepti"
+
+    form:
+      name: "Reseptin nimi"
+      choose_category: "Valitse kategoriat"
+      description: "Kuvaus"
+      ingredients: "Ainekset"
+      add_ingredient: "Lisää rivi"
+      steps: "Ohjeet"
+      add_line: "Lisää rivi"
+      time: "Valmistusaika minuuteissa"
+      portions: "Annosmäärä"
+      add_photo: "Lisää kuva"
+      save: "Tallenna"
+
+    dose_fields:
+      amount: "Määrä"
+      unit: "Yksikkö"
+      ingredient: "Aine"
+
+    edit:
+      edit_recipe: "Muokkaa reseptiä"
+
+    show:
+      minutes: "minuuttia"
+      categories: "Kategoriat"
+      add_review: "Lisää arvostelu"
+      edit: "Muokkaa reseptiä"
+      send: "Lähetä minulle"
+      send_confirm: "Haluatko lähettää reseptin sähköpostiisi?"
+      cancel: "Peruuta"
+      send_it: "Lähetä!"
+      log_in_send: "Kirjaudu sisään lähettääksesi resepti"
+      login: "Kirjaudu"
+      all: "Kaikki reseptit"
+      my_notes: "Muistiinpanoni"
+      write_note: "Kirjoita muistiinpano"
+      edit_note: "Muokkaa muistiinpanoani"
+      recalculate: "Muunna resepti annoskoon mukaan "
+      portions: "Annoksia"
+      change: "Laske"
+      suggestions: "Saattaisit pitää myös näistä:"
+
+  users:
+    show:
+      update: "Muokkaa profiilia"
+      favourites: "Suosikkini"
+      my_recipes: "Omat reseptini"
+      my_reviews: "Arvosteluni"
+      my_links: "Linkkini"
+      add_link: "Lisää uusi linkki"
+      close: "Sulje"
+
+  reviews:
+    form:
+      review_title: "Kerro mielipiteesi muille lukijoille"
+      review_question: "Mitä mieltä olet reseptistä?"
+      rating: "Kuinka monta tähteä?"
+      add_photo: "Lisää kuva"
+      publish: "Julkaise arvostelusi"
+
+  comments:
+    form:
+      my_note: "Muistiinpano tähän reseptiin:"
+      save: "Tallenna"
+
+  devise:
+    sessions:
+      new:
+        email: "Sähköpostiosoite"
+        password: "Salasana"
+        remember: "Muista minut"
+        login: "Kirjaudu"
+        not_member: "Etkö ole vielä liittynyt Recipeperiin?"
+        sign_up: "Liity"
+        forgot_password: "Unohditko salasanasi?"
+        change: "Vaihda"
+
+    registrations:
+      new:
+        join: "Tule mukaan Recipeperiin"
+        first: "Etunimi"
+        last: "Sukunimi"
+        email: "Sähköposti"
+        password: "Salasana"
+        password_conf: "Vahvista salasana"
+        sign_up: "Liity"
+        member: Onko sinulla jo tili?
+        login: "Kirjaudu"
+      edit:
+        edit_title: "Muokkaa profiilia"
+        close_account: "Haluatko poistaa profiilisi?"
+        cancel_confirm: "Poista profiilini"
+
+    passwords:
+      new:
+        forgot: "Unohditko salasanasi?"
+        email: "Sähköposti"
+        send: "Lähetä ohjeet salasanan vaihtoon"
+
+  activerecord:
+    models:
+      recipe: "Resepti"
+      review: "Arvostelu"
+      comment: "Kommentti"
+      user: "Käyttäjä"
+    attributes:
+      recipe:
+        name: "Nimi"
+      user: 
+        first_name: "Etunimi"
+        last_name: "Sukunimi"
+        email: "Sähköposti"
+        password: "Salasana"
+        password_confirmation: "Vahvista salasana"
+        current_password: "Nykyinen salasana"
+
+

@@ -2,15 +2,15 @@
 
   <div class="index-top">
     <div class="index-top-container">
-      <h1 class="index-title">Recipes</h1>
+      <h1 class="index-title"><%= t('.recipes')%></h1>
       <div class= "index-form-grid">
       <%= form_tag recipes_path, method: :get, class: "index-form" do %>
         <%= text_field_tag :query,
           params[:query],
-          placeholder: "Find a recipe",
+          placeholder: t('placeholder_recipe'),
           class: "input-box input-box-index input-search"
         %>
-        <%= submit_tag "Search", class: "btn-home btn-search" %>
+        <%= submit_tag t('search'), class: "btn-home btn-search" %>
       <% end %>
       </div>
     </div>

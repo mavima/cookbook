@@ -2,13 +2,12 @@
   <div class="container">
     <div class="recipe-form">
       <div class="form-banner">
-          <h1>Modify the recipe</h1>
+          <h1><%= t('.edit_recipe')%></h1>
       </div>
 
       <%= render 'form' %>
 
       <br>
     </div>
-  <h4><%= link_to "<< Back", recipe_path(@recipe), class: "btn-small" %></h4>
   </div>
 </div>

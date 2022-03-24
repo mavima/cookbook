@@ -1,15 +1,20 @@
 <div class="pages">
   <div class="home-container">
     <div class="home-content">
-      <h1>Recipeper</h1>
+      <h1 style="font-size: 3rem">
+        <%= t('.slogan')%>
+      </h1>
+      <p class="home-slogan">
+        <%= t('.longer_slogan')%>
+      </p>
 
         <%= form_tag recipes_path, method: :get, url: recipes_path do %>
           <%= text_field_tag :query,
             params[:query],
-            placeholder: "Find a recipe",
-            class: "input-box home-input"
+            placeholder: t('.placeholder_recipe'),
+            class: ".input-box home-input"
           %>
-          <%= submit_tag "Search", class: "btn-home" %>
+          <%= submit_tag t('.search'), class: "btn-home" %>
         <% end %>
     </div>
   </div>

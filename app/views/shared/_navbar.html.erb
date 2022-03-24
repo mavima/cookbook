@@ -7,17 +7,17 @@
     </li>
     <li>
       <%= link_to recipes_path do %>
-        All recipes
+        <%= t('.index')%>
       <% end %>
     </li>
     <li>
       <%= link_to new_recipe_path do %>
-        Add a recipe
+        <%= t('.add')%>
         <% end %>
     </li>
     <li>
       <%= link_to about_path do %>
-        About
+        <%= t('.about')%>
       <% end %>
     </li>
     <li class="navbar-search">
@@ -26,12 +26,16 @@
         <%= form_tag recipes_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
-            placeholder: "Find a recipe",
+            placeholder: t('.placeholder_recipe'),
             class: "input-box input-search"
           %>
-          <%= submit_tag "Search", class: "btn-home btn-search btn-dropdown" %>
+          <%= submit_tag t('search'), class: "btn-home btn-search btn-dropdown" %>
         <% end %>
       </div>
+    </li>
+    <li>
+      <%= link_to image_tag("uk.png"), { :locale=>'en' } %>
+      <%= link_to image_tag("finland.png"), { :locale=>'fi' } %>
     </li>
 
     <% if user_signed_in? %>
@@ -49,18 +53,24 @@
           </button>
 
           <div class="dropdown-menu"aria-labelledby="dropdownMenuButton">
-            <h6 class="dropdown-item">
-                <%= link_to "My Cookbook", user_path(current_user), class: "nav-link" %>
+            <h6 class="dropdown-item nav-link">
+                <%= link_to user_path(current_user) do %>
+                  <%= t('.cookbook') %>
+                <% end %>
               </h6>
             <h6 class="dropdown-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= t('.logout')%>
+              <% end %>
             </h6>
           </div>
         
       </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item nav-link">
+          <%= link_to new_user_session_path do %>
+            <%= t('login')%>
+          <% end %>
         </li>
       <% end %>
   </ul>
@@ -86,6 +96,14 @@
   <!-- Navbar slide mobile -->
   <nav id="menu" class="panel">
     <header>
+      <div class="mobile-flags">
+        <span class="flag-icon">
+          <%= link_to image_tag("uk.png"), { :locale=>'en' } %>
+        </span>
+        <span class="flag-icon">
+          <%= link_to image_tag("finland.png"), { :locale=>'fi' } %>
+        </span>
+      </div>
 <!--       <div id="closeSlideOut">
 
       </div> -->
@@ -104,30 +122,30 @@
           </li>
         <div class="slidepage">
           <li class="dim">
-            <%= link_to "Home", root_path %>
+            <%= link_to t('.home'), root_path %>
           </li>
           <li class="dim">
             <%= link_to recipes_path do %>
-              All recipes
+              <%= t('.index') %>
             <% end %>
           </li>
           <li class="dim">
-              <%= link_to "My Cookbook", user_path(current_user)  %>
+              <%= link_to t('.cookbook'), user_path(current_user)  %>
           </li>
           <li class="dim">
-            <%= link_to "Add a recipe", new_recipe_path %>
+            <%= link_to t('.add'), new_recipe_path %>
           </li>
           <li class="dim">
-            <%= link_to "About Recipeper", about_path %>
+            <%= link_to t('.about'), about_path %>
           </li>
           <li>
             <%= form_tag recipes_path, method: :get do %>
               <%= text_field_tag :query,
               params[:query],
-              placeholder: "Find a recipe",
+              placeholder: t('.placeholder_recipe'),
               class: "input-box input-search slide-input"
             %>
-          <%= submit_tag "Search", class: "btn-home btn-search btn-dropdown" %>
+          <%= submit_tag "Search", class: "btn-slide btn-no-marg-bot" %>
         <% end %>
           </li>
 
@@ -143,28 +161,28 @@
         <% else %>
           <div class="welcome">
 
-              <h3>Welcome to Recipeper</h3>
+              <h3><%= t('.welcome')%></h3>
 
             <ul>
             <li>              
               <%= image_tag('hat_lightblue.png', class: "navbar-logo") %>
             </li>
             <li class="dim">
-            <%= link_to "Home", root_path %>
+            <%= link_to t('.home'), root_path %>
           </li>
           <li class="dim">
             <%= link_to recipes_path do %>
-              All recipes
+             <%= t('.index') %> 
             <% end %>
           </li>
           <li class="dim">
-            <%= link_to "Add a recipe", new_recipe_path %>
+            <%= link_to t('.add'), new_recipe_path %>
           </li>
 
-                <li class="dim"><%= link_to "About us", about_path %></li>
+                <li class="dim"><%= link_to t('.about'), about_path %></li>
                 <%# <li class="dim">How to use Recipeper</li> %>
                 <li class="login">
-                  <%= link_to "Log in", new_user_session_path, class: "btn-slide" %>
+                  <%= link_to t('login_s'), new_user_session_path, class: "btn-slide" %>
                 </li>
     <!--             <li class="dim">
                   <%#= link_to "Privacy Policy", privacy_policy_path %>

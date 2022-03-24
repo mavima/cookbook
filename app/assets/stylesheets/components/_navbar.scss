@@ -100,6 +100,8 @@ ul.user-action {
   display: none;
 }
 
+
+
 // slideout style
 
 @media(max-width: 600px) {
@@ -166,6 +168,14 @@ ul.user-action {
     -webkit-overflow-scrolling: touch;
     z-index: 0;
     display: none;
+  }
+
+  .mobile-flags {
+    padding: 1rem;
+  }
+
+  .flag-icon {
+    padding: 0.5rem;
   }
 
 

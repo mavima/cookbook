@@ -1,29 +1,42 @@
 <div class="container">
-  <h2>Log in</h2>
+  <h2><%= t('login')%></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
                   required: false,
                   autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+                  input_html: { autocomplete: "email" },
+                  label: t('.email')   
+                  %>
       <%= f.input :password,
                   required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  input_html: { autocomplete: "current-password" },
+                  label: t('.password')  
+                  
+                  %>
+      <%= f.input :remember_me, label: t('.remember'), as: :boolean if devise_mapping.rememberable?  %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn-form btn-green" %>
+      <%= f.button :submit, t('.login'), class: "btn-form btn-green" %>
     </div>
   <% end %>
  
     <br>
-  <p>Not a member yet?
-      <%= link_to "Sign up", new_registration_path(resource_name), class: "btn-form btn-blue"  %></p>
+  <p><%= t('.not_member')%>
+      <%= link_to new_registration_path(resource_name) do %>
+          <button class="btn-form btn-blue">
+            <%= t('.sign_up')%>
+          </button>
+      <% end %>
   <br>
-  <%= link_to "Forgot your password?   ", new_password_path(resource_name), class: "forgot-password"  %>
-  <%= link_to "Change it", new_password_path(resource_name), class: "btn-form btn-blue"  %>
+  <p><%= t('.forgot_password')%>
+  <%= link_to new_password_path(resource_name) do %>
+    <button class="btn-form btn-blue">
+      <%= t('.change')%>
+    </button>
+  <% end %>
   <br>
 
   <%#= render "devise/shared/links" %>
