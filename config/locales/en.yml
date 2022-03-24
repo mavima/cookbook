@@ -3,6 +3,8 @@ en:
   placeholder_recipe: 'Find a recipe'
   search: "Search"
   login: "Log in"
+  update: "Update"
+  sure: "Are you sure?"
   pages:
     home: 
       slogan: "My cookbook online"
@@ -74,6 +76,7 @@ en:
       all: "All recipes"
       my_notes: "My notes"
       write_note: "Write a note"
+      edit_note: "Edit my note"
       recalculate: "Recalculate amounts"
       portions: "Portions"
       change: "Change"
@@ -96,6 +99,11 @@ en:
       rating: "How many stars?"
       add_photo: "Add a photo"
       publish: "Publish your review"
+
+  comments:
+    form:
+      my_note: "My note:"
+      save: "Save"
 
   devise:
     sessions:
@@ -120,6 +128,10 @@ en:
         sign_up: "Sign up"
         member: Already a member?
         login: "Log in"
+      edit:
+        edit_title: "Edit your profile"
+        close_account: "Do you want to delete your profile?"
+        cancel_confirm: "Cancel my account"
 
     passwords:
       new:

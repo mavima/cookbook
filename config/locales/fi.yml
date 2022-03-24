@@ -2,6 +2,8 @@ fi:
   placeholder_recipe: 'Löydä resepti'
   search: "Etsi"
   login: "Kirjaudu sisään"
+  update: "Päivitä"
+  sure: "Oletko varma?"
   pages:
     home:
       slogan: "Keittokirjasi verkossa"
@@ -73,6 +75,7 @@ fi:
       all: "Kaikki reseptit"
       my_notes: "Muistiinpanoni"
       write_note: "Kirjoita muistiinpano"
+      edit_note: "Muokkaa muistiinpanoani"
       recalculate: "Muunna resepti annoskoon mukaan "
       portions: "Annoksia"
       change: "Laske"
@@ -95,6 +98,11 @@ fi:
       rating: "Kuinka monta tähteä?"
       add_photo: "Lisää kuva"
       publish: "Julkaise arvostelusi"
+
+  comments:
+    form:
+      my_note: "Muistiinpano tähän reseptiin:"
+      save: "Tallenna"
 
   devise:
     sessions:
@@ -119,11 +127,32 @@ fi:
         sign_up: "Liity"
         member: Onko sinulla jo tili?
         login: "Kirjaudu"
+      edit:
+        edit_title: "Muokkaa profiilia"
+        close_account: "Haluatko poistaa profiilisi?"
+        cancel_confirm: "Poista profiilini"
 
     passwords:
       new:
         forgot: "Unohditko salasanasi?"
         email: "Sähköposti"
         send: "Lähetä ohjeet salasanan vaihtoon"
+
+  activerecord:
+    models:
+      recipe: "Resepti"
+      review: "Arvostelu"
+      comment: "Kommentti"
+      user: "Käyttäjä"
+    attributes:
+      recipe:
+        name: "Nimi"
+      user: 
+        first_name: "Etunimi"
+        last_name: "Sukunimi"
+        email: "Sähköposti"
+        password: "Salasana"
+        password_confirmation: "Vahvista salasana"
+        current_password: "Nykyinen salasana"
 
 

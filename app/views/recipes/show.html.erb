@@ -137,20 +137,24 @@
         <% if current_user && current_user.commented?(@recipe) %>
         <p><%= current_user.get_comment_instances(@recipe).content %></p>
           <% @comment =  current_user.get_comment_instances(@recipe) %>
-        <%= link_to "Edit my note", edit_recipe_comment_path(@recipe, @comment), class: "btn-note btn-blue" %>
-        <% else %>
-        <%= link_to new_recipe_comment_path(@recipe) do %>
+          <%= link_to edit_recipe_comment_path(@recipe) do %>
           <button class="btn-note btn-blue">
-            <%= t('.write_note')%>
+            <%= t('.edit_note')%>
           </button>
-        <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to new_recipe_comment_path(@recipe) do %>
+            <button class="btn-note btn-blue">
+              <%= t('.write_note')%>
+            </button>
+          <% end %>
         <% end %>
       </div>
       <div class="calculator">
         <h4><%= t('.recalculate')%></h4>
         <%= t('.portions')%>
         <form class="ration-form">
-          <input type="number" id="rations">
+          <input type="number" id="rations", placeholder=<%= @recipe.portions%>>
           <button type="submit" id="btn-calculator" class="btn-note btn-blue"><%= t('.change') %></button>
         </form>
 
