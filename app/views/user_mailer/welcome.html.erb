@@ -1,15 +1,14 @@
 
-    <h4>Dear <%= @user.first_name %>,</h4>
-    <p>Welcome to Recipeper!</p>
-    <p>
-      You have successfully signed up,
-      your username is: <%= @user.email %>.<br>
+    <h4><%= t('.dear') %> <%= @user.first_name %>,</h4>
+    <p><%= t('.welcome') %></p>
+    <p> <%= t('.success') %>
+       <%= @user.email %>.<br>
     </p>
     <p>
-      <%= link_to "Return to Recipeper", root_url %>
+      <%= link_to t('.return'), root_url %>
     </p>
-    <p>Thanks for joining, we are happy to have you among us!</p>
+    <p><%= t('.thanks') %></p>
 
-    <p>Kind regards,</p>
+    <p><%= t('.regards') %></p>
 
-    <p>Recipeper team</p>
+    <p><%= t('.team') %></p>

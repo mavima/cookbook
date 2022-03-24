@@ -141,6 +141,26 @@ fi:
         email: "Sähköposti"
         send: "Lähetä ohjeet salasanan vaihtoon"
 
+  recipe_mailer:
+    send_recipe: 
+      preparation_time: "Valmistusaika"
+      minutes: "minuuttia"
+      portions: "Annoksia"
+      my_notes: "Muistiinpanoni"
+      thanks: "Kiitos kun käytät"
+      recipeper: "Recipeperiä"
+
+  user_mailer:
+    welcome:
+      dear: "Hei"
+      welcome: "Tervetuloa Recipeperiin"
+      success: "Olet nyt luonut käyttäjätilin, tunnuksesi on:"
+      return: "Takaisin Recipeperiin"
+      thanks: "Kiitos kun liityit mukaan!"
+      regards: "Ystävällisin terveisin"
+      team: "Recipeper-tiimi"
+
+
   activerecord:
     models:
       recipe: "Resepti"
