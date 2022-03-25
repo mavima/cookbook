@@ -1,7 +1,11 @@
 
   <%= simple_form_for(@recipe) do |f|%>
   <%= f.input :name, label: t('.name') %>
-  <% @categories = Category.all %>
+  <% if I18n.locale == :fi %>
+    <% @categories = Category.all.where(language: "finnish") %>
+  <% else %>
+    <% @categories = Category.all.where(language: "english") %>
+  <% end %>
   <%= f.label t('.choose_category') %>
   <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid" %>
   <%= f.input :description, label: t('.description') %>
