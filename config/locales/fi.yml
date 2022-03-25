@@ -21,6 +21,10 @@ fi:
       about_li_5: "Lähetä resepti muistiinpanoineen omaan sähköpostiosoitteeseesi nappia painamalla."
       about_li_6: "Kirjoita arvosteluja resepteihin ja kerro muillekin, ovatko ne hyviä. Voit lisätä myös valokuvia."
       about_li_7: "Tallenna mielilinkkisi muiden kokkaussivustojen resepteihin omaan keittokirjaasi. Lisää pikku viesti, jotta muistat miksi tallensit linkin."
+      about_li_8: "Voit käyttää Recipeperiä suomeksi tai englanniksi. Jotta käännösvirheiden aiheuttamat kokkauskatastrofit vältettäisiin, reseptejä ei käännetä automaattisesti. Halutessasi voit itse kääntää niitä käyttämällä esimerkiksi "
+      translate_href: "Google kääntäjää."
+      
+    
       about_thanks: "Kiitos kun käytät Recipeperiä!"
 
   shared:

@@ -22,6 +22,8 @@ en:
       about_li_5: "Send the recipe including your personal notes to your email address with a simple click."
       about_li_6: "Write reviews on the recipes to let the other users know if the recipe is any good. You can also add a photo on the review."
       about_li_7: "Save your favourite links to other recipe sites on your own cookbook. Add a note so you can remember why you wanted to save the link."
+      about_li_8: "You can use Recipeper in English or Finnish. To avoid any cooking disasters related to translation mistakes the recipes are not automatically translated. If you want, you can translate them yourself for example with "
+      translate_href: "Google translate."
       about_thanks: "Thank you for using Recipeper!"
 
   shared:
