@@ -35,10 +35,16 @@ class RecipesController < ApplicationController
 
 
   def create
+    
     current_user = current_or_guest_user
     @recipe = Recipe.new(recipe_strong_params)
     @recipe.user_id = User.find(current_user.id).id
     @categories = Category.where(category_ids: @recipe.category_ids)
+    if I18n.locale == :fi
+      @recipe.language = "finnish"
+    else
+      @recipe.language = "english"
+    end
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
@@ -80,7 +86,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_strong_params
-    params.require(:recipe).permit(:name, :description, :time, :portions, :rating, :photo, :photo_cache, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
+    params.require(:recipe).permit(:name, :description, :time, :portions, :rating, :photo, :photo_cache, :language, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
   end
 
 end

@@ -15,10 +15,16 @@
       </div>
     </div>
   </div>
+  <% if I18n.locale == :fi %>
+    <% current_recipes = @recipes.select { |recipe| recipe.language == "finnish" } %>
+  <% else %>
+    <% current_recipes = @recipes.select { |recipe| recipe.language == "english" } %>
+  <% end %>
+      
   <div class="index-container">
     <div class="index-grid">
       <!-- <div class="index-cards"> -->
-      <% @recipes.each do |recipe| %>
+      <% current_recipes.each do |recipe| %>
         <div class="index-card">
           <%= link_to recipe_path(recipe) do %>
           <div class="img-box-index">

@@ -9,8 +9,8 @@
     <%= @recipe.description %>
   </div>
   <div style="opacity: 0.8; font-size: 90%">
-    <p>Time of preparation: <%=@recipe.time %> minutes</p>
-    <p>Portions: <%= @recipe.portions %></p>
+    <p><%= t('.preparation_time') %>: <%=@recipe.time %> <%= t('.minutes') %></p>
+    <p><%= t('.portions') %>: <%= @recipe.portions %></p>
   </div>
   <div>
     <% @recipe.doses.each do |dose| %>
@@ -29,7 +29,7 @@
   </div>
   <div>
     <% if @user.commented?(@recipe) %>
-    <h4>My notes:</h4>
+    <h4><%= t('.my_notes') %></h4>
         <p><%= @user.get_comment_instances(@recipe).content %></p>
         <% @comment = @user.get_comment_instances(@recipe) %>
     <% end %>
@@ -37,5 +37,5 @@
 
 
 <p>* * * </p>
-<p>Thank you for choosing <%= link_to "Recipeper", root_url %></p>
+<p> <%= t('.thanks') %> <%= link_to t('.recipeper'), root_url %></p>
 </div>

@@ -1,3 +1,4 @@
+
   <%= simple_form_for(@recipe) do |f|%>
   <%= f.input :name, label: t('.name') %>
   <% @categories = Category.all %>
@@ -22,7 +23,7 @@
 
 
   <%= f.input :portions, input_html: {class: "input-box input-box-small"}, label: t('.portions') %>
-
+  
   <div id="img-preview"></div>
   <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: t('.add_photo'), label_html: { class: "btn-show btn-blue btn-no-marg" } %>
 

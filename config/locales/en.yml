@@ -142,4 +142,25 @@ en:
         email: "Email"
         send: "Send me reset password instructions"
 
+  recipe_mailer:
+    send_recipe: 
+      preparation_time: "Time of preparation"
+      minutes: "minutes"
+      portions: "portions"
+      my_notes: "My notes"
+      thanks: "Thank you for using"
+      recipeper: "Recipeper"
+
+  user_mailer:
+    welcome:
+      dear: "Dear"
+      welcome: "Welcome to Recipeper!"
+      success: "You have successfully signed up,
+      your username is:"
+      return: "Return to Recipeper"
+      thanks: "Thanks for joining, we are happy to have you among us!"
+      regards: "Kind regards"
+      team: "Recipeper team"
+
+
 

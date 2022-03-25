@@ -38,7 +38,13 @@ class Recipe < ApplicationRecord
     end
   end
 
+  # def english_recipe
+  #   if self.language == "en"
+  # end
 
+  # def finnish_recipe
+  #   if self.language == "fi"
+  # end
 
   def average_rating
     reviews = self.reviews

@@ -1,7 +1,7 @@
 <%= @recipe.name %>
 <%= @recipe.description %>
-Time of preparation: <%=@recipe.time %> minutes
-Portions: <%= @recipe.portions %>
+t('.preparation_time') <%=@recipe.time %> <%= t('.minutes') %>
+<%= t('.portions') %> <%= @recipe.portions %>
 
 <% @recipe.doses.each do |dose| %>
     <% if dose.amount != nil %>
@@ -14,11 +14,11 @@ Portions: <%= @recipe.portions %>
     <%= step.detail.capitalize %>
 <% end %>
 <% if @user.commented?(@recipe) %>
-    My notes:
+    <%= t('.my_notes') %>:
     <%= @user.get_comment_instances(@recipe).content %>
     <% @comment = @user.get_comment_instances(@recipe) %>
 <% end %>
 
 ***
 
-Thank you for choosing <%= link_to "Recipeper", root_url %>
+<%= t('.thanks') %> <%= link_to t('.recipeper'), root_url %>
