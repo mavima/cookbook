@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:edit, :destroy]
  before_action :set_review, only: [:edit, :update, :destroy]
   def new
     @review = Review.new
@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_strong_params)
-    @review.user = current_user
+    @review.user = current_or_guest_user
     @recipe = Recipe.find(params[:recipe_id])
     @review.recipe = @recipe
     if @review.save
@@ -51,6 +51,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_strong_params
-    params.require(:review).permit(:content, :rating, :photo, :user_id, :recipe_id)
+    params.require(:review).permit(:content, :rating, :photo, :user_id, :writer, :recipe_id)
   end
 end

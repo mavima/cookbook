@@ -10,6 +10,9 @@
         <%# end %> -->
 
       <%= f.input :rating, label: t('.rating'), collection: 1..5, selected: 5%>
+      <% if !current_user%>
+        <%= f.input :writer, label: t('.review_writer') %>
+      <% end %>
         <div>
           <div id="img-preview" class="review-preview"></div>
           <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img"}, label: t('.add_photo'), label_html: { class: " btn-home"} %>
