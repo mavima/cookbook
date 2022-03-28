@@ -6,4 +6,10 @@ class Review < ApplicationRecord
 
   validates :content, presence: true
   validates :rating, presence: true
+  validates :writer, presence: true, if: :guest_user?
+
+  def guest_user?
+    self.user.email.include?("@example.com")
+  end
+
 end

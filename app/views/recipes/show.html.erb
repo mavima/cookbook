@@ -171,7 +171,11 @@
                   <span class="fa fa-star empty"></span>
                 <% end %>
                 <p>"<%= review.content %>"</p>
-                <p class="reviewer"><%= review.user.first_name %> </p>
+                <% if review.writer %>
+                  <p class="reviewer"><%= review.writer %> </p>
+                <% else %>
+                  <p class="reviewer"><%= review.user.first_name %> </p>
+                <% end %>
               </div>
               <div>
                 <% if review.photo?%>

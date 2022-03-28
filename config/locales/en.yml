@@ -4,6 +4,8 @@ en:
   search: "Search"
   login: "Log in"
   login_s: "Log in"
+  not_member: "Not a member yet?"
+  sign_up: "Sign up"
   update: "Update"
   sure: "Are you sure?"
   pages:
@@ -49,6 +51,8 @@ en:
 
     new:
       add: "Add a new recipe"
+      log_in_warning: "Please note that unless you log in, your recipe won't be saved in your Cookbook  and you can't modify the recipe."
+
 
     form:
       name: "Recipe name"
@@ -105,6 +109,7 @@ en:
     form:
       review_title: "Share your opinion with other users"
       review_question: "Tell us what do you think of this recipe"
+      review_writer: "Your name *"
       rating: "How many stars?"
       add_photo: "Add a photo"
       publish: "Publish your review"
@@ -120,9 +125,6 @@ en:
         email: "Email"
         password: "Password"
         remember: "Remember me"
-        login: "Log in"
-        not_member: "Not a member yet?"
-        sign_up: "Sign up"
         forgot_password: "Forgot your password?"
         change: "Change"
 

@@ -3,6 +3,8 @@ fi:
   search: "Etsi"
   login: "Kirjaudu sisään"
   login_s: "Kirjaudu"
+  not_member: "Etkö ole vielä liittynyt Recipeperiin?"
+  sign_up: "Liity"
   update: "Päivitä"
   sure: "Oletko varma?"
   pages:
@@ -47,6 +49,7 @@ fi:
 
     new:
       add: "Lisää uusi resepti"
+      log_in_warning: "Muistathan että jos et kirjaudu sisään, reseptiä ei tallenneta omaan keittokirjaasi, etkä voi muokata sitä jälkikäteen."
 
     form:
       name: "Reseptin nimi"
@@ -104,6 +107,7 @@ fi:
       review_title: "Kerro mielipiteesi muille lukijoille"
       review_question: "Mitä mieltä olet reseptistä?"
       rating: "Kuinka monta tähteä?"
+      review_writer: "Nimesi *"
       add_photo: "Lisää kuva"
       publish: "Julkaise arvostelusi"
 
@@ -118,9 +122,6 @@ fi:
         email: "Sähköpostiosoite"
         password: "Salasana"
         remember: "Muista minut"
-        login: "Kirjaudu"
-        not_member: "Etkö ole vielä liittynyt Recipeperiin?"
-        sign_up: "Liity"
         forgot_password: "Unohditko salasanasi?"
         change: "Vaihda"
 
