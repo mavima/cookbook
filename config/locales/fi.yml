@@ -23,8 +23,9 @@ fi:
       about_li_7: "Tallenna mielilinkkisi muiden kokkaussivustojen resepteihin omaan keittokirjaasi. Lisää pikku viesti, jotta muistat miksi tallensit linkin."
       about_li_8: "Voit käyttää Recipeperiä suomeksi tai englanniksi. Jotta käännösvirheiden aiheuttamat kokkauskatastrofit vältettäisiin, reseptejä ei käännetä automaattisesti. Halutessasi voit itse kääntää niitä käyttämällä esimerkiksi "
       translate_href: "Google kääntäjää."
-      
-    
+      about_li_9: "Recipeper on uusi palvelu ja otamme mielellämme vastaan niin ruusuja, risuja kuin ideoitakin. Kirjoita meille osoitteeseen "
+      link_mailto: "info@recipeper.com."
+
       about_thanks: "Kiitos kun käytät Recipeperiä!"
 
   shared:

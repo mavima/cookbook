@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :reviews
   has_many :favourites, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :links, dependent: :destroy
   validates :first_name, presence: true, on: :update
   validates :last_name, presence: true, on: :update
@@ -35,6 +35,14 @@ class User < ApplicationRecord
   def unfavourite(recipe)
     favourites.where(recipe: recipe).destroy_all
     recipe.reload
+  end
+
+  def destroy
+    update_attributes(deactivated: true) unless deactivated
+  end
+
+  def active_for_authentication?
+    super && !deactivated
   end
 
 end
