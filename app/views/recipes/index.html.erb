@@ -2,27 +2,36 @@
 
   <div class="index-top">
     <div class="index-top-container">
-      <h1 class="index-title"><%= t('.recipes')%></h1>
-      <div class= "index-form-grid">
-      <% if I18n.locale == :fi %>
-        <% current_categories = Category.all.select { |category| category.language == "finnish" }  %>
-      <% else %>
-        <% current_categories = Category.all.select { |category| category.language == "english" }  %>
-      <% end %>
-      <%= form_tag recipes_path, method: :get, class: "index-form" do %>
+      <div class="index-form-container">
+        <h1 class="index-title"><%= t('.recipes')%></h1>
+        <div class= "index-form-grid">
+        <% if I18n.locale == :fi %>
+          <% current_categories = Category.all.select { |category| category.language == "finnish" }  %>
+        <% else %>
+          <% current_categories = Category.all.select { |category| category.language == "english" }  %>
+        <% end %>
+        <%= form_tag recipes_path, method: :get, class: "index-form" do %>
 
-        <%= text_field_tag :query,
-          params[:query],
-          placeholder: t('placeholder_recipe'),
-          class: "input-box input-box-index input-search"
-        %>
-        <p class="margin-left-index"><%= t('.or')%></p>
-       
-        <% @categories = Category.all%>
-        <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.placeholder_category')  }, { class: "input-box input-box-index input-search" }%>
-        <%= submit_tag t('search'), class: "btn-home btn-search" %>
-      <% end %>
-      </div>
+          <%= text_field_tag :query,
+            params[:query],
+            placeholder: t('placeholder_recipe'),
+            class: "input-box input-box-index input-search"
+          %>
+          <p class="margin-left-index"><%= t('.or')%></p>
+        
+          <% @categories = Category.all%>
+          <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.placeholder_category'), selected: ""  }, { class: "input-box input-box-index input-search" }%>
+          <%= button_tag(type: "submit", class: "btn-home btn-search btn-index") do %>
+            <%= t('search') %> <i class="fa fa-search"></i>
+          <% end %>
+          <% end %>
+        </div>
+        <%= link_to recipes_path do %>
+          <button class="btn-home btn-search btn-index btn-reset-index"> 
+            <i class="fa fa-home"></i>
+          </button>
+        <% end %>
+        </div>
     </div>
   </div>
   <% if I18n.locale == :fi %>
@@ -32,6 +41,7 @@
   <% end %>
       
   <div class="index-container">
+  
     <div class="index-grid">
       <!-- <div class="index-cards"> -->
       <% current_recipes.each do |recipe| %>
@@ -76,7 +86,13 @@
           <% end %>
         </div>
       <% end %>
-    <!-- </div> -->
+    </div>
+    <div class="home-link">
+      <%= link_to recipes_path do %>
+        <button class="btn-home btn-small"> 
+          <i class="fa fa-home"></i>
+        </button>
+      <% end %>
     </div>
   </div>
 </div>
