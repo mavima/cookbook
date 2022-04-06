@@ -5,26 +5,20 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe)
-    if params[:query].present?
-      @recipes = policy_scope(Recipe).search_by_name_and_description(params[:query]) 
-    elsif params[:category].present?
+    if params[:query].present? && params[:category].blank? 
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
+    elsif params[:query].present? && params[:category][:id].blank?
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
+    elsif params[:category].present? && params[:query].blank?
       my_cat = Category.find_by_id(params[:category][:id].to_i)
       @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
-      # @recipes = policy_scope(Recipe).search_by_category(params[:category]) 
-      # @recipes = Recipe.joins(:categories).where("categories.id ILIKE ?", "%#{params[:category]}")
-      # @recipes = Recipe.where("?=ANY(recipe_categories)", params[:query])
+    elsif params[:category].present? && params[:query].present?
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
+      my_cat = Category.find_by_id(params[:category][:id].to_i)
+      @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
     else
-      @recipes = policy_scope(Recipe).order(:name)
+      @recipes = @recipes.order(:name)
     end
-  end
-
-  def search
-    if params[:query].present?
-    @recipes = Recipe.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @recipes = Recipe.all
-    end
-    authorize @recipes
   end
 
 
@@ -41,11 +35,8 @@ class RecipesController < ApplicationController
 
 
   def create
-    
-    # @recipe.user = current_or_guest_user
     @recipe = Recipe.new(recipe_strong_params)
     @recipe.user_id = User.find(current_or_guest_user.id).id
-    # set_categories
     @categories = Category.where(category_ids: @recipe.category_ids)
     if I18n.locale == :fi
       @recipe.language = "finnish"
@@ -61,7 +52,6 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    # set_categories
   end
 
   def update
@@ -96,13 +86,5 @@ class RecipesController < ApplicationController
   def recipe_strong_params
     params.require(:recipe).permit(:name, :description, :time, :portions, :rating, :photo, :photo_cache, :language, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
   end
-
-  def set_categories
-    @recipe_categories = RecipeCategory.where(category_id: @recipe.category_id)
-    @categories = @recipe_categories.map do |fc|
-      rc = Category.find(rc.category_id)
-    end
-  end
-
 
 end

@@ -3,7 +3,6 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_categories, dependent: :destroy
   has_many :categories, through: :recipe_categories
-  # has_and_belongs_to_many :categories
   has_many :reviews, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -19,7 +18,6 @@ class Recipe < ApplicationRecord
   # validates: :photo, file_size: { less_than: 2.megabytes }
 
   include PgSearch::Model
-  # scope name whatever
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],
     associated_against: {
@@ -30,11 +28,6 @@ class Recipe < ApplicationRecord
     using: {
       tsearch: {prefix: true }
     }
-
-  pg_search_scope :search_by_category,
-  associated_against: {
-    categories: :name
-  }
 
 
   def photo_validation
