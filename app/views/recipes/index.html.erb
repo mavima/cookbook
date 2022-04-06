@@ -17,8 +17,6 @@
             placeholder: t('placeholder_recipe'),
             class: "input-box input-box-index input-search"
           %>
-          <p class="margin-left-index"><%= t('.or')%></p>
-        
           <% @categories = Category.all%>
           <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.placeholder_category'), selected: ""  }, { class: "input-box input-box-index input-search" }%>
           <%= button_tag(type: "submit", class: "btn-home btn-search btn-index") do %>

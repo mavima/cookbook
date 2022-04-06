@@ -5,16 +5,17 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe)
-    if params[:query].present?
-      @recipes = policy_scope(Recipe).search_by_name_and_description(params[:query]) 
-    elsif params[:category].present?
+    if params[:query].present? && params[:category][:id].blank?
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
+    elsif params[:category].present? && params[:query].blank?
       my_cat = Category.find_by_id(params[:category][:id].to_i)
       @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
-      # @recipes = policy_scope(Recipe).search_by_category(params[:category]) 
-      # @recipes = Recipe.joins(:categories).where("categories.id ILIKE ?", "%#{params[:category]}")
-      # @recipes = Recipe.where("?=ANY(recipe_categories)", params[:query])
+    elsif params[:category].present? && params[:query].present?
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
+      my_cat = Category.find_by_id(params[:category][:id].to_i)
+      @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
     else
-      @recipes = policy_scope(Recipe).order(:name)
+      @recipes = @recipes.order(:name)
     end
   end
 
