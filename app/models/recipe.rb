@@ -1,7 +1,9 @@
 class Recipe < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
-  has_and_belongs_to_many :categories
+  has_many :recipe_categories, dependent: :destroy
+  has_many :categories, through: :recipe_categories
+  # has_and_belongs_to_many :categories
   has_many :reviews, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -28,6 +30,12 @@ class Recipe < ApplicationRecord
     using: {
       tsearch: {prefix: true }
     }
+
+  pg_search_scope :search_by_category,
+  associated_against: {
+    categories: :name
+  }
+
 
   def photo_validation
     if self.photo

@@ -6,7 +6,13 @@ class RecipesController < ApplicationController
   def index
     @recipes = policy_scope(Recipe)
     if params[:query].present?
-      @recipes = policy_scope(Recipe).search_by_name_and_description(params[:query])
+      @recipes = policy_scope(Recipe).search_by_name_and_description(params[:query]) 
+    elsif params[:category].present?
+      my_cat = Category.find_by_id(params[:category][:id].to_i)
+      @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
+      # @recipes = policy_scope(Recipe).search_by_category(params[:category]) 
+      # @recipes = Recipe.joins(:categories).where("categories.id ILIKE ?", "%#{params[:category]}")
+      # @recipes = Recipe.where("?=ANY(recipe_categories)", params[:query])
     else
       @recipes = policy_scope(Recipe).order(:name)
     end
@@ -36,9 +42,10 @@ class RecipesController < ApplicationController
 
   def create
     
-    current_user = current_or_guest_user
+    # @recipe.user = current_or_guest_user
     @recipe = Recipe.new(recipe_strong_params)
-    @recipe.user_id = User.find(current_user.id).id
+    @recipe.user_id = User.find(current_or_guest_user.id).id
+    # set_categories
     @categories = Category.where(category_ids: @recipe.category_ids)
     if I18n.locale == :fi
       @recipe.language = "finnish"
@@ -54,6 +61,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    # set_categories
   end
 
   def update
@@ -88,5 +96,13 @@ class RecipesController < ApplicationController
   def recipe_strong_params
     params.require(:recipe).permit(:name, :description, :time, :portions, :rating, :photo, :photo_cache, :language, :user_id, :dose, category_ids: [],steps_attributes: [:id, :detail, :recipe_id, :_destroy] , doses_attributes: [:id, :amount, :ingredient, :unit, :recipe_id, :_destroy])
   end
+
+  def set_categories
+    @recipe_categories = RecipeCategory.where(category_id: @recipe.category_id)
+    @categories = @recipe_categories.map do |fc|
+      rc = Category.find(rc.category_id)
+    end
+  end
+
 
 end

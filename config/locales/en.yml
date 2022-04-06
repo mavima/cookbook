@@ -48,6 +48,8 @@ en:
   recipes:
     index:
       recipes: "Recipes"
+      or: "or"
+      placeholder_category: "Choose a category"
 
     new:
       add: "Add a new recipe"
