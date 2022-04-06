@@ -17,6 +17,7 @@
 }
 
 
+
 .index-form-grid {
   display: -ms-grid;
   display: grid;
@@ -66,6 +67,19 @@
   }
 }
 
+@media(min-width: 720px) {
+  .index-form-container {
+    width: 250px;
+    position: relative;
+  }
+
+  .btn-reset-index {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+  }
+}
+
 @media(max-width: 768px) {
   .index-grid, .index-form-grid {
     -ms-grid-columns: 1fr 1fr;
@@ -77,6 +91,16 @@
   .index-grid, .index-form-grid {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
+  }
+
+  .home-link {
+    width: 100wv;
+    position: sticky;
+    bottom: 3vh;
+  }
+
+  .btn-reset-index {
+    display: none;
   }
 
 }

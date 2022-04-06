@@ -29,6 +29,10 @@
   height: 45px;
 }
 
+.btn-index {
+  width: 115px;
+}
+
 .btn-note {
   display: block;
   padding: 8px 12px 4px;
@@ -224,6 +228,10 @@
 
   .btn-search {
     margin: auto;
-    width: 100%;
+    width: 250px;
+  }
+
+  .btn-reset-index {
+    margin-top: 10px;
   }
 }
