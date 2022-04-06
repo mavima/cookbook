@@ -1,5 +1,5 @@
 fi:
-  placeholder_recipe: 'Löydä resepti'
+  placeholder_recipe: 'Etsi resepti'
   search: "Etsi"
   login: "Kirjaudu sisään"
   login_s: "Kirjaudu"
@@ -46,6 +46,8 @@ fi:
   recipes:
     index:
       recipes: "Reseptit"
+      or: "tai"
+      placeholder_category: "Valitse kategoria"
 
     new:
       add: "Lisää uusi resepti"
