@@ -96,7 +96,7 @@ en:
       portions: "Portions"
       change: "Change"
       suggestions: "You might also like:"
-
+ 
   users:
     show:
       update: "Update profile"
@@ -106,6 +106,14 @@ en:
       my_links: "My links"
       add_link: "Add a new link"
       close: "Close"
+
+  links:
+    form:
+      link_title: "Link title"
+      link_address: "Link address"
+      choose_categories: "Choose categories:"
+      my_note: "My note"
+      save_link: "Save your link"
 
   reviews:
     form:

@@ -104,6 +104,14 @@ fi:
       add_link: "Lisää uusi linkki"
       close: "Sulje"
 
+  links:
+    form:
+      link_title: "Linkin otsikko"
+      link_address: "Linkin osoite"
+      choose_categories: "Valitse kategoriat:"
+      my_note: "Muistiinpanoni"
+      save_link: "Tallenna linkki"
+
   reviews:
     form:
       review_title: "Kerro mielipiteesi muille lukijoille"
