@@ -1,13 +1,18 @@
+  <% if I18n.locale == :fi %>
+    <% current_categories = Category.all.select { |category| category.language == "finnish" }  %>
+  <% else %>
+    <% current_categories = Category.all.select { |category| category.language == "english" }  %>
+  <% end %>
   <div class="container">
     <div>
       <%= simple_form_for(@link) do |f| %>
-        <%= f.input :title, label: "Link title" %>
-        <%= f.input :url, label: "Link address" %>
+        <%= f.input :title, label: t('.link_title') %>
+        <%= f.input :url, label: t('.link_address') %>
         <% @categories = Category.all %>
-        <%= f.label "Choose categories:" %>
-        <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid" %>
-        <%= f.input :note, label: "My note" %>
-        <%= f.submit "Save your link", class: "btn btn-home btn-green", id: "get-snap"%>
+        <%= f.label t('.choose_categories') %>
+        <%= f.association :categories, collection: current_categories, as: :check_boxes, class: "category-grid", legend_tag: false  %>
+        <%= f.input :note, label: t('.my_note') %>
+        <%= f.submit t('.save_link'), class: "btn btn-home btn-green", id: "get-snap"%>
       <% end %>
       <br>
       <%= link_to :back do%>

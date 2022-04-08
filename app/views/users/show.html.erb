@@ -185,6 +185,8 @@
   </div>
   <br>
   <h4 class="profile-title"><%= t('.my_links')%></h4>
+  <% @links = @user.links %>
+
   <div class="profile-review-grid">
     <% @user.links.each do |link| %>
       <div class="profile-link">

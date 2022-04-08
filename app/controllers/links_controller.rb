@@ -2,6 +2,16 @@ class LinksController < ApplicationController
    before_action :set_link, only: [:edit, :update, :upload_image]
    include ActionController::MimeResponds
 
+
+  def search
+    if params[:query].present?
+    @links = Link.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @links = Link.all
+    end
+    authorize @links
+  end
+
   def new
     @link = Link.new
     authorize @link

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_05_132439) do
+ActiveRecord::Schema.define(version: 2022_04_06_132409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 2022_04_05_132439) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_favourites_on_recipe_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "link_categories", force: :cascade do |t|
+    t.bigint "link_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_link_categories_on_category_id"
+    t.index ["link_id"], name: "index_link_categories_on_link_id"
   end
 
   create_table "links", force: :cascade do |t|
@@ -160,6 +169,8 @@ ActiveRecord::Schema.define(version: 2022_04_05_132439) do
   add_foreign_key "doses", "recipes"
   add_foreign_key "favourites", "recipes"
   add_foreign_key "favourites", "users"
+  add_foreign_key "link_categories", "categories"
+  add_foreign_key "link_categories", "links"
   add_foreign_key "links", "users"
   add_foreign_key "recipe_categories", "categories"
   add_foreign_key "recipe_categories", "recipes"

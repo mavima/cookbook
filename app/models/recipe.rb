@@ -30,14 +30,14 @@ class Recipe < ApplicationRecord
     }
 
 
-  def photo_validation
-    if self.photo
-      if photo.blob.byte_size > 3000000
-        photo.purge
-        errors[:base] << 'Too big'
-      end
-    end
-  end
+  # def photo_validation
+  #   if self.photo
+  #     if photo.blob.byte_size > 3000000
+  #       photo.purge
+  #       errors[:base] << 'Too big'
+  #     end
+  #   end
+  # end
 
   def average_rating
     reviews = self.reviews
