@@ -86,6 +86,6 @@ class LinksController < ApplicationController
   end
 
   def link_strong_params
-    params.require(:link).permit(:url, :image, :user_id, :note, :title, :category_ids => [])
+    params.require(:link).permit(:url, :image, :user_id, :note, :title, category_ids: [])
   end
 end

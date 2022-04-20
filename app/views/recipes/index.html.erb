@@ -1,5 +1,5 @@
 <div class="pages">
-
+ 
   <div class="index-top">
     <div class="index-top-container">
       <div class="index-form-container">
@@ -18,7 +18,8 @@
             class: "input-box input-box-index input-search"
           %>
           <% @categories = Category.all%>
-          <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.placeholder_category'), selected: ""  }, { class: "input-box input-box-index input-search" }%>
+          <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.placeholder_category') }, { class: "input-box input-box-index input-search" }%>
+          
           <%= button_tag(type: "submit", class: "btn-home btn-search btn-index") do %>
             <%= t('search') %> <i class="fa fa-search"></i>
           <% end %>

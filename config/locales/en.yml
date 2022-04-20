@@ -105,6 +105,8 @@ en:
       my_links: "My links"
       add_link: "Add a new link"
       close: "Close"
+      placeholder_link: "Find a link"
+      choose_categories: "Choose a category:"
 
   links:
     form:
