@@ -197,7 +197,7 @@
       %>
       <% @categories = Category.all%>
       <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.choose_categories'), selected: ""  }, { class: "input-box input-box-index input-search" }%>
-      <%= button_tag(type: "submit", class: "btn-home btn-search btn-index") do %>
+      <%= button_tag(type: "submit", class: "btn-home btn-search btn-index margin-top") do %>
         <%= t('search') %> <i class="fa fa-search"></i>
       <% end %>
     <% end %>
@@ -260,10 +260,11 @@
     <% end %>
   </div>
   <%= link_to new_link_path do %>
-    <button class="btn-show btn-green">
-      <%= t('.add_link')%>
+    <button class="btn-home btn-search btn-index margin-top">
+      <%= t('.add_link')%><i class="fa fa-plus"></i>
     </button>
   <% end %>
+  <br>
 </div>
 
  
