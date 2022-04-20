@@ -103,6 +103,9 @@ fi:
       my_links: "Linkkini"
       add_link: "Lisää uusi linkki"
       close: "Sulje"
+      placeholder_link: "Etsi linkki"
+      choose_categories: "Valitse kategoria:"
+      show_all: "Kaikki linkit"
 
   links:
     form:

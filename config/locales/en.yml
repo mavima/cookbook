@@ -107,6 +107,7 @@ en:
       close: "Close"
       placeholder_link: "Find a link"
       choose_categories: "Choose a category:"
+      show_all: "Show all"
 
   links:
     form:
