@@ -65,6 +65,7 @@
 
 
 
+
 // .visible-confirmation {
 //   display: block;
 //   z-index: 10;
@@ -82,6 +83,7 @@
   justify-content: space-between;
   padding-left: 0;
   list-style-type: none;
+  opacity: 0.7;
 }
 
 .link-icon{
@@ -95,6 +97,19 @@
     -ms-grid-columns: 1fr 40px 1fr 40px 1fr 40px 1fr;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 30px;
+  }
+}
+
+@media(min-width: 415px){
+  .link-form-container {
+    position: relative;
+  }
+  
+  .btn-reset-links {
+    position: absolute;
+    left: 130px;
+    margin-bottom: 0;
+    bottom: 0px;
   }
 }
 
@@ -116,6 +131,18 @@
   .profile-review-grid {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
+  }
+
+  .btn-reset-links {
+    margin-top: 10px;
+  }
+
+  .link-form-container {
+    margin-bottom: 20px;
+  }
+
+  .margin-top {
+    margin-top: 10px;
   }
 }
 

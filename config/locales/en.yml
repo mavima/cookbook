@@ -1,4 +1,3 @@
-
 en:
   placeholder_recipe: 'Find a recipe'
   search: "Search"
@@ -104,8 +103,11 @@ en:
       my_recipes: "My recipes"
       my_reviews: "My reviews"
       my_links: "My links"
-      add_link: "Add a new link"
+      add_link: "Add new "
       close: "Close"
+      placeholder_link: "Find a link"
+      choose_categories: "Choose a category:"
+      show_all: "Show all"
 
   links:
     form:
@@ -179,6 +181,4 @@ en:
       thanks: "Thanks for joining, we are happy to have you among us!"
       regards: "Kind regards"
       team: "Recipeper team"
-
-
 

@@ -12,18 +12,18 @@ class User < ApplicationRecord
   validates :last_name, presence: true, on: :update
   validates :email, presence: true, on: :update
  
-  include PgSearch::Model
-  pg_search_scope :search_by_link_name_and_category,
-    associated_against: {
-      links: :name,
-      associated_against: {
-        categories: :name
-      }
-    },
+  # include PgSearch::Model
+  # pg_search_scope :search_by_link_name_and_category,
+  #   associated_against: {
+  #     links: :title,
+  #     associated_against: {
+  #       categories: :name
+  #     }
+  #   },
 
-    using: {
-      tsearch: {prefix: true }
-    }
+  #   using: {
+  #     tsearch: {prefix: true }
+  #   }
 
   def favourited?(recipe)
     self.favourites.find_by(recipe_id: recipe.id).present?

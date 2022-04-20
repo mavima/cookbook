@@ -101,8 +101,11 @@ fi:
       my_recipes: "Omat reseptini"
       my_reviews: "Arvosteluni"
       my_links: "Linkkini"
-      add_link: "Lisää uusi linkki"
+      add_link: "Lisää uusi "
       close: "Sulje"
+      placeholder_link: "Etsi linkki"
+      choose_categories: "Valitse kategoria:"
+      show_all: "Kaikki linkit"
 
   links:
     form:

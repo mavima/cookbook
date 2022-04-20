@@ -10,6 +10,20 @@ class Link < ApplicationRecord
 
   # after_create :create_screenshot
 
+  include PgSearch::Model
+    pg_search_scope :search_by_link_title,
+      against: :title,
+      # associated_against: {
+      #   categories: :name
+      # },
+
+      using: {
+        tsearch: {prefix: true }
+      }
+
+
+
+  
   private
 
   def create_screenshot

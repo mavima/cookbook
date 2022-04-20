@@ -12,8 +12,6 @@
     </button>
   <% end %>
 
-
- 
   <hr>
 
   <h4 class="profile-title"><%= t('.favourites')%></h4>
@@ -185,11 +183,32 @@
   </div>
   <br>
   <h4 class="profile-title"><%= t('.my_links')%></h4>
-  <% @links = @user.links %>
+  <% if I18n.locale == :fi %>
+    <% current_categories = Category.all.select { |category| category.language == "finnish" }  %>
+  <% else %>
+    <% current_categories = Category.all.select { |category| category.language == "english" }  %>
+  <% end %>
+  <div class="link-form-container">
+    <%= form_tag user_path(anchor: "my_links"), method: :get, class: "link-search-form" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        placeholder: t('.placeholder_link'),
+        class: "input-box input-box-index input-search"
+      %>
+      <% @categories = Category.all%>
+      <%=  collection_select :category, :id, current_categories, :id, :name, { prompt: t('.choose_categories'), selected: ""  }, { class: "input-box input-box-index input-search" }%>
+      <%= button_tag(type: "submit", class: "btn-home btn-search btn-index margin-top") do %>
+        <%= t('search') %> <i class="fa fa-search"></i>
+      <% end %>
+    <% end %>
+    <%= link_to user_path(current_user, anchor: "my_links")  do %>
+      <button class="btn-home btn-search btn-index btn-reset-links"><%= t('.show_all') %></button>
+    <% end %>
+  </div>
 
   <div class="profile-review-grid">
-    <% @user.links.each do |link| %>
-      <div class="profile-link">
+    <% @links.each do |link| %>
+      <div class="profile-link" id="my_links">
       <%= link_to link.url do %>
         <h5><%= link.title %></h5>
         <p><%= link.url.first(30) %>...</p>
@@ -241,10 +260,11 @@
     <% end %>
   </div>
   <%= link_to new_link_path do %>
-    <button class="btn-show btn-green">
-      <%= t('.add_link')%>
+    <button class="btn-home btn-search btn-index margin-top">
+      <%= t('.add_link')%><i class="fa fa-plus"></i>
     </button>
   <% end %>
+  <br>
 </div>
 
  
