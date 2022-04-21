@@ -6,20 +6,20 @@ class RecipesController < ApplicationController
   def index
     @recipes = policy_scope(Recipe)
     if params[:query].present? && params[:category].blank? 
-      @recipes = @recipes.search_by_link_title(params[:query]) 
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
     elsif params[:query].present? && params[:category][:id].blank?
-      @recipes = @recipes.search_by_link_title(params[:query]) 
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
     elsif params[:category].present? && params[:query].blank?
       my_cat = Category.find_by_id(params[:category][:id].to_i)
       @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
     elsif params[:category].present? && params[:query].present?
-      @recipes = @recipes.search_by_link_title(params[:query]) 
+      @recipes = @recipes.search_by_name_and_description(params[:query]) 
       my_cat = Category.find_by_id(params[:category][:id].to_i)
       @recipes = @recipes.select { |recipe| recipe.categories.include?(my_cat) }
     else
       @recipes = @recipes.order(:name)
     end
-  end
+  end 
 
 
   def show
