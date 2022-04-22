@@ -29,6 +29,8 @@ class Recipe < ApplicationRecord
       tsearch: {prefix: true }
     }
 
+    include FriendlyId
+      friendly_id :name, use: [:slugged, :finders]
 
   # def photo_validation
   #   if self.photo
