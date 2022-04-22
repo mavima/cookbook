@@ -204,6 +204,15 @@
   grid-template-columns: 1fr 1fr;
 }
 
+@media(min-width: 769px) {
+  .show-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-auto-flow: dense;
+    gap: 10px;
+  }
+}
+
 @media(max-width: 768px) {
 
   .show-container {
