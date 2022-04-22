@@ -11,12 +11,6 @@ class Step < ApplicationRecord
       string.split('.').map do |sentence|
         sentence.strip.capitalize
       end.join('. ')
-      string.split('!').map do |sentence|
-        sentence.strip.capitalize
-      end.join('! ')
-      string.split('?').map do |sentence|
-        sentence.strip.capitalize
-      end.join('? ')
     end
   end
 

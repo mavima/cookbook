@@ -15,8 +15,11 @@
             <%=image_tag("recipe_default.jpg", class: "show-default") %>
         </div>
       <% end %>
-
-      <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+        <% if I18n.locale == :fi %>
+          <h2 class= "recipe-title"><%= @recipe.name.capitalize%></h2>
+        <% else %>
+          <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+        <% end %>
       <div class="show-icons">
         <% if current_user&.favourited?(@recipe) %>
           <% favourite = current_user.get_fav_instances(@recipe) %>

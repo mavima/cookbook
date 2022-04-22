@@ -16,21 +16,21 @@ class Recipe < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   # validate :photo_validation
   # validates: :photo, file_size: { less_than: 2.megabytes }
-
+  
   include PgSearch::Model
-  pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
-    associated_against: {
-      doses: :ingredient,
-      categories: :name
-    },
+    pg_search_scope :search_by_name_and_description,
+      against: [ :name, :description ],
+      associated_against: {
+        doses: :ingredient,
+        categories: :name
+      },
 
-    using: {
-      tsearch: {prefix: true }
-    }
+      using: {
+        tsearch: {prefix: true }
+      }
 
     include FriendlyId
-      friendly_id :name, use: [:slugged, :finders]
+        friendly_id :name, use: [:slugged, :finders]
 
   # def photo_validation
   #   if self.photo
