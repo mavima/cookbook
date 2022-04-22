@@ -1,17 +1,17 @@
 <div class="pages">
- 
+  <% if I18n.locale == :fi %>
+    <% current_categories = Category.all.select { |category| category.language == "finnish" }  %>
+    <% current_recipes = @recipes.select { |recipe| recipe.language == "finnish" } %>
+  <% else %>
+    <% current_categories = Category.all.select { |category| category.language == "english" }  %>
+    <% current_recipes = @recipes.select { |recipe| recipe.language == "english" } %>
+  <% end %>
   <div class="index-top">
     <div class="index-top-container">
       <div class="index-form-container">
         <h1 class="index-title"><%= t('.recipes')%></h1>
         <div class= "index-form-grid">
-        <% if I18n.locale == :fi %>
-          <% current_categories = Category.all.select { |category| category.language == "finnish" }  %>
-        <% else %>
-          <% current_categories = Category.all.select { |category| category.language == "english" }  %>
-        <% end %>
         <%= form_tag recipes_path, method: :get, class: "index_form" do %>
-
           <%= text_field_tag :query,
             params[:query],
             placeholder: t('placeholder_recipe'),
@@ -33,11 +33,7 @@
         </div>
     </div>
   </div>
-  <% if I18n.locale == :fi %>
-    <% current_recipes = @recipes.select { |recipe| recipe.language == "finnish" } %>
-  <% else %>
-    <% current_recipes = @recipes.select { |recipe| recipe.language == "english" } %>
-  <% end %>
+
       
   <div class="index-container">
   
@@ -55,7 +51,11 @@
           </div>
           <div class="index-card-content">
             <div>
-              <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            <% if I18n.locale == :fi %>
+              <h3><%= link_to recipe.name.capitalize, recipe_path(recipe) %></h3>
+            <% else %>
+              <h3><%= link_to recipe.name.split.map(&:capitalize)*' ', recipe_path(recipe) %></h3>
+            <% end %>
               <div class="card-stars">
                 <% recipe.average_rating.times do%>
                   <span class="fa fa-star checked"></span>
