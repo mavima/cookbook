@@ -1,4 +1,4 @@
-<div class="nested-fields">
+<div class="nested-fields ingredient_partial">
    <div class="form-input-horizontal">
     <%= f.input :amount, class: "form-unit input-box-small",label: t('.amount') %>
     <% if I18n.locale == :fi %>
@@ -8,6 +8,9 @@
     <% end %>
     <%= f.input :unit, collection: @units, label: t('.unit') %>
     <%= f.input :ingredient, class: "form-unit", label: t('.ingredient') %>
-    <%= link_to_remove_association "x", f %>
+    <%= link_to_remove_association f, class:"btn-mini-form btn-red" do %>
+        <i class="fa fa-trash"></i>
+    <% end %>
   </div>
 </div>
+

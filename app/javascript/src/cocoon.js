@@ -25,7 +25,7 @@
         console.warn('association-insertion-traversal is ignored, because association-insertion-node is given as a function.')
       }
       return insertionNode($this);
-    }
+    } 
 
     if(typeof insertionNode == 'string'){
       if (insertionTraversal){

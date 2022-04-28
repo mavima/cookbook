@@ -145,11 +145,11 @@
               placeholder: t('.placeholder_recipe'),
               class: "input-box input-search slide-input"
             %>
-          <%= submit_tag "Search", class: "btn-slide btn-no-marg-bot" %>
+          <%= submit_tag t('search'), class: "btn-slide btn-no-marg-bot" %>
         <% end %>
           </li>
 
-          <li class="logout"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-slide" %></li>
+          <li class="logout"><%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "btn-slide" %></li>
 
           <div class="copyright">
             <li>Copyright &copy; 2022 Recipeper</li>

@@ -17,7 +17,6 @@
 }
 
 
-
 .index-form-grid {
   display: -ms-grid;
   display: grid;
@@ -84,6 +83,10 @@
   .index-grid, .index-form-grid {
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .show-default {
+    min-height: -webkit-fill-available;
   }
 }
 

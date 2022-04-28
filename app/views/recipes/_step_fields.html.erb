@@ -1,6 +1,8 @@
-<div class="nested-fields">
+<div class="nested-fields ingredient_partial">
    <div class="form-input-horizontal">
     <%= f.input :detail, class: "input-box-large grow" %>
-    <%= link_to_remove_association "x", f %>
+    <%= link_to_remove_association f, class:"btn-mini-form btn-red" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
   </div>
 </div>
