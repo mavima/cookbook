@@ -11,9 +11,7 @@
         <div class="banner-show banner-photo title=@recipe.name" style="background-image: url('<%= cl_image_path @recipe.photo.url, height: 540, width: 1000, crop: :fill %>')">
         </div>
       <% else %>
-         <div class="banner-show banner-photo">
-            <%=image_tag("recipe_default.jpg", class: "show-default") %>
-        </div>
+         <div class="banner-show banner-photo default-img"></div>
       <% end %>
         <% if I18n.locale == :fi %>
           <h2 class= "recipe-title"><%= @recipe.name.capitalize%></h2>
