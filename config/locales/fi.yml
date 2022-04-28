@@ -66,6 +66,19 @@ fi:
       add_photo: "Lisää kuva"
       save: "Tallenna"
 
+    edit_form:
+      name: "Reseptin nimi"
+      choose_category: "Valitse kategoriat"
+      description: "Kuvaus"
+      ingredients: "Ainekset"
+      add_ingredient: "Lisää rivi"
+      steps: "Ohjeet"
+      add_line: "Lisää rivi"
+      time: "Valmistusaika minuuteissa"
+      portions: "Annosmäärä"
+      add_photo: "Lisää kuva"
+      save: "Tallenna"
+
     dose_fields:
       amount: "Määrä"
       unit: "Yksikkö"

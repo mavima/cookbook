@@ -68,6 +68,19 @@ en:
       add_photo: "Add a photo"
       save: "Save"
 
+    edit_form:
+      name: "Recipe name"
+      choose_category: "Choose categories"
+      description: "Description"
+      ingredients: "Ingredients"
+      add_ingredient: "Add another ingredient"
+      steps: "Instructions step by step"
+      add_line: "Add a line"
+      time: "Time of preparation in minutes"
+      portions: "Number of portions"
+      add_photo: "Add a photo"
+      save: "Save"
+
     dose_fields:
       amount: "Amount"
       unit: "Unit"
