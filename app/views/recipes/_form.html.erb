@@ -10,15 +10,27 @@
   <%= f.association :categories, collection: @categories, as: :check_boxes, class: "category-grid"%>
   <%= f.input :description, label: t('.description') %>
   <h4><%= t('.ingredients')%></h4>
-  <%= f.simple_fields_for :doses do |dose| %>
-    <%= render 'dose_fields', f: dose %>
-  <% end %>
+  <div class="ingredient-form">
+    <%= f.simple_fields_for :doses do |dose| %>
+      
+        <%= render 'dose_fields', f: dose %>
+        <%= link_to_add_association( f, :doses,  data: { association_insertion_method: "append", association_insertion_traversal: 'next', association_insertion_node: ".new-ingredient-row" }, class:"add-new-line btn-mini-form btn-green") do %>
+          <i class="fa fa-plus"></i> 
+        <% end %>
+        <p class="new-ingredient-row"></p>
+       
+    <% end %>
+  </div>
   <div class="links">
     <%= link_to_add_association t('.add_ingredient'), f, :doses %>
   </div>
   <h4><%= t('.steps')%></h4>
   <%= f.simple_fields_for :steps do |step| %>
     <%= render 'step_fields', f: step %>
+    <%= link_to_add_association( f, :steps,  data: { association_insertion_method: "append", association_insertion_traversal: 'next', association_insertion_node: ".new-step-row" }, class:"add-new-line btn-mini-form btn-green") do %>
+      <i class="fa fa-plus"></i> 
+    <% end %>
+    <p class="new-step-row"></p>
   <% end %>
   <div class="links">
     <%= link_to_add_association t('.add_line'), f, :steps %>

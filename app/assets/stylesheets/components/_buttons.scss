@@ -72,6 +72,17 @@
 .btn-green {
   background-color: $green;
   border: 1px solid $green;
+  color: white;
+}
+
+.btn-red {
+  background-color: $red;
+  border: 1px solid $red;
+  color: white;
+
+  a {
+    color: white;
+  }
 }
 
 .btn-fit {
@@ -94,7 +105,7 @@
 .btn-small {
   display: block;
   border: solid 1px $green;
-  padding: 8px 12px 4px;
+  padding: 8px 12px;
   background-color: $green;
   font-size: 14px;
   border-radius: 6px;
@@ -106,6 +117,16 @@
 .btn-small:hover {
   color: white;
   font-size: 15px;
+}
+
+.btn-mini-form {
+  display: block;
+  padding: 8px 8px;
+  width: 35px;
+  align-self: center;
+  border-radius: 6px;
+  margin: 0 5px;
+  justify-self: end;
 }
 
 .btn-tight {

@@ -12,3 +12,9 @@
   margin: auto;
 }
 
+@media(max-width: 414px) {
+  .container {
+    width: 95%;
+  }
+}
+
