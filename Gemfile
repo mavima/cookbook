@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 #restrict image size on upload
-gem 'activestorage-validator', '~> 0.2.0'
+gem 'activestorage-validator', '~> 0.2.2'
 
 gem "nokogiri", ">= 1.12.5"
 gem "activerecord", ">= 6.0.3.5"
