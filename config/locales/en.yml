@@ -63,6 +63,7 @@ en:
       add_ingredient: "Add another ingredient"
       steps: "Instructions step by step"
       add_line: "Add a line"
+      add_subtitle: "Add a subtitle"
       time: "Time of preparation in minutes"
       portions: "Number of portions"
       add_photo: "Add a photo"

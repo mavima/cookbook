@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def destroy
-    update_attributes(deactivated: true) unless deactivated
+    update(deactivated: true) unless deactivated
   end
 
   def active_for_authentication?
