@@ -6,8 +6,8 @@
 
 puts "Starting seed"
 
-Recipe.destroy_all
-User.destroy_all
+#Recipe.destroy_all
+#User.destroy_all
 
 puts "Models destroyed"
 
@@ -32,6 +32,7 @@ dessert = Category.create(name: 'Dessert')
 snack = Category.create(name: 'Snack')
 pastry = Category.create(name: 'Pastry')
 vegetarian = Category.create(name: 'Vegetarian')
+vegan = Category.create(name: 'Vegan')
 fish = Category.create(name: 'Fish')
 light = Category.create(name: 'Light')
 quick = Category.create(name: 'Quick')

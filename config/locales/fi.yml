@@ -61,6 +61,7 @@ fi:
       add_ingredient: "Lisää rivi"
       steps: "Ohjeet"
       add_line: "Lisää rivi"
+      add_subtitle: "Lisää alaotsikko"
       time: "Valmistusaika minuuteissa"
       portions: "Annosmäärä"
       add_photo: "Lisää kuva"

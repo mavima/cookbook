@@ -76,6 +76,8 @@ gem'rails-i18n', '~> 7.0'
 # readable url
 gem 'friendly_id', '~> 5.4.0'
 
+gem "net-http"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -88,8 +90,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring', '~> 3.0.0'
+  #gem 'spring-watcher-listen', '~> 2.0.0'
   # for reading emails in development
   gem 'letter_opener'
 end
