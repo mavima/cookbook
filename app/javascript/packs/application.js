@@ -8,6 +8,7 @@
 // require("channels")
 //= require("jquery")
 //= require activestorage
+//= require("bootstrap");
 
 
 //= require('fs/promises')
