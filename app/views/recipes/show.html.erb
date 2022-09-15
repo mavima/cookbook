@@ -138,7 +138,7 @@
         <% if current_user && current_user.commented?(@recipe) %>
         <p><%= current_user.get_comment_instances(@recipe).content %></p>
           <% @comment =  current_user.get_comment_instances(@recipe) %>
-          <%= link_to edit_recipe_comment_path(@recipe) do %>
+          <%= link_to edit_recipe_comment_path(@recipe, @comment) do %>
           <button class="btn-note btn-blue">
             <%= t('.edit_note')%>
           </button>

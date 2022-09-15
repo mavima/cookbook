@@ -4,7 +4,7 @@
     <div>
       <%= simple_form_for([@recipe, @comment]) do |f| %>
         <%= f.input :content, label: t('.my_note') %>
-        <%= f.submit t('.save'), class: "btn btn-info" %>
+        <%= f.submit t('.save'), class: "btn btn-show btn-green" %>
       <% end %>
     </div>
   </div>

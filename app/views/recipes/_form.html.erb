@@ -43,11 +43,11 @@
   <%= f.input :portions, input_html: {class: "input-box input-box-small"}, label: t('.portions') %>
   
   <div id="img-preview"></div>
-  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: t('.add_photo'), label_html: { class: "btn-show btn-blue btn-no-marg" } %>
+  <%= f.input :photo, input_html: { class: "inputfile", id: "upload-img", direct_upload: true }, label: t('.add_photo'), label_html: { class: "btn-show btn-blue" } %>
 
   <%= f.input :photo_cache, as: :hidden %>
 
-<%= f.submit t('.save'), class: "btn-show btn-green btn-no-marg" %>
+<%= f.submit t('.save'), class: "btn-show btn-green" %>
 <% end %>
 <br>
 <%= link_to :back do%>
