@@ -76,6 +76,7 @@
 
 .recipe_time, .recipe_portions {
   display: flex;
+  margin-bottom: 5px;
 }
 
 .recipe_steps_detail {
@@ -99,6 +100,7 @@
 .ingredient_partial {
   grid-column-start: 1;
   grid-column-end: span 4;
+  margin-top: 10px;
 }
 
 .add-new-line {

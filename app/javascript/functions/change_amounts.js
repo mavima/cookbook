@@ -19,11 +19,6 @@ const changeAmounts = () => {
     });
 
 
-
-
-
-
-
       calculator.addEventListener('click', (event) => {
         let newPortions = document.getElementById("rations").value;
         event.preventDefault();
@@ -42,7 +37,6 @@ const changeAmounts = () => {
         // replace the portion number in recipe
         portions_slot.innerHTML = newPortions;
         }
-
       });
 
   }

@@ -1,5 +1,6 @@
+
 class CommentsController < ApplicationController
-   before_action :set_comment, only: [:edit, :update, :destroy]
+   before_action :set_comment, only: [ :destroy]
 
   def new
     @comment = Comment.new
@@ -21,18 +22,21 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    # @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:id])
     @user = current_user
     @recipe = Recipe.find(params[:recipe_id])
+    authorize @comment
   end
 
   def update
     @recipe = Recipe.find(params[:recipe_id])
+    @comment = Comment.find(params[:id])
     if @comment.update(comment_strong_params)
       redirect_to recipe_path(@recipe)
     else
       render :edit
     end
+    authorize @comment
   end
 
   def destroy

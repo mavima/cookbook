@@ -46,13 +46,12 @@
       end
         %>
       <li>
-        <div class="dropstart">
-          <button class="button-menu dropdown-toggle" href="#" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+        <div class="dropdown">
+             <button class="button-menu dropdown-toggle" href="#" role="button" id="dropdown-menu-button" data-toggle="dropdown" aria-expanded="false">
             <%=image_tag("hat_lightblue.png", class: "navbar-logo-sm") %>
             <span class="center-text"><%= @name %></span>
           </button>
-
-          <div class="dropdown-menu"aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-menu user-dropdown"aria-labelledby="dropdownMenuButton">
             <h6 class="dropdown-item nav-link">
                 <%= link_to user_path(current_user) do %>
                   <%= t('.cookbook') %>
@@ -64,7 +63,7 @@
               <% end %>
             </h6>
           </div>
-        
+        </div>
       </li>
       <% else %>
         <li class="nav-item nav-link">

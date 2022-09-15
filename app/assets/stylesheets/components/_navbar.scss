@@ -37,7 +37,7 @@
       .nav-search-form {
         position: absolute;
         top: 5rem;
-        right: 10%;
+        left:60%;
       }
     }
 
@@ -85,15 +85,15 @@ ul.user-action {
 }
 
 
-.dropdown-menu {
-  display: none;
-}
-
 .user-dropdown {
   position: absolute;
   top: 5rem;
   right: 0.5rem;
   left: auto;
+}
+
+.dropdown-item {
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
 }
 
 .mobile-nav {

@@ -23,6 +23,7 @@ import { slideMenu } from '../functions/slideout'
 import { preview } from '../functions/photo_input'
 import { fadeOut } from '../functions/alert_fade'
 import { nav_search_display } from '../functions/navbar_search'
+import { nav_profile_display } from '../functions/navbar_search'
 import { delete_confirmation } from '../functions/delete_confirmation'
 // import { snap } from '../functions/snapshot'
 
@@ -32,5 +33,6 @@ slideMenu();
 preview();
 fadeOut();
 nav_search_display();
+nav_profile_display();
 // delete_confirmation();
 // snap();

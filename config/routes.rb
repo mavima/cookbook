@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :links, only: [:index, :new, :create, :edit, :update] 
     resources :favourites, only: :destroy
     resources :links, only: :destroy
+
   
   end
   
