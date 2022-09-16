@@ -28,7 +28,7 @@ module Cookbook
           generate.helper false
           generate.test_framework  :test_unit, fixture: false
         end
-    config.load_defaults 6.0
+    config.load_defaults 7.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
