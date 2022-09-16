@@ -16,7 +16,7 @@ gem 'webpacker', '~> 5.2'
 #
 
 # for screenshots
-gem 'grover'
+# gem 'grover'
 
 # gem 'wkhtmltoimage-binary', '~> 0.12.2'
 # gem 'imgkit', '~> 1.6', '>= 1.6.1'
