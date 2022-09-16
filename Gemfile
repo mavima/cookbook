@@ -8,13 +8,12 @@ gem 'rails', '~> 7.0.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem "puma", ">= 4.3.8"
+gem 'puma', '>= 4.3.8'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '>= 6'
-gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
+gem 'sass-rails', '~> 6.0'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
-#
 
 # for screenshots
 # gem 'grover'
@@ -31,20 +30,20 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-#restrict image size on upload
+# restrict image size on upload
 gem 'activestorage-validator', '~> 0.2.0'
-
-gem "nokogiri", ">= 1.12.5"
-gem "activerecord", ">= 6.0.3.5"
-gem "actionpack", ">= 6.0.4.1"
-gem "addressable", ">= 2.8.0"
+gem 'activesupport', '~> 7.0', '>= 7.0.3'
+gem 'actionpack', '>= 6.0.4.1'
+gem 'activerecord', '>= 6.0.3.5'
+gem 'addressable', '>= 2.8.0'
+gem 'nokogiri', '>= 1.12.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'simple_form'
 
-#authorisation
+# authorisation
 gem 'pundit'
 
 # Add .env file for api-keys
@@ -61,7 +60,7 @@ gem 'devise'
 gem 'devise-guests', '~> 0.8.1'
 
 # nested form
-gem "cocoon"
+gem 'cocoon'
 
 # search
 gem 'pg_search', '~>2.3.0'
@@ -72,13 +71,12 @@ gem 'sendgrid-ruby'
 gem 'jquery-rails'
 
 # translations
-gem'rails-i18n', '~> 7.0'
+gem 'rails-i18n', '~> 7.0'
 
 # readable url
 gem 'friendly_id', '~> 5.4.0'
 
-gem "net-http"
-
+gem 'net-http'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -92,7 +90,7 @@ group :development do
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 3.0.0'
-  #gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
   # for reading emails in development
   gem 'letter_opener'
 end
