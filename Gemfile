@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.7'
 
 # restrict image size on upload
 gem 'activestorage-validator', '~> 0.2.0'
-gem 'activesupport', '~> 7.0', '>= 7.0.3'
 gem 'actionpack', '>= 6.0.4.1'
 gem 'activerecord', '>= 6.0.3.5'
 gem 'addressable', '>= 2.8.0'
