@@ -15,8 +15,7 @@
 
 // import "../functions/slideout.js"
 
-import '../../../node_modules/bootstrap/scss/bootstrap'
-// import "bootstrap";
+import "bootstrap";
 import 'cocoon';
 import { reviewStars } from '../functions/stars_review'
 import { changeAmounts } from '../functions/change_amounts'
