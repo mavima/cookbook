@@ -3,6 +3,12 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// require or import???
+// import Rails from "@rails/ujs"
+// import Turbolinks from "turbolinks"
+// import * as ActiveStorage from "@rails/activestorage"
+// import "channels"
+
 //= require("@rails/ujs").start()
 //= require("turbolinks").start()
 // require("channels")
@@ -26,6 +32,10 @@ import { nav_search_display } from '../functions/navbar_search'
 import { nav_profile_display } from '../functions/navbar_search'
 import { delete_confirmation } from '../functions/delete_confirmation'
 // import { snap } from '../functions/snapshot'
+
+// Rails.start()
+// Turbolinks.start()
+// ActiveStorage.start()
 
 reviewStars();
 changeAmounts();

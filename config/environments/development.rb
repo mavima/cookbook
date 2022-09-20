@@ -68,6 +68,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
   # config.action_mailer.default :charset => "utf-8"
 
-
+  # prevent turbolink preload warning
+  config.action_view.preload_links_header = false
 
 end

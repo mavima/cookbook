@@ -16,6 +16,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Dosis&family=Quicksand&family=Oregano&display=swap" rel="stylesheet">
@@ -41,23 +42,10 @@
 <!--     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
 
-<!--      <%# if current_page?('/') %>
-      <main id="panel" style="margin-top: -50px">
-
-        <%#= yield %>
-      </main>
-    <%# else %> -->
-    
-      <main id="panel">
+    <main id="panel">
         <%= yield %>
-       </main>
-    <%# end %>
-
-    <%#= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
-
+    </main>
+    <%= javascript_pack_tag 'application' %>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </body>
 </html>

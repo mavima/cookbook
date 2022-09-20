@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.3'
+gem 'rails', '~> 6.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.7'
 
 # restrict image size on upload
 gem 'activestorage-validator', '~> 0.2.0'
-gem 'actionpack', '>= 6.0.4.1'
+gem 'actionpack', '>= 6.1.6.1'
 gem 'activerecord', '>= 6.0.3.5'
 gem 'addressable', '>= 2.8.0'
 gem 'nokogiri', '>= 1.12.5'
