@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :destroy]
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :send_recipe]
 
 
   def index
@@ -70,7 +70,6 @@ class RecipesController < ApplicationController
   end
 
   def send_recipe
-    @recipe = Recipe.find(params[:id])
     RecipeMailer.send_recipe(current_user, @recipe).deliver_now
     redirect_to recipe_path(@recipe)
     authorize @recipe

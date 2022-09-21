@@ -25,7 +25,7 @@
             <% if favourite.recipe.photo.url %>
               <%= cl_image_tag favourite.recipe.photo, height: 150, width: 200, crop: :fill %>
             <% else %>
-              <%= image_tag("recipe_default.jpg", class:"index-default") %>
+              <%= image_tag("recipe_default.jpg", class:"index-default fav-default") %>
             <% end %>
 
           </div>
@@ -44,18 +44,18 @@
               </div>
               <% if  current_user.commented?(favourite.recipe) %>
                 <% @comment = current_user.get_comment_instances(favourite.recipe) %>
-                <div class="profile-icons" id="comment-click" data-toggle="modal" data-target="#modal-<%=@comment.id%>">
+                <div class="profile-icons comment-click">
                   <%= image_tag("post-it.png", class:"comment-icon") %>
                 </div>
 
-              <div class="modal fade" id="modal-<%= @comment.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="comment-modal" id="modal-<%= @comment.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-body">
                       <p>
                         <%= current_user.get_comment_instances(favourite.recipe).content  %>
                       </p>
-                      <button type="button" class="btn-small" data-dismiss="modal"><%= t('.close')%></button>
+                      <button type="button" class="btn-small close-modal-btn"><%= t('.close')%></button>
                     </div>
                   </div>
                 </div>

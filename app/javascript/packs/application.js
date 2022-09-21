@@ -31,6 +31,7 @@ import { fadeOut } from '../functions/alert_fade'
 import { nav_search_display } from '../functions/navbar_search'
 import { nav_profile_display } from '../functions/navbar_search'
 import { delete_confirmation } from '../functions/delete_confirmation'
+import { modalToggle } from '../functions/modal_toggle'
 // import { snap } from '../functions/snapshot'
 
 // Rails.start()
@@ -44,5 +45,6 @@ preview();
 fadeOut();
 nav_search_display();
 nav_profile_display();
+modalToggle();
 // delete_confirmation();
 // snap();
