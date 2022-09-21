@@ -1,5 +1,6 @@
 class RecipeMailer < ApplicationMailer
 
+
     def send_recipe(user, recipe)
         @user = user
         @recipe = recipe

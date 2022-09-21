@@ -61,6 +61,7 @@
   font-size: 15px;
   color: white;
   text-decoration: none;
+  background-color: inherit;
 }
 
 .btn-blue {
@@ -73,6 +74,11 @@
   background-color: $green;
   border: 1px solid $green;
   color: white;
+}
+
+.btn-green:hover {
+  background-color: $green i !important;
+  border: 1px solid $green;
 }
 
 .btn-red {
@@ -205,6 +211,7 @@
   border: 1px solid $green;
   border-radius: 6px;
   font-family: sans-serif;
+  margin: 10px 10px 0 0;
 }
 
 .btn-delete-link, .btn-delete-review {
@@ -260,5 +267,9 @@
 
   .btn-reset-index {
     margin-top: 10px;
+  }
+
+  .btn-cancel {
+    margin: 0;
   }
 }

@@ -91,10 +91,9 @@
             </button>
           <% end %>
        <% end %>
-        <a href="#" data-toggle="modal" data-target="#mail-confirmation">
-                <button class="btn-show btn-blue", data-toggle="modal"><%= t('.send')%></button>
-              </a>
-          <div class="delete-confirmation modal" id="mail-confirmation" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+       <button class="btn-show btn-blue", id="show-modal-btn"><%= t('.send')%></button>
+
+          <div class="show-mail-modal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <% if current_user %> 
@@ -102,7 +101,7 @@
                     <p><%= t('.send_confirm') %></p> 
                   </div>
                   <div class="modal-footer">
-                    <button class="btn-cancel" data-dismiss="modal"><%= t('.cancel') %></button>
+                    <button class="btn-cancel close-modal-btn"><%= t('.cancel') %></button>
                     <%= link_to send_recipe_path(@recipe) do %>
                       <button class="btn-blue btn-show btn-tight">
                         <%= t('.send_it')%>
@@ -114,7 +113,7 @@
                     <p><%= t('.log_in_send')%></p>
                   </div>
                   <div class="modal-footer">
-                    <button class="btn-cancel" data-dismiss="modal"><%= t('.cancel') %></button>
+                    <button class="btn-cancel"><%= t('.cancel') %></button>
                       <%= link_to new_user_session_path do %>
                         <button class="btn-blue btn-show btn-tight">
                           <%= t('.login')%>

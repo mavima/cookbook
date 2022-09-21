@@ -1,0 +1,20 @@
+.show-mail-modal {
+  display: none;
+  position: absolute;
+  left: 20%;
+  background-color: $light-green;
+  border: 1px solid $grey;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.comment-modal {
+  display: none;
+  position: absolute;
+  background-color: $light-green;
+  border: 1px solid $grey;
+  padding: 10px;
+  border-radius: 6px;
+  width: 250px;
+  z-index: 10;
+}
