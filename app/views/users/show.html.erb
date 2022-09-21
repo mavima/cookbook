@@ -152,21 +152,18 @@
           <% end %>
           <span class="profile-review-icons">
             <%= link_to "", edit_recipe_review_path(@recipe, review), class: "fas fa-pencil-alt link-icon"%>
-            <p class="deleting">
-            <a href="#" data-toggle="modal" data-target="#conf-review-<%= review.id %>">
-              <i class="fa fa-trash link-icon"></i>
-            </a>
-            </p>
-            <!-- Modal -->
-            <div class="delete-confirmation modal" id="conf-review-<%=review.id%>" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <i class="fa fa-trash link-icon delete-review-click"></i>
+
+      <!-- Modal -->
+            <div class="delete-confirmation-modal">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="my-modal-body">
-                    <p>Do you want to delete this review?</p> 
+                    <p><%= t('.delete_confirmation') %></p>
                   </div>
                   <div class="modal-footer">
-                    <button class="btn-cancel" data-dismiss="modal">Cancel</button>
-                    <%= button_to "Delete", recipe_review_path(@recipe, review), method: :delete, class: "btn-delete-link" %> 
+                    <button class="btn-cancel close-modal-btn no-top-marg"><%= t('.cancel') %></button>
+                    <%= button_to t('.delete'), recipe_review_path(@recipe, review), method: :delete, class: "btn-delete-link" %>
                   </div>
                 </div>
               </div>
@@ -232,21 +229,18 @@
       <% end %>
         <div>          
           <%= link_to "", edit_link_path(link), class: "fas fa-pencil-alt link-icon"%>  
-            <p class="deleting">
-              <a href="#" data-toggle="modal" data-target="#conf-link-<%= link.id %>">
-                <i class="fa fa-trash link-icon"></i>
-              </a>
-            </p>
-                      <!-- Modal -->
-            <div class="delete-confirmation modal" id="conf-link-<%=link.id%>" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <i class="fa fa-trash link-icon delete-link-click"></i>
+
+      <!--Modal -->
+            <div class="delete-confirmation-modal delete-link-confirmation-modal">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="my-modal-body">
-                    <p>Do you want to delete this link?</p> 
+                    <p><%= t('.delete_confirmation_link') %></p>
                   </div>
                   <div class="modal-footer">
-                    <button class="btn-cancel" data-dismiss="modal">Cancel</button>
-                    <%= button_to "Delete", link_path(link), method: :delete, class: "btn-delete-link" %> 
+                    <button class="btn-cancel close-modal-btn no-top-marg"> <%= t('.cancel') %></button>
+                    <%=button_to t('.delete'), link_path(link), method: :delete, class: "btn-delete-link"%>
                   </div>
                 </div>
               </div>

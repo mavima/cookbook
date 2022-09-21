@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
   belongs_to :user
-  has_many :link_categories
+  has_many :link_categories, dependent: :destroy
   has_many :categories, through: :link_categories
   # has_attached_file :image, :storage => :s3,
   # :s3_credentials => "#{Rails.root}/config/s3.yml"
