@@ -120,6 +120,9 @@ fi:
       placeholder_link: "Etsi linkki"
       choose_categories: "Valitse kategoria:"
       show_all: "Kaikki linkit"
+      delete_confirmation: "Haluatko poistaa tämän arvostelun?"
+      cancel: "Peruuta"
+      delete: "Poista"
 
   links:
     form:
