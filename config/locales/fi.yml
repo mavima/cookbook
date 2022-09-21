@@ -121,6 +121,7 @@ fi:
       choose_categories: "Valitse kategoria:"
       show_all: "Kaikki linkit"
       delete_confirmation: "Haluatko poistaa tämän arvostelun?"
+      delete_confirmation_link: "Haluatko poistaa tämän linkin?"
       cancel: "Peruuta"
       delete: "Poista"
 
