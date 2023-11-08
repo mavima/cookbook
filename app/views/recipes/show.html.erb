@@ -14,9 +14,9 @@
          <div class="banner-show banner-photo default-img"></div>
       <% end %>
         <% if I18n.locale == :fi %>
-          <h2 class= "recipe-title"><%= @recipe.name.capitalize%></h2>
+          <h2 class= "recipe-title"><%=sanitize @recipe.name.capitalize%></h2>
         <% else %>
-          <h2 class= "recipe-title"><%= @recipe.name.split.map(&:capitalize)*' '%></h2>
+          <h2 class= "recipe-title"><%=sanitize @recipe.name.split.map(&:capitalize)*' '%></h2>
         <% end %>
       <div class="show-icons">
         <% if current_user&.favourited?(@recipe) %>
@@ -37,7 +37,7 @@
         <% end %>
       </div>
       <div class="recipe-description">
-        <%= @recipe.description %>
+        <%= sanitize @recipe.description %>
       </div>
       <div class="show-numbers">
         <div class="inline">
@@ -55,13 +55,13 @@
             <% end %>
             <%= dose.unit %>
             </div>
-            <p style="last-element" class="ingredient"><%= dose.ingredient.capitalize %></p>
+            <p style="last-element" class="ingredient"><%= sanitize dose.ingredient.capitalize %></p>
           </li>
         <% end %>
         </ul>
         <ul class="show-steps">
           <% @recipe.steps.each do |step| %>
-            <li> <%= step.detail %> </li>
+            <li> <%= sanitize step.detail %> </li>
           <% end %>
         </ul>
       <% if @recipe.categories.count > 0 %>
@@ -135,7 +135,7 @@
       <div class="note-box">
         <h4><%= t('.my_notes')%></h4>
         <% if current_user && current_user.commented?(@recipe) %>
-        <p><%= current_user.get_comment_instances(@recipe).content %></p>
+        <p><%= sanitize current_user.get_comment_instances(@recipe).content %></p>
           <% @comment =  current_user.get_comment_instances(@recipe) %>
           <%= link_to edit_recipe_comment_path(@recipe, @comment) do %>
           <button class="btn-note btn-blue">
@@ -170,11 +170,11 @@
                 <% (5 - review.rating).times do%>
                   <span class="fa fa-star empty"></span>
                 <% end %>
-                <p>"<%= review.content %>"</p>
+                <p>"<%= sanitize review.content %>"</p>
                 <% if review.writer %>
-                  <p class="reviewer"><%= review.writer %> </p>
+                  <p class="reviewer"><%= sanitize review.writer %> </p>
                 <% else %>
-                  <p class="reviewer"><%= review.user.first_name %> </p>
+                  <p class="reviewer"><%= sanitize review.user.first_name %> </p>
                 <% end %>
               </div>
               <div>

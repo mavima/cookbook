@@ -52,9 +52,9 @@
           <div class="index-card-content">
             <div>
             <% if I18n.locale == :fi %>
-              <h3><%= link_to recipe.name.capitalize, recipe_path(recipe) %></h3>
+              <h3><%= sanitize link_to recipe.name.capitalize, recipe_path(recipe) %></h3>
             <% else %>
-              <h3><%= link_to recipe.name.split.map(&:capitalize)*' ', recipe_path(recipe) %></h3>
+              <h3><%= sanitize link_to recipe.name.split.map(&:capitalize)*' ', recipe_path(recipe) %></h3>
             <% end %>
               <div class="card-stars">
                 <% recipe.average_rating.times do%>
