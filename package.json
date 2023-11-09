@@ -7,7 +7,7 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^7.0.4",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.3",
+    "@rails/webpacker": "5.4.4",
     "bootstrap": "^5.2.1",
     "chrome-launcher": "^0.15.0",
     "chrome-remote-interface": "^0.31.1",
