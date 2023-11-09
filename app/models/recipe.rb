@@ -10,12 +10,10 @@ class Recipe < ApplicationRecord
   has_many :steps, :inverse_of => :recipe, :dependent => :destroy
   accepts_nested_attributes_for :doses, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
-  validates :name, presence: true
-  # validates :photo, presence: true, blob: { size_range: 1..(3.megabytes) }
-  validates :description, presence: true, length: { minimum: 5 }
+  validates :name, presence: true, length: { maximum: 70 }, format: { with: /\A[a-zA-Z&\s]*\z/, message: ": only letters allowed" }
+  validates :description, presence: true, length: { minimum: 5 }, format: { with: /\A[a-zA-Z0-9.:,;?!'"&\s]*\z/, message: ": no special characters allowed" }
   mount_uploader :photo, PhotoUploader
-  # validate :photo_validation
-  # validates: :photo, file_size: { less_than: 2.megabytes }
+
   
   include PgSearch::Model
     pg_search_scope :search_by_name_and_description,

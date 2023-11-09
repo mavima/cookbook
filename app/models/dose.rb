@@ -1,6 +1,7 @@
 class Dose < ApplicationRecord
   belongs_to :recipe
   before_validation :integer, if: :no_decimals?
+  validates :ingredient, presence: true, format: { with: /\A[a-zA-Z&\s]*\z/, message: ": only letters allowed" }
 
 
   def no_decimals?
