@@ -14,7 +14,6 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, length: { minimum: 5 }, format: { with: /\A[a-zA-Z0-9.:,;?!'"&\s]*\z/, message: ": no special characters allowed" }
   mount_uploader :photo, PhotoUploader
 
-  
   include PgSearch::Model
     pg_search_scope :search_by_name_and_description,
       against: [ :name, :description ],
@@ -29,15 +28,6 @@ class Recipe < ApplicationRecord
 
     include FriendlyId
         friendly_id :name, use: [:slugged, :finders]
-
-  # def photo_validation
-  #   if self.photo
-  #     if photo.blob.byte_size > 3000000
-  #       photo.purge
-  #       errors[:base] << 'Too big'
-  #     end
-  #   end
-  # end
 
   def average_rating
     reviews = self.reviews
