@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :links, dependent: :destroy
-  validates :first_name, presence: true, on: :update
-  validates :last_name, presence: true, on: :update
-  validates :email, presence: true, on: :update
+  validates :first_name, presence: true, on: :update, format: { with: /\A[a-zA-ZüäöÜÄÖ0-9.\-&\s]*\z/, message: ": no special characters allowed" }
+  validates :last_name, presence: true, on: :update, format: { with: /\A[a-zA-ZüäöÜÄÖ0-9.\-&\s]*\z/, message: ": no special characters allowed" }
+  validates :email, presence: true, on: :update, format: { with: /\A[a-zA-ZüäöÜÄÖ0-9.\-@&\s]*\z/}
  
   # include PgSearch::Model
   # pg_search_scope :search_by_link_name_and_category,
