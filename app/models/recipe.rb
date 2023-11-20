@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :doses, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
   validates :name, presence: true, length: { maximum: 70 }, format: { with: /\A[a-zA-Z&\s]*\z/, message: ": only letters allowed" }
-  validates :description, presence: true, length: { minimum: 5 }, format: { with: /\A[a-zA-Z0-9.:,;?!'"&\s]*\z/, message: ": no special characters allowed" }
+  validates :description, presence: true, length: { minimum: 5 }, format: { with: /\A[a-zA-Z0-9.:,;?!-'"&\s]*\z/, message: ": no special characters allowed" }
   mount_uploader :photo, PhotoUploader
 
   include PgSearch::Model
