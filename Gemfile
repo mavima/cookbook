@@ -51,7 +51,7 @@ gem 'pundit'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # image upload
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.2'
 gem 'cloudinary'
 
 # User authentication
